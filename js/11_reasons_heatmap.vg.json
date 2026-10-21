@@ -27,10 +27,6 @@
           "Mental health"
         ]
       }
-    },
-    {
-      "calculate": "datum.pct < 40 ? 0 : datum.pct < 50 ? 1 : datum.pct < 55 ? 2 : datum.pct < 60 ? 3 : datum.pct < 70 ? 4 : 5",
-      "as": "pct_class"
     }
   ],
   "encoding": {
@@ -106,26 +102,20 @@
       },
       "encoding": {
         "color": {
-          "field": "pct_class",
+          "field": "pct",
           "type": "quantitative",
           "title": "Share of active adults (%)",
           "scale": {
-            "type": "threshold",
+            "type": "linear",
             "domain": [
-              0.5,
-              1.5,
-              2.5,
-              3.5,
-              4.5
+              27.1,
+              74.4
             ],
             "range": [
               "#e6eaee",
-              "#c3ced6",
-              "#9fb1be",
-              "#7b93a5",
-              "#56748b",
               "#2f4c62"
-            ]
+            ],
+            "interpolate": "hcl"
           },
           "legend": {
             "orient": "bottom",
@@ -147,7 +137,11 @@
             "labelColor": "#5b6770",
             "labelFlush": true,
             "offset": 16,
-            "labelExpr": "{'0.5': '40%', '1.5': '50%', '2.5': '55%', '3.5': '60%', '4.5': '70%'}[datum.label] || ''"
+            "values": [
+              27.1,
+              74.4
+            ],
+            "labelExpr": "format(datum.value, '.1f') + '%'"
           }
         },
         "tooltip": [
@@ -165,7 +159,7 @@
           }
         ]
       },
-      "description": "One cell per reason and age group; darker slate = a larger share (no numbers in cells, details in the tooltip)"
+      "description": "One cell per reason and age group; continuous slate colour, darker = a larger share (no numbers in cells, details in the tooltip)"
     },
     {
       "transform": [

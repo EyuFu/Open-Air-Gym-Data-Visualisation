@@ -83,9 +83,9 @@
             ],
             "range": [
               "#7D7F27",
-              "#a9ab5e",
-              "#cfd09b",
-              "#e9e9d0"
+              "#2B8C8C",
+              "#8E5A99",
+              "#B8B0A2"
             ]
           },
           "legend": null
@@ -118,7 +118,7 @@
         "fontSize": 14,
         "lineHeight": 17,
         "fontWeight": 700,
-        "color": "#7D7F27"
+        "color": "#5f611c"
       },
       "encoding": {
         "text": {
@@ -144,7 +144,7 @@
         "fontSize": 14,
         "lineHeight": 17,
         "fontWeight": 400,
-        "color": "#5b6770"
+        "color": "#1f6b6b"
       },
       "encoding": {
         "text": {
@@ -170,7 +170,7 @@
         "fontSize": 14,
         "lineHeight": 17,
         "fontWeight": 400,
-        "color": "#5b6770"
+        "color": "#734a7e"
       },
       "encoding": {
         "text": {

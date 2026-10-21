@@ -25,10 +25,6 @@
       "groupby": [
         "city"
       ]
-    },
-    {
-      "calculate": "datum.days_30_or_more < 1 ? 0 : datum.days_30_or_more < 5 ? 1 : datum.days_30_or_more < 10 ? 2 : datum.days_30_or_more < 20 ? 3 : 4",
-      "as": "heat_class"
     }
   ],
   "encoding": {
@@ -94,24 +90,20 @@
       },
       "encoding": {
         "color": {
-          "field": "heat_class",
+          "field": "days_30_or_more",
           "type": "quantitative",
           "title": "Days at 30°C or hotter, per month",
           "scale": {
-            "type": "threshold",
+            "type": "sqrt",
             "domain": [
-              0.5,
-              1.5,
-              2.5,
-              3.5
+              0,
+              30.4
             ],
             "range": [
               "#fdd0a2",
-              "#fdae6b",
-              "#fd8d3c",
-              "#e6550d",
               "#a63603"
-            ]
+            ],
+            "interpolate": "hcl"
           },
           "legend": {
             "orient": "bottom",
@@ -133,7 +125,11 @@
             "labelColor": "#5b6770",
             "labelFlush": true,
             "offset": 72,
-            "labelExpr": "{'0.5': '1 day', '1.5': '5 days', '2.5': '10 days', '3.5': '20 days'}[datum.label] || ''"
+            "values": [
+              0,
+              30.4
+            ],
+            "labelExpr": "format(datum.value, '.1f')"
           }
         },
         "tooltip": [
@@ -160,7 +156,7 @@
           }
         ]
       },
-      "description": "One cell per city and month; darker orange = more days at 30 degrees or hotter (no numbers in cells, details in the tooltip)"
+      "description": "One cell per city and month; continuous orange (square-root scale), darker = more days at 30 degrees or hotter (no numbers in cells, details in the tooltip)"
     },
     {
       "transform": [
