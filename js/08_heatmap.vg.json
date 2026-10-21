@@ -13,6 +13,14 @@
       }
     }
   },
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    },
+    "legend": {
+      "color": "independent"
+    }
+  },
   "transform": [
     {
       "joinaggregate": [
@@ -86,6 +94,33 @@
   "layer": [
     {
       "mark": {
+        "type": "rect",
+        "filled": false,
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "days_30_or_more",
+          "type": "quantitative",
+          "scale": {
+            "type": "sqrt",
+            "domain": [
+              0,
+              30.4
+            ],
+            "range": [
+              "#fdd0a2",
+              "#a63603"
+            ],
+            "interpolate": "hcl"
+          },
+          "legend": null
+        }
+      },
+      "description": "One cell per city and month; continuous orange (square-root scale), darker = more days at 30 degrees or hotter (no numbers in cells, details in the tooltip)"
+    },
+    {
+      "mark": {
         "type": "rect"
       },
       "encoding": {
@@ -156,7 +191,7 @@
           }
         ]
       },
-      "description": "One cell per city and month; continuous orange (square-root scale), darker = more days at 30 degrees or hotter (no numbers in cells, details in the tooltip)"
+      "description": "Bold yearly total under Darwin and Hobart"
     },
     {
       "transform": [
@@ -190,7 +225,7 @@
           "value": "#5b6770"
         }
       },
-      "description": "Bold yearly total under Darwin and Hobart"
+      "description": "Regular yearly total under the other cities"
     },
     {
       "transform": [
@@ -224,7 +259,7 @@
           "value": "#5b6770"
         }
       },
-      "description": "Regular yearly total under the other cities"
+      "description": "Why notes under Darwin and Hobart"
     },
     {
       "transform": [
@@ -249,8 +284,7 @@
         "text": {
           "field": "why"
         }
-      },
-      "description": "Why notes under Darwin and Hobart"
+      }
     }
   ],
   "config": {

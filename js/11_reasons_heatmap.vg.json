@@ -11,6 +11,14 @@
       }
     }
   },
+  "resolve": {
+    "scale": {
+      "color": "independent"
+    },
+    "legend": {
+      "color": "independent"
+    }
+  },
   "transform": [
     {
       "filter": "datum.group == 'All adults' && datum.age != 'All ages'"
@@ -98,6 +106,33 @@
   "layer": [
     {
       "mark": {
+        "type": "rect",
+        "filled": false,
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "color": {
+          "field": "pct",
+          "type": "quantitative",
+          "scale": {
+            "type": "linear",
+            "domain": [
+              27.1,
+              74.4
+            ],
+            "range": [
+              "#e6eaee",
+              "#2f4c62"
+            ],
+            "interpolate": "hcl"
+          },
+          "legend": null
+        }
+      },
+      "description": "One cell per reason and age group; continuous slate colour, darker = a larger share (no numbers in cells, details in the tooltip)"
+    },
+    {
+      "mark": {
         "type": "rect"
       },
       "encoding": {
@@ -159,7 +194,7 @@
           }
         ]
       },
-      "description": "One cell per reason and age group; continuous slate colour, darker = a larger share (no numbers in cells, details in the tooltip)"
+      "description": "Sky-blue outline around the 55 to 64 cell for being outdoors in nature"
     },
     {
       "transform": [
@@ -173,7 +208,7 @@
         "stroke": "#3AA6D9",
         "strokeWidth": 3
       },
-      "description": "Sky-blue outline around the 55 to 64 cell for being outdoors in nature"
+      "description": "Why note to the right of the grid, on the nature row"
     },
     {
       "transform": [
@@ -203,8 +238,7 @@
             "draws them outdoors"
           ]
         }
-      },
-      "description": "Why note to the right of the grid, on the nature row"
+      }
     }
   ],
   "config": {
