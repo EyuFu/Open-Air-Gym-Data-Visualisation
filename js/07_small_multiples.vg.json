@@ -70,10 +70,10 @@
       "labelPadding": 6
     }
   },
-  "columns": 2,
+  "columns": 4,
   "spec": {
-    "width": 118,
-    "height": 120,
+    "width": 150,
+    "height": 150,
     "encoding": {
       "x": {
         "field": "age",

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 120,
+  "width": 260,
   "height": 330,
   "data": {
     "url": "data/ausplay2025_outdoor_activity_by_sex.csv",
