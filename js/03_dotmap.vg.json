@@ -105,9 +105,15 @@
             ]
           },
           "legend": {
-            "orient": "top-left",
-            "symbolOpacity": 1,
+            "orient": "bottom",
+            "direction": "horizontal",
+            "title": null,
             "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 60,
+            "columnPadding": 18,
+            "offset": 12,
+            "symbolOpacity": 1,
             "labelExpr": "'1 dot = 1 outdoor fitness station'"
           }
         },

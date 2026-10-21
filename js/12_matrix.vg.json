@@ -149,7 +149,9 @@
             ]
           },
           "legend": {
-            "orient": "bottom",
+            "orient": "none",
+            "legendX": 330,
+            "legendY": 358,
             "direction": "horizontal",
             "values": [
               10,
@@ -177,7 +179,7 @@
             ]
           },
           "legend": {
-            "orient": "top",
+            "orient": "none",
             "direction": "horizontal",
             "title": null,
             "labelFontSize": 12,
@@ -185,6 +187,8 @@
             "symbolSize": 160,
             "columnPadding": 18,
             "offset": 12,
+            "legendX": 0,
+            "legendY": 368,
             "symbolType": "circle"
           }
         },
@@ -283,7 +287,7 @@
       "left": 20,
       "right": 12,
       "top": 8,
-      "bottom": 8
+      "bottom": 70
     },
     "title": {
       "anchor": "start",

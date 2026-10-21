@@ -183,7 +183,7 @@
             ]
           },
           "legend": {
-            "orient": "top",
+            "orient": "bottom",
             "direction": "vertical",
             "title": null,
             "labelFontSize": 12,
@@ -280,7 +280,7 @@
             ]
           },
           "legend": {
-            "orient": "top",
+            "orient": "bottom",
             "direction": "vertical",
             "title": null,
             "labelFontSize": 12,
@@ -367,7 +367,7 @@
             ]
           },
           "legend": {
-            "orient": "top",
+            "orient": "bottom",
             "direction": "vertical",
             "title": null,
             "labelFontSize": 12,

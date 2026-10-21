@@ -94,7 +94,7 @@
           "scale": {
             "domain": [
               0.5,
-              36
+              32.5
             ]
           },
           "axis": null
@@ -117,7 +117,7 @@
             ]
           },
           "legend": {
-            "orient": "top",
+            "orient": "bottom",
             "direction": "horizontal",
             "title": null,
             "labelFontSize": 12,

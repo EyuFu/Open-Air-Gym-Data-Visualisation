@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 250,
-  "height": 250,
+  "width": 300,
+  "height": 300,
   "data": {
     "url": "data/ausplay2025_frequency.csv",
     "format": {
@@ -74,7 +74,6 @@
         "color": {
           "field": "frequency",
           "type": "nominal",
-          "legend": null,
           "scale": {
             "domain": [
               "3 or more times a week",
@@ -88,6 +87,18 @@
               "#bdbdbd",
               "#e3e1dc"
             ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "vertical",
+            "title": null,
+            "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 160,
+            "columnPadding": 18,
+            "offset": 56,
+            "symbolType": "square",
+            "labelExpr": "{'3 or more times a week': '50%  3 or more times a week', 'Once or twice a week': '19%  Once or twice a week', 'Less than once a week': '17%  Less than once a week', 'Not active in the past year': '14%  Not active in the past year'}[datum.label]"
           }
         },
         "tooltip": [
@@ -104,118 +115,6 @@
       "description": "10 by 10 grid: one square = 1% of adults, coloured by how often they are active"
     },
     {
-      "transform": [
-        {
-          "filter": "datum.order == 1 && datum.unit == 1"
-        },
-        {
-          "calculate": "[format(datum.pct, '.0f') + '%  ' + \"3 or more\", \"times a week\"]",
-          "as": "lab"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "x": 258,
-        "y": 62,
-        "fontSize": 12,
-        "lineHeight": 15,
-        "fontWeight": 700,
-        "color": "#1b9e77"
-      },
-      "encoding": {
-        "text": {
-          "field": "lab"
-        }
-      },
-      "description": "Label for group 1"
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.order == 2 && datum.unit == 1"
-        },
-        {
-          "calculate": "[format(datum.pct, '.0f') + '%  ' + \"Once or twice\", \"a week\"]",
-          "as": "lab"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "x": 258,
-        "y": 147,
-        "fontSize": 12,
-        "lineHeight": 15,
-        "fontWeight": 400,
-        "color": "#5b6770"
-      },
-      "encoding": {
-        "text": {
-          "field": "lab"
-        }
-      },
-      "description": "Label for group 2"
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.order == 3 && datum.unit == 1"
-        },
-        {
-          "calculate": "[format(datum.pct, '.0f') + '%  ' + \"Less than\", \"once a week\"]",
-          "as": "lab"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "x": 258,
-        "y": 192,
-        "fontSize": 12,
-        "lineHeight": 15,
-        "fontWeight": 400,
-        "color": "#5b6770"
-      },
-      "encoding": {
-        "text": {
-          "field": "lab"
-        }
-      },
-      "description": "Label for group 3"
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.order == 4 && datum.unit == 1"
-        },
-        {
-          "calculate": "[format(datum.pct, '.0f') + '%  ' + \"Not active in\", \"the past year\"]",
-          "as": "lab"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "baseline": "middle",
-        "x": 258,
-        "y": 233,
-        "fontSize": 12,
-        "lineHeight": 15,
-        "fontWeight": 400,
-        "color": "#5b6770"
-      },
-      "encoding": {
-        "text": {
-          "field": "lab"
-        }
-      },
-      "description": "Label for group 4"
-    },
-    {
       "data": {
         "values": [
           {}
@@ -223,25 +122,32 @@
       },
       "mark": {
         "type": "text",
-        "align": "left",
+        "align": "right",
         "baseline": "top",
-        "x": 258,
-        "y": 256,
         "fontStyle": "italic",
         "color": "#3d4a52",
         "fontSize": 12,
         "lineHeight": 15
       },
       "encoding": {
+        "x": {
+          "value": {
+            "expr": "width"
+          }
+        },
+        "y": {
+          "value": {
+            "expr": "height + 12"
+          }
+        },
         "text": {
           "value": [
-            "Main reasons: poor",
-            "health and feeling",
-            "too old (chart 12)"
+            "Not active: mainly poor health",
+            "or feeling too old (chart 12)"
           ]
         }
       },
-      "description": "Why note under the 'not active' label"
+      "description": "Label for group 1"
     },
     {
       "data": {
@@ -256,18 +162,27 @@
       },
       "encoding": {
         "x": {
-          "value": 254
+          "value": {
+            "expr": "width - 60"
+          }
         },
         "y": {
-          "value": 263
+          "value": {
+            "expr": "height + 10"
+          }
         },
         "x2": {
-          "value": 238
+          "value": {
+            "expr": "width - 60"
+          }
         },
         "y2": {
-          "value": 244
+          "value": {
+            "expr": "height - 8"
+          }
         }
-      }
+      },
+      "description": "Label for group 2"
     }
   ],
   "config": {
