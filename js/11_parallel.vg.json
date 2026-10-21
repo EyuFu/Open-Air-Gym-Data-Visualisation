@@ -58,13 +58,7 @@
         "labelLineHeight": 14,
         "labelPadding": 10,
         "labelExpr": "{\"Physical health and fitness\": [\"Physical health\", \"and fitness\"], \"Fun and enjoyment\": [\"Fun and\", \"enjoyment\"], \"Weight control\": [\"Weight\", \"control\"], \"Being outdoors in nature\": [\"Being outdoors\", \"in nature\"], \"Social reasons\": [\"Social\", \"reasons\"], \"Mental health\": [\"Mental\", \"health\"]}[datum.label]",
-        "labelColor": {
-          "condition": {
-            "test": "datum.label == 'Being outdoors in nature'",
-            "value": "#1b9e77"
-          },
-          "value": "#1f2a30"
-        },
+        "labelColor": "#1f2a30",
         "labelFontWeight": {
           "condition": {
             "test": "datum.label == 'Being outdoors in nature'",
@@ -229,10 +223,6 @@
           "field": "lab"
         },
         "color": {
-          "condition": {
-            "test": "datum.motivation == 'Being outdoors in nature'",
-            "value": "#1b9e77"
-          },
           "value": "#1f2a30"
         }
       },

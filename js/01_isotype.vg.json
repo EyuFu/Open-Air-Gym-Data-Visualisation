@@ -13,7 +13,7 @@
   },
   "transform": [
     {
-      "filter": "datum.group == 'All adults' && datum.place == 'Public spaces (parks, streets, trails, beaches)'"
+      "filter": "datum.group == 'All adults' && datum.place == 'Public spaces (parks, streets, trails, beaches)' && datum.age != 'All ages'"
     },
     {
       "calculate": "datum.age == 'All ages' ? 'All ages (average)' : datum.age",
@@ -40,7 +40,7 @@
       "as": "xpos"
     },
     {
-      "calculate": "datum.slot > datum.figures ? 'empty' : datum.row == '55–64' ? 'highlight' : datum.row == 'All ages (average)' ? 'all' : 'other'",
+      "calculate": "datum.slot > datum.figures ? 'empty' : datum.row == '55–64' ? 'highlight' : 'other'",
       "as": "state"
     }
   ],
@@ -49,7 +49,6 @@
       "field": "row",
       "type": "nominal",
       "sort": [
-        "All ages (average)",
         "15–17",
         "18–24",
         "25–34",
@@ -70,7 +69,7 @@
         "labelColor": "#1f2a30",
         "labelFontWeight": {
           "condition": {
-            "test": "datum.label == '55–64' || datum.label == 'All ages (average)'",
+            "test": "datum.label == '55–64'",
             "value": 700
           },
           "value": 400
@@ -105,14 +104,12 @@
           "scale": {
             "domain": [
               "highlight",
-              "all",
               "other",
               "empty"
             ],
             "range": [
-              "#1b9e77",
               "#1f2a30",
-              "#9aa1a6",
+              "#b9bec2",
               "#ecebe7"
             ]
           },
@@ -134,7 +131,7 @@
             "columnPadding": 80,
             "offset": 16,
             "title": "Figure colour",
-            "labelExpr": "{'highlight': 'Ages 55–64 (peak)', 'all': 'All ages (average)', 'other': 'Other ages', 'empty': 'Not outdoors'}[datum.label]"
+            "labelExpr": "{'highlight': 'Ages 55–64 (peak)', 'other': 'Other ages', 'empty': 'Not outdoors'}[datum.label]"
           }
         },
         "tooltip": [
@@ -149,12 +146,12 @@
           }
         ]
       },
-      "description": "One person icon per 5 adults out of 100; one row per age group, the teal row is 55 to 64"
+      "description": "One person icon per 5 adults out of 100; one row per age group, the black row is 55 to 64"
     },
     {
       "transform": [
         {
-          "filter": "datum.row == '55–64' || datum.row == 'All ages (average)'"
+          "filter": "datum.row == '55–64'"
         },
         {
           "filter": "datum.slot == 1"
@@ -181,17 +178,17 @@
         "color": {
           "condition": {
             "test": "datum.row == '55–64'",
-            "value": "#1b9e77"
+            "value": "#1f2a30"
           },
           "value": "#5b6770"
         }
       },
-      "description": "Bold label at the end of the two key rows (peak and the all-ages average): how many in 100 adults"
+      "description": "Bold label at the end of the peak row: how many in 100 adults"
     },
     {
       "transform": [
         {
-          "filter": "!(datum.row == '55–64' || datum.row == 'All ages (average)')"
+          "filter": "!(datum.row == '55–64')"
         },
         {
           "filter": "datum.slot == 1"
@@ -218,7 +215,7 @@
         "color": {
           "condition": {
             "test": "datum.row == '55–64'",
-            "value": "#1b9e77"
+            "value": "#1f2a30"
           },
           "value": "#5b6770"
         }
