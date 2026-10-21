@@ -56,7 +56,8 @@ h2 { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 30px;
 .below { margin-top: var(--s3); }
 .source { margin-top: var(--s2); font-size: 12px; line-height: 1.45; color: var(--muted); max-width: 21em; }
 .vega-embed { width: 100%; }
-.vega-embed > svg.marks { display: block; margin-inline: auto; }
+.vega-embed .chart-wrapper > svg.marks { display: block; margin-inline: auto; }   /* centre each chart in its panel (balance) */
+.panel.map { background: #e4eef3; }   /* maps: the whole panel is ocean (figure-ground: pale background, data on top) */
 .vega-embed .vega-bindings { margin-top: var(--s1); font-size: 15px; }
 .vega-bind { margin: 4px 0; }
 .vega-bind-name { font-weight: 600; margin-right: 6px; }

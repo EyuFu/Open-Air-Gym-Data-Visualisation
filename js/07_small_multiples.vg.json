@@ -72,7 +72,7 @@
   },
   "columns": 2,
   "spec": {
-    "width": 124,
+    "width": 118,
     "height": 120,
     "encoding": {
       "x": {
@@ -87,16 +87,17 @@
           "55–64",
           "65 and over"
         ],
-        "title": "Age: younger to older",
+        "title": null,
         "scale": {
           "padding": 0.1
         },
         "axis": {
           "ticks": false,
-          "labels": false,
-          "titleFontSize": 10,
-          "titleFontWeight": 400,
-          "titleColor": "#5b6770"
+          "labelAngle": 0,
+          "labelFlush": true,
+          "labelFontSize": 11,
+          "labelOverlap": false,
+          "labelExpr": "datum.label == '15–17' ? 'Age 15' : datum.label == '65 and over' ? '65 and over' : ''"
         }
       },
       "y": {
@@ -329,7 +330,7 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelColor": "#5b6770",
       "titleFontSize": 12,
       "titleFontWeight": 600,
@@ -339,7 +340,7 @@
       "grid": false
     },
     "legend": {
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelColor": "#5b6770",
       "titleFontSize": 12,
       "titleFontWeight": 600,
@@ -348,7 +349,7 @@
     "text": {
       "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
       "color": "#1f2a30",
-      "fontSize": 12
+      "fontSize": 13
     },
     "header": {
       "labelFontSize": 12,
@@ -357,7 +358,7 @@
     "facet": {
       "spacing": {
         "row": 20,
-        "column": 18
+        "column": 34
       }
     }
   },

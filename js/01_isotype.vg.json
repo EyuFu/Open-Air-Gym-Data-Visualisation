@@ -228,12 +228,12 @@
         "align": "left",
         "fontStyle": "italic",
         "color": "#3d4a52",
-        "fontSize": 11,
-        "lineHeight": 14
+        "fontSize": 12,
+        "lineHeight": 15
       },
       "encoding": {
         "x": {
-          "datum": 29.6,
+          "datum": 27.4,
           "type": "quantitative"
         },
         "text": {
@@ -244,27 +244,6 @@
         }
       },
       "description": "Why note beside the peak row"
-    },
-    {
-      "transform": [
-        {
-          "filter": "datum.slot == 1 && datum.row == '55–64'"
-        }
-      ],
-      "mark": {
-        "type": "rule",
-        "color": "#8a9096",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "x": {
-          "datum": 27.0,
-          "type": "quantitative"
-        },
-        "x2": {
-          "datum": 29.3
-        }
-      }
     }
   ],
   "config": {
@@ -291,7 +270,7 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelColor": "#5b6770",
       "titleFontSize": 12,
       "titleFontWeight": 600,
@@ -301,7 +280,7 @@
       "grid": false
     },
     "legend": {
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelColor": "#5b6770",
       "titleFontSize": 12,
       "titleFontWeight": 600,
@@ -310,7 +289,7 @@
     "text": {
       "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
       "color": "#1f2a30",
-      "fontSize": 12
+      "fontSize": 13
     },
     "header": {
       "labelFontSize": 12,

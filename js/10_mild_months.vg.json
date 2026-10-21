@@ -59,7 +59,15 @@
           "value": "width"
         },
         "y": {
-          "datum": 15
+          "datum": 15,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              10,
+              38
+            ],
+            "nice": false
+          }
         },
         "y2": {
           "datum": 25
@@ -88,7 +96,15 @@
           "value": 0
         },
         "y": {
-          "datum": 15
+          "datum": 15,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              10,
+              38
+            ],
+            "nice": false
+          }
         },
         "text": {
           "value": "Mild: 15 to 25°C"
@@ -139,7 +155,6 @@
           "title": null,
           "axis": {
             "values": [
-              10,
               15,
               20,
               25,
@@ -240,7 +255,6 @@
           "title": null,
           "axis": {
             "values": [
-              10,
               15,
               20,
               25,
@@ -328,7 +342,6 @@
           "title": null,
           "axis": {
             "values": [
-              10,
               15,
               20,
               25,
@@ -474,7 +487,15 @@
           "value": 0
         },
         "y": {
-          "datum": 38
+          "datum": 38,
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              10,
+              38
+            ],
+            "nice": false
+          }
         },
         "text": {
           "field": "lab"
@@ -531,7 +552,14 @@
         },
         "y": {
           "field": "top",
-          "type": "quantitative"
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              10,
+              38
+            ],
+            "nice": false
+          }
         },
         "y2": {
           "field": "bottom"
@@ -563,7 +591,7 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelColor": "#5b6770",
       "titleFontSize": 12,
       "titleFontWeight": 600,
@@ -573,7 +601,7 @@
       "grid": false
     },
     "legend": {
-      "labelFontSize": 11,
+      "labelFontSize": 12,
       "labelColor": "#5b6770",
       "titleFontSize": 12,
       "titleFontWeight": 600,
@@ -582,7 +610,7 @@
     "text": {
       "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
       "color": "#1f2a30",
-      "fontSize": 12
+      "fontSize": 13
     },
     "header": {
       "labelFontSize": 12,
