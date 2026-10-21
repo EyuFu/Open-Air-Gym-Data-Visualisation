@@ -90,15 +90,24 @@
           },
           "legend": {
             "orient": "bottom",
-            "direction": "vertical",
-            "title": null,
-            "labelFontSize": 12,
-            "labelColor": "#1f2a30",
-            "symbolSize": 160,
-            "columnPadding": 18,
-            "offset": 56,
+            "direction": "horizontal",
+            "titleOrient": "top",
+            "titleAnchor": "start",
+            "titleFontSize": 13,
+            "titleFontWeight": 400,
+            "titleColor": "#1f2a30",
+            "titlePadding": 6,
+            "labelFontSize": 13,
+            "labelColor": "#5b6770",
             "symbolType": "square",
-            "labelExpr": "{'3 or more times a week': '50%  3 or more times a week', 'Once or twice a week': '19%  Once or twice a week', 'Less than once a week': '17%  Less than once a week', 'Not active in the past year': '14%  Not active in the past year'}[datum.label]"
+            "symbolSize": 170,
+            "symbolStrokeWidth": 0,
+            "gridAlign": "all",
+            "columnPadding": 70,
+            "offset": 56,
+            "title": "How often adults are active",
+            "columns": 1,
+            "labelExpr": "{'3 or more times a week': '50%  3 or more a week', 'Once or twice a week': '19%  Once or twice a week', 'Less than once a week': '17%  Less than weekly', 'Not active in the past year': '14%  Not active'}[datum.label]"
           }
         },
         "tooltip": [

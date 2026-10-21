@@ -165,14 +165,21 @@
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
-            "title": null,
-            "labelFontSize": 12,
-            "labelColor": "#1f2a30",
-            "symbolSize": 140,
-            "columnPadding": 18,
-            "offset": 12,
-            "symbolType": "stroke",
-            "symbolStrokeWidth": 3
+            "titleOrient": "top",
+            "titleAnchor": "start",
+            "titleFontSize": 13,
+            "titleFontWeight": 400,
+            "titleColor": "#1f2a30",
+            "titlePadding": 6,
+            "labelFontSize": 13,
+            "labelColor": "#5b6770",
+            "symbolType": "square",
+            "symbolSize": 50,
+            "symbolStrokeWidth": 7,
+            "gridAlign": "all",
+            "columnPadding": 120,
+            "offset": 16,
+            "title": "Age group (years)"
           }
         },
         "strokeWidth": {

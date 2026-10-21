@@ -94,31 +94,44 @@
           "type": "quantitative",
           "title": "Days at 30°C or hotter, per month",
           "scale": {
-            "type": "threshold",
+            "type": "linear",
             "domain": [
-              1,
-              5,
-              10,
-              20
+              0,
+              30.4
             ],
-            "range": [
-              "#feedde",
-              "#fdbe85",
-              "#fd8d3c",
-              "#e6550d",
-              "#a63603"
-            ]
+            "scheme": {
+              "name": "oranges",
+              "extent": [
+                0.06,
+                1
+              ]
+            }
           },
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
             "type": "gradient",
-            "gradientLength": 420,
-            "gradientThickness": 14,
+            "gradientLength": {
+              "expr": "width"
+            },
+            "gradientThickness": 16,
+            "gradientStrokeColor": "#9aa1a6",
+            "gradientStrokeWidth": 0.5,
             "titleOrient": "top",
             "titleAnchor": "start",
+            "titleFontSize": 13,
+            "titleFontWeight": 400,
+            "titleColor": "#1f2a30",
+            "titlePadding": 6,
+            "labelFontSize": 13,
+            "labelColor": "#5b6770",
+            "labelFlush": true,
             "offset": 72,
-            "labelExpr": "isFinite(datum.value) ? datum.value : ''"
+            "values": [
+              0,
+              30.4
+            ],
+            "labelExpr": "format(datum.value, '.1f')"
           }
         },
         "tooltip": [

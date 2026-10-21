@@ -63,6 +63,217 @@
     },
     {
       "data": {
+        "values": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {
+                "STATE_NAME": "Australian Capital Territory"
+              },
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    [
+                      157.24,
+                      -39.317
+                    ],
+                    [
+                      157.337,
+                      -39.659
+                    ],
+                    [
+                      157.216,
+                      -40.061
+                    ],
+                    [
+                      157.289,
+                      -40.363
+                    ],
+                    [
+                      156.971,
+                      -40.987
+                    ],
+                    [
+                      156.751,
+                      -40.865
+                    ],
+                    [
+                      156.434,
+                      -40.825
+                    ],
+                    [
+                      156.116,
+                      -40.584
+                    ],
+                    [
+                      155.994,
+                      -39.779
+                    ],
+                    [
+                      155.677,
+                      -39.92
+                    ],
+                    [
+                      155.408,
+                      -39.659
+                    ],
+                    [
+                      155.457,
+                      -39.478
+                    ],
+                    [
+                      155.286,
+                      -39.096
+                    ],
+                    [
+                      155.261,
+                      -38.452
+                    ],
+                    [
+                      155.383,
+                      -37.93
+                    ],
+                    [
+                      155.53,
+                      -37.769
+                    ],
+                    [
+                      155.432,
+                      -37.507
+                    ],
+                    [
+                      155.53,
+                      -37.306
+                    ],
+                    [
+                      157.411,
+                      -36.22
+                    ],
+                    [
+                      157.802,
+                      -36.461
+                    ],
+                    [
+                      157.826,
+                      -36.643
+                    ],
+                    [
+                      158.315,
+                      -37.105
+                    ],
+                    [
+                      158.559,
+                      -37.125
+                    ],
+                    [
+                      158.974,
+                      -37.306
+                    ],
+                    [
+                      159.023,
+                      -37.447
+                    ],
+                    [
+                      158.681,
+                      -37.507
+                    ],
+                    [
+                      158.168,
+                      -37.447
+                    ],
+                    [
+                      157.9,
+                      -37.547
+                    ],
+                    [
+                      157.558,
+                      -37.97
+                    ],
+                    [
+                      157.484,
+                      -38.191
+                    ],
+                    [
+                      157.582,
+                      -38.432
+                    ],
+                    [
+                      157.46,
+                      -38.774
+                    ],
+                    [
+                      157.508,
+                      -38.995
+                    ],
+                    [
+                      157.191,
+                      -38.955
+                    ],
+                    [
+                      157.24,
+                      -39.317
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#f7f6f2",
+        "stroke": "#b9b9b9",
+        "strokeWidth": 0.8
+      },
+      "description": "Callouts for New South Wales and the Australian Capital Territory"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 149.45,
+            "lat": -35.55,
+            "lon2": 155.1,
+            "lat2": -38.300000000000004
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1,
+        "strokeDash": [
+          4,
+          3
+        ]
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        }
+      },
+      "description": "Why note under the Australian Capital Territory callout"
+    },
+    {
+      "data": {
         "url": "data/state_summary_2025.csv",
         "format": {
           "type": "csv",
@@ -77,8 +288,12 @@
       },
       "transform": [
         {
-          "calculate": "datum.state == 'ACT' ? datum.centroid_lon + 1.6 : datum.centroid_lon",
+          "calculate": "datum.state == 'ACT' ? 157.0 : datum.centroid_lon",
           "as": "plon"
+        },
+        {
+          "calculate": "datum.state == 'ACT' ? -38.6 : datum.centroid_lat",
+          "as": "plat"
         },
         {
           "calculate": "datum.outdoor_stations_per_100k < 6 ? 'below 6' : datum.outdoor_stations_per_100k < 9 ? '6 to 9' : datum.outdoor_stations_per_100k < 12 ? '9 to 12' : '12 or more'",
@@ -97,7 +312,7 @@
           "type": "quantitative"
         },
         "latitude": {
-          "field": "centroid_lat",
+          "field": "plat",
           "type": "quantitative"
         },
         "size": {
@@ -177,8 +392,7 @@
             "title": "Stations per 100,000 people"
           }
         ]
-      },
-      "description": "Callouts for New South Wales and the Australian Capital Territory"
+      }
     },
     {
       "data": {
@@ -186,8 +400,6 @@
         "format": {
           "type": "csv",
           "parse": {
-            "centroid_lon": "number",
-            "centroid_lat": "number",
             "outdoor_stations_per_100k": "number",
             "osm_outdoor_stations": "number"
           }
@@ -198,127 +410,107 @@
           "filter": "datum.state == 'ACT' || datum.state == 'NSW'"
         },
         {
-          "calculate": "datum.state == 'ACT' ? datum.centroid_lon + 1.6 : datum.centroid_lon",
-          "as": "plon"
-        },
-        {
-          "calculate": "datum.state == 'ACT' ? 151.9 : 153.6",
+          "calculate": "datum.state == 'ACT' ? 154.4 : 154.5",
           "as": "lab_lon"
         },
         {
-          "calculate": "datum.state == 'ACT' ? -35.5 : -31.3",
+          "calculate": "datum.state == 'ACT' ? -30.6 : -24.6",
           "as": "lab_lat"
         },
         {
-          "calculate": "datum.state == 'ACT' ? ['Australian Capital Territory:', 'most per person,', format(datum.outdoor_stations_per_100k, '.1f') + ' per 100,000'] : ['New South Wales:', 'most stations,', format(datum.osm_outdoor_stations, ',') + ' in total']",
+          "calculate": "datum.state == 'ACT' ? ['Australian Capital Territory', '(enlarged): ' + format(datum.outdoor_stations_per_100k, '.1f') + ' per 100,000'] : ['New South Wales:', 'most stations,', format(datum.osm_outdoor_stations, ',') + ' in total']",
           "as": "lab"
         }
       ],
-      "layer": [
-        {
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "baseline": "top",
-            "dy": -7,
-            "fontSize": 12,
-            "lineHeight": 15,
-            "fontWeight": 600
-          },
-          "encoding": {
-            "longitude": {
-              "field": "lab_lon",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "lab_lat",
-              "type": "quantitative"
-            },
-            "text": {
-              "field": "lab"
-            }
-          },
-          "description": "Why note under the Australian Capital Territory callout"
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 12,
+        "lineHeight": 15,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lab_lon",
+          "type": "quantitative"
         },
-        {
-          "transform": [
-            {
-              "filter": "datum.state == 'ACT'"
-            },
-            {
-              "calculate": "datum.lab_lat - 3.6",
-              "as": "why_lat"
-            }
-          ],
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "baseline": "top",
-            "dy": -7,
-            "fontStyle": "italic",
-            "color": "#3d4a52",
-            "fontSize": 12,
-            "lineHeight": 15
-          },
-          "encoding": {
-            "longitude": {
-              "field": "lab_lon",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "why_lat",
-              "type": "quantitative"
-            },
-            "text": {
-              "value": [
-                "One government plans every",
-                "park in a compact city"
-              ]
-            }
-          }
+        "latitude": {
+          "field": "lab_lat",
+          "type": "quantitative"
         },
-        {
-          "transform": [
-            {
-              "calculate": "datum.state == 'ACT' ? datum.plon + 0.45 : datum.plon + 2.3",
-              "as": "l0"
-            },
-            {
-              "calculate": "datum.lab_lon - 0.25",
-              "as": "l1"
-            },
-            {
-              "calculate": "datum.state == 'ACT' ? datum.centroid_lat : datum.lab_lat - 0.55",
-              "as": "la0"
-            },
-            {
-              "calculate": "datum.lab_lat - 0.55",
-              "as": "la1"
-            }
-          ],
-          "mark": {
-            "type": "rule",
-            "color": "#8a9096",
-            "strokeWidth": 1
-          },
-          "encoding": {
-            "longitude": {
-              "field": "l0",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "la0",
-              "type": "quantitative"
-            },
-            "longitude2": {
-              "field": "l1"
-            },
-            "latitude2": {
-              "field": "la1"
-            }
-          }
+        "text": {
+          "field": "lab"
         }
-      ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 154.4,
+            "lat": -33.2
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 12,
+        "lineHeight": 15
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "value": [
+            "One government plans every",
+            "park in a compact city"
+          ]
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 149.0,
+            "lat": -30.8,
+            "lon2": 154.3,
+            "lat2": -25.1
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        }
+      }
     }
   ],
   "config": {
