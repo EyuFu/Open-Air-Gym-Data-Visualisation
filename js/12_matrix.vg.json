@@ -1,0 +1,242 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 340,
+  "data": {
+    "url": "data/ausplay2025_barriers.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.group == 'All adults' && datum.age != 'All ages'"
+    },
+    {
+      "filter": {
+        "field": "barrier",
+        "oneOf": [
+          "Poor health or injury",
+          "Increasing age/ too old",
+          "Too lazy",
+          "Disability",
+          "Don’t like sport/physical activity",
+          "Not enough time/ too many other commitments",
+          "Not a priority",
+          "Nobody to do it with",
+          "Can't afford it",
+          "The weather"
+        ]
+      }
+    },
+    {
+      "calculate": "{\"Poor health or injury\": \"Poor health or injury\", \"Increasing age/ too old\": \"Feeling too old\", \"Too lazy\": \"Feeling too lazy\", \"Disability\": \"Disability\", \"Don\\u2019t like sport/physical activity\": \"Not liking exercise\", \"Not enough time/ too many other commitments\": \"Not enough time\", \"Not a priority\": \"Not a priority\", \"Nobody to do it with\": \"Nobody to go with\", \"Can't afford it\": \"Cannot afford it\", \"The weather\": \"The weather\"}[datum.barrier]",
+      "as": "reason"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "pct",
+          "as": "age_top"
+        }
+      ],
+      "groupby": [
+        "age"
+      ]
+    },
+    {
+      "calculate": "datum.pct == datum.age_top",
+      "as": "is_top"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "age",
+      "type": "ordinal",
+      "sort": [
+        "15–17",
+        "18–24",
+        "25–34",
+        "35–44",
+        "45–54",
+        "55–64",
+        "65 and over"
+      ],
+      "title": "Age group (years)",
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 11
+      }
+    },
+    "y": {
+      "field": "reason",
+      "type": "nominal",
+      "sort": [
+        "Poor health or injury",
+        "Feeling too old",
+        "Feeling too lazy",
+        "Disability",
+        "Not liking exercise",
+        "Not enough time",
+        "Not a priority",
+        "Nobody to go with",
+        "Cannot afford it",
+        "The weather"
+      ],
+      "title": null,
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 12,
+        "labelColor": "#1f2a30",
+        "labelPadding": 8
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "opacity": 1
+      },
+      "encoding": {
+        "size": {
+          "field": "pct",
+          "type": "quantitative",
+          "title": "Share of inactive adults (%)",
+          "scale": {
+            "domain": [
+              0,
+              50
+            ],
+            "range": [
+              0,
+              1300
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "values": [
+              10,
+              25,
+              50
+            ],
+            "symbolFillColor": "#9aa1a6",
+            "symbolStrokeWidth": 0,
+            "labelExpr": "datum.value + '%'",
+            "titleOrient": "top",
+            "titleAnchor": "start"
+          }
+        },
+        "color": {
+          "condition": {
+            "test": "datum.is_top",
+            "value": "#1b9e77"
+          },
+          "value": "#c3c7ca"
+        },
+        "tooltip": [
+          {
+            "field": "reason",
+            "title": "Reason"
+          },
+          {
+            "field": "age",
+            "title": "Age group"
+          },
+          {
+            "field": "pct",
+            "title": "Share of inactive adults (%)"
+          }
+        ]
+      },
+      "description": "One circle per reason and age group: circle area = share (size scale starts at 0); teal = the top reason for that age"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.is_top"
+        },
+        {
+          "calculate": "format(datum.pct, '.0f') + '%'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontSize": 10,
+        "fontWeight": 700,
+        "color": "white"
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        }
+      },
+      "description": "Value label inside each teal circle"
+    }
+  ],
+  "config": {
+    "background": "#ffffff",
+    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "padding": {
+      "left": 20,
+      "right": 12,
+      "top": 8,
+      "bottom": 8
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#1f2a30",
+      "offset": 16,
+      "subtitleFontSize": 14,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#5b6770",
+      "subtitlePadding": 8
+    },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770",
+      "domainColor": "#c8c8c8",
+      "tickColor": "#c8c8c8",
+      "grid": false
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770"
+    },
+    "text": {
+      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "color": "#1f2a30",
+      "fontSize": 12
+    },
+    "header": {
+      "labelFontSize": 12,
+      "labelColor": "#1f2a30"
+    }
+  },
+  "description": "Young people feel too lazy; older people face poor health",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  }
+}

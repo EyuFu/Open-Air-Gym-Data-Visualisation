@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Open-Air Gym: how Australians exercise outdoors</title>
+  <meta name="description" content="A data story about outdoor fitness in Australia: who exercises outdoors, where the free outdoor fitness stations are, which activities people choose, when the weather suits, and why people go outside. Built with Vega-Lite for FIT3179 Data Visualisation 2.">
+  <meta name="author" content="Eyu Boon Fu">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>The Open-Air Gym: How Australians Exercise Outdoors</h1>
+    <p class="standfirst">Walking, running, bushwalking and cycling in parks, streets, trails and beaches.</p>
+    <div class="two intro">
+      <p class="para">Parks, footpaths, trails and beaches are Australia&rsquo;s most popular places to exercise. In 2025, <b class=tl>62 in every 100 adults</b> used them.</p>
+      <p class="para">Using data from four public organisations, this page follows <b class=ik>five questions</b> about outdoor fitness: who, where, what, when and why.</p>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="sec" id="who">
+    <h2>1. Who &mdash; Who Exercises Outdoors?</h2>
+    <div class="two intro"><p class="para">AusPlay, the national survey of sport and physical activity, asks adults where they were active in the past year. Parks, streets, trails and beaches count as public spaces.</p><p class="para">Outdoor exercise rises through middle age. It <b class=tl>peaks at 72% for ages 55&ndash;64</b>, then falls to 56% after 65.</p></div>
+    <div class="row-full">
+      <figure class="chart" id="fig-1">
+        <figcaption><h3>1. Outdoor exercise rises with age and peaks at 55 to 64</h3><p class="sub">Adults active in parks, streets, trails or beaches, 2025. Each figure = 5 in 100 adults.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-01_isotype" role="img" aria-label="Outdoor exercise rises with age and peaks at 55 to 64"></div></div>
+        <div class="below"><div class="two"><p class="para">Every age group is above 55 in 100, so <b class=tl>the outdoors suits people of all ages</b>. Teenagers and young adults sit just below the average of 62.</p><p class="para">Each row is rounded to the nearest five adults, so two rows can look equal. Hover over a figure for the exact share.</p></div></div>
+      </figure></div>
+  </section>
+  <section class="sec" id="where">
+    <h2>2. Places &mdash; Where in Australia?</h2>
+    <div class="two intro"><p class="para">Every state and territory exercises mostly outdoors, but the share differs. Chart&nbsp;2 compares the share of adults active in public spaces in each state.</p><p class="para">Charts&nbsp;3 and 4 turn to free equipment: where the <b class=tl>outdoor fitness stations</b> are, and how many there are for each person.</p></div>
+    <div class="row-full">
+      <figure class="chart" id="fig-2">
+        <figcaption><h3>2. Tasmania and the Australian Capital Territory are the most &#x27;outdoorsy&#x27;</h3><p class="sub">Share of adults who exercised in public spaces (parks, streets, trails, beaches), by state and territory, 2025.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-02_choropleth" role="img" aria-label="Tasmania and the Australian Capital Territory are the most &#x27;outdoorsy&#x27;"></div></div>
+        <div class="below"><div class="two"><p class="para">The <b class=ik>Australian Capital Territory leads at 73%</b>, and <b class=ik>Tasmania is second at 68%</b>. They also have the keenest bushwalkers: 27% and 28% of adults.</p><p class="para">Every state and territory is above 60%. The highest (73%) and the lowest, Queensland at 61%, differ by 12 points.</p></div></div>
+      </figure></div><div class="row-full">
+      <figure class="chart" id="fig-3">
+        <figcaption><h3>3. Outdoor fitness stations cluster where people live</h3><p class="sub">Each dot is one outdoor fitness station. Choose a city under the map to zoom in.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-03_dotmap" role="img" aria-label="Outdoor fitness stations cluster where people live"></div></div>
+        <div class="below"><div class="two"><p class="para">Outdoor fitness stations are free exercise equipment in parks and along paths. They <b class=tl>follow the population</b>: most are on the east coast and in the capital cities.</p><p class="para">OpenStreetMap lists 2,169 stations. Volunteers add them, so some areas are incomplete. Zoom to a city to see stations along rivers and beaches.</p></div></div>
+      </figure></div><div class="row-full">
+      <figure class="chart" id="fig-4">
+        <figcaption><h3>4. New South Wales has the most stations; per person, the Australian Capital Territory leads</h3><p class="sub">Circle area = number of mapped outdoor fitness stations. Darker green = more stations per 100,000 people.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-04_propsymbol" role="img" aria-label="New South Wales has the most stations; per person, the Australian Capital Territory leads"></div></div>
+        <div class="below"><div class="two"><p class="para">Counting per person changes the ranking. New South Wales has the most stations in total (788), followed by Queensland (587).</p><p class="para">For its population, the Australian Capital Territory has the most: <b class=tl>13.3 per 100,000 people</b>. Victoria has only 5.4, and South Australia 4.7.</p></div></div>
+      </figure></div>
+  </section>
+  <section class="sec" id="what">
+    <h2>3. Activities &mdash; What Do They Do?</h2>
+    <div class="two intro"><p class="para">This page follows four outdoor activities: <b class=tl>walking, bushwalking, running and cycling</b>. Organised sports and swimming appear in grey for context.</p><p class="para"><b class=tl>Walking for exercise</b> has been first every year since 2016, and <b class=tl>bushwalking</b> is now second. Who does each activity depends on sex and age.</p></div>
+    <div class="row-full">
+      <figure class="chart" id="fig-5">
+        <figcaption><h3>5. Bushwalking climbed from 5th to 2nd place</h3><p class="sub">Rank of 10 outdoor activities among adults, 2016 to 2025. Dark grey: walking, running and cycling.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-05_bump" role="img" aria-label="Bushwalking climbed from 5th to 2nd place"></div></div>
+        <div class="below"><div class="two"><p class="para"><b class=tl>Bushwalking was 5th</b> from 2016 to 2022 and <b class=tl>2nd in 2024 and 2025</b>, passing running. Part of that jump may come from the new survey. Cycling slipped from 4th to 5th.</p><p class="para">In July 2023 AusPlay moved from phone interviews to an online survey. The two periods cannot be compared directly, so the lines are <b class=ik>not joined across 2023</b>. Before 2023, running was recorded under athletics.</p></div></div>
+      </figure></div><div class="row-pair">
+      <figure class="chart" id="fig-6">
+        <figcaption><h3>6. Women walk more; men run and cycle more</h3><p class="sub">Share of women and of men doing each outdoor activity, 2025. <b class=tl>Teal = more women.</b></p></figcaption>
+        <div class="panel"><div class="vis" id="vis-06_slope" role="img" aria-label="Women walk more; men run and cycle more"></div></div>
+        <div class="below"><p class="para"><b class=tl>Women walk far more</b> than men: 58% against 43%. They also bushwalk slightly more. Men lead in running (19% against 14%) and cycling (10% against 6%).</p></div>
+      </figure>
+      <figure class="chart" id="fig-7">
+        <figcaption><h3>7. Walking grows with age; running fades after 35</h3><p class="sub">Share of adults doing each activity, by age group, 2025. Grey lines: the other three.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-07_small_multiples" role="img" aria-label="Walking grows with age; running fades after 35"></div></div>
+        <div class="below"><p class="para"><b class=tl>Walking more than doubles</b> with age: 30% at ages 15&ndash;17, but 66% at 55&ndash;64. Running peaks at 25&ndash;34 (28%) and falls to 2% after 65.</p></div>
+      </figure></div>
+  </section>
+  <section class="sec" id="when">
+    <h2>4. Seasons &mdash; When and How Often?</h2>
+    <div class="two intro"><p class="para">Heat and rain decide when it is pleasant to exercise outside. Chart&nbsp;8 counts the days at 30&deg;C or hotter in each capital city, month by month.</p><p class="para">Chart&nbsp;9 shows how often adults are active. In chart&nbsp;10, choose a city to find its <b class=tl>driest and mildest months</b>.</p></div>
+    <div class="row-full">
+      <figure class="chart" id="fig-8">
+        <figcaption><h3>8. Darwin is hot all year; Hobart almost never</h3><p class="sub">Average number of days a month at 30°C or hotter, in each capital city. Darker = more hot days.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-08_heatmap" role="img" aria-label="Darwin is hot all year; Hobart almost never"></div></div>
+        <div class="below"><div class="two"><p class="para">Darwin averages <b class=ik>321 hot days a year</b>, so early mornings matter all year round. Hobart has only 6 hot days and Sydney has 15.</p><p class="para">Perth (79) and Brisbane (74) have hot summers. From December to February, exercise early or late in the day there.</p></div></div>
+      </figure></div><div class="row-pair">
+      <figure class="chart" id="fig-9">
+        <figcaption><h3>9. Half of all adults are active three or more times a week</h3><p class="sub">How often Australian adults did sport or physical activity in 2025. Each square = 1% of adults.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-09_waffle" role="img" aria-label="Half of all adults are active three or more times a week"></div></div>
+        <div class="below"><p class="para"><b class=tl>Half of adults are active three or more times a week</b>. Yet <b class=ik>14% did no activity</b> last year. Overall, 69% are active at least weekly.</p></div>
+      </figure>
+      <figure class="chart" id="fig-10">
+        <figcaption><h3>10. Pick your best months to exercise outdoors</h3><p class="sub">Long-term monthly averages. Wedge area = rain (grey rings at 50, 100, 200 and 400 millimetres); darker orange = warmer days.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-10_polar" role="img" aria-label="Pick your best months to exercise outdoors"></div></div>
+        <div class="below"><p class="para"><b class=ik>Small wedges are the dry months</b>. Melbourne&rsquo;s rain is even all year, so warmth decides. Perth&rsquo;s summer is dry but hot, and Darwin is almost dry from May to September.</p></div>
+      </figure></div>
+  </section>
+  <section class="sec" id="why">
+    <h2>5. Motives &mdash; Why Go Out, and What Stops People?</h2>
+    <div class="two intro"><p class="para">Health and fitness is the most common reason to be active (67% of active adults). Still, <b class=tl>51% also exercise to be outdoors in nature</b>.</p><p class="para">For people who are not active, the top barriers are <b class=ik>poor health or injury (27%)</b> and <b class=ik>feeling too old (23%)</b>. The weather stops only 5%.</p></div>
+    <div class="row-full">
+      <figure class="chart" id="fig-11">
+        <figcaption><h3>11. Being outdoors in nature matters most to 55 to 64 year-olds</h3><p class="sub">Reasons active adults give for exercising, 2025. One line per age group; all axes share one scale from 0 to 80%. 55–64 year-olds are highlighted.</p></figcaption>
+        <div class="panel"><div class="vis" id="vis-11_parallel" role="img" aria-label="Being outdoors in nature matters most to 55 to 64 year-olds"></div></div>
+        <div class="below"><div class="two"><p class="para">People aged 55&ndash;64 are the <b class=tl>most likely to exercise to be outdoors in nature (58%)</b>, which matches their peak in chart&nbsp;1.</p><p class="para">Every axis uses the same scale, so reasons can be compared fairly. <b class=ik>Social reasons fade with age</b>: 57% at ages 15&ndash;17, but 40% at 65 and over.</p></div></div>
+      </figure></div><div class="row-full">
+      <figure class="chart" id="fig-12">
+        <figcaption><h3>12. Young people feel too lazy; older people face poor health</h3><p class="sub">Reasons inactive adults give, by age group, 2025. Circle area = share. <b class=tl>Teal = top reason for that age.</b></p></figcaption>
+        <div class="panel"><div class="vis" id="vis-12_matrix" role="img" aria-label="Young people feel too lazy; older people face poor health"></div></div>
+        <div class="below"><div class="two"><p class="para"><b class=tl>Feeling too lazy</b> is the top barrier at ages 15&ndash;17 (28%), 25&ndash;34 and 35&ndash;44. <b class=tl>Poor health or injury</b> leads at 18&ndash;24, 45&ndash;54 and 55&ndash;64.</p><p class="para">At 65 and over, <b class=ik>feeling too old (47%)</b> is the biggest barrier of all. Not enough time peaks at ages 35&ndash;44 (21%), when work and family are busiest.</p></div></div>
+      </figure></div>
+  </section>
+  <section class="sec" id="conclusion">
+    <h2>6. Conclusion</h2>
+    <div class="two intro">
+      <p class="para">Public spaces are where Australians exercise most: <b class=tl>62 in 100 adults</b> used one in 2025. Walking leads every year, bushwalking is rising, and outdoor exercise peaks at 55 to 64.</p>
+      <p class="para">Yet the National Health Survey 2022 found that just <b class=ik>24% of people aged 15 and over</b> met the national guidelines. Free stations (chart&nbsp;3) and mild months (chart&nbsp;10) make starting easier.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+      <h4 class="colh">Data sources</h4>
+      <ul class="sources">
+        <li>Australian Sports Commission, <a href="https://www.ausport.gov.au/research/ausplay/results">AusPlay results</a>: national and state and territory data tables, January to December 2025 (released 30 April 2026) and January to December 2024 (released 30 April 2025).</li>
+        <li>Australian Sports Commission, <a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/2015-2023">AusPlay results 2015&ndash;2023</a>: national data tables, January to December 2016 to 2022 (phone survey; not directly comparable with 2024 onwards).</li>
+        <li>Australian Bureau of Statistics, <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release">National, state and territory population, March 2026</a>, Table 4 (CC BY 4.0).</li>
+        <li>Australian Bureau of Statistics, <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/physical-activity/latest-release">Physical activity: National Health Survey 2022</a>, Table 11 (CC BY 4.0).</li>
+        <li>Australian Bureau of Statistics, <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/latest-release">Australian Statistical Geography Standard Edition 4, July 2026 &ndash; June 2031</a>: States and Territories 2026 digital boundaries, simplified with mapshaper (CC BY 4.0).</li>
+        <li>Bureau of Meteorology, <a href="http://www.bom.gov.au/climate/averages/tables/cw_066062.shtml">Climate statistics for Australian locations</a>: long-term monthly averages of maximum temperature, rainfall and days at 30&deg;C or hotter, for one station in each capital city (records range from 13 to more than 160 years).</li>
+        <li>&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (Open Database License): places tagged as outdoor fitness stations, extracted with <a href="https://overpass-turbo.eu/">Overpass turbo</a> on 9 October 2026.</li>
+      </ul>
+  </div>
+  <div class="wrap two">
+    <div class="col">
+      <h4 class="colh">Notes on the data</h4>
+      <p class="small">Activity names are in plain English. Organised sport and swimming appear only in grey, for context. Shares are survey estimates and are rounded. A &ldquo;point&rdquo; is the difference between two percentages: 61% to 73% is 12 points.</p>
+      <p class="small">AusPlay moved from phone interviews to an online survey in July 2023, so results from 2016&ndash;2022 and from 2024 onwards are not directly comparable. Chart 5 keeps the two periods separate.</p>
+      <p class="small">OpenStreetMap is mapped by volunteers, so charts 3 and 4 show mapped stations only.</p>
+    </div>
+    <div class="col">
+      <h4 class="colh">About this page</h4>
+      <p class="small">Author: Eyu Boon Fu<br>Created: October 2026<br>FIT3179 Data Visualisation 2, Monash University</p>
+      <p class="small">Charts made with <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>. Each chart&rsquo;s specification is in the &ldquo;js&rdquo; folder of this page&rsquo;s GitHub repository. <a href="sketch/sketch.pdf">Hand-drawn sketch (PDF)</a>.</p>
+      <p class="small">Use of AI: Claude (Anthropic) helped with data cleaning scripts, chart code and proofreading. All data, design decisions and text were checked by the author.</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
