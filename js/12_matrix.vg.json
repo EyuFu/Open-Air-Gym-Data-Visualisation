@@ -3,7 +3,7 @@
   "width": "container",
   "height": 340,
   "data": {
-    "url": "data/ausplay2025_barriers.csv",
+    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_barriers.csv",
     "format": {
       "type": "csv",
       "parse": {

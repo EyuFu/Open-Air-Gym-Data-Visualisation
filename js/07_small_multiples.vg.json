@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "data/ausplay2025_activity_by_age.csv",
+    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_activity_by_age.csv",
     "format": {
       "type": "csv",
       "parse": {

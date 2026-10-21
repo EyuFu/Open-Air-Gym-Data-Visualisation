@@ -23,7 +23,7 @@
     }
   ],
   "data": {
-    "url": "data/bom_capital_climate_monthly_means.csv",
+    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/bom_capital_climate_monthly_means.csv",
     "format": {
       "type": "csv",
       "parse": {

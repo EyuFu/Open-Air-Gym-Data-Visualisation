@@ -3,7 +3,7 @@
   "width": "container",
   "height": 330,
   "data": {
-    "url": "data/ausplay2025_outdoor_activity_by_sex.csv",
+    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_outdoor_activity_by_sex.csv",
     "format": {
       "type": "csv",
       "parse": {

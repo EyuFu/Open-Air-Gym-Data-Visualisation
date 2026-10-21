@@ -43,7 +43,7 @@
   "layer": [
     {
       "data": {
-        "url": "data/aus_states.topojson",
+        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/aus_states.topojson",
         "format": {
           "type": "topojson",
           "feature": "states"
@@ -59,7 +59,7 @@
     },
     {
       "data": {
-        "url": "data/osm_fitness_locations_AU.csv",
+        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/osm_fitness_locations_AU.csv",
         "format": {
           "type": "csv",
           "parse": {

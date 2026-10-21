@@ -3,7 +3,7 @@
   "width": "container",
   "height": 312,
   "data": {
-    "url": "data/bom_capital_hot_days.csv",
+    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/bom_capital_hot_days.csv",
     "format": {
       "type": "csv",
       "parse": {

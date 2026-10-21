@@ -3,7 +3,7 @@
   "width": "container",
   "height": 300,
   "data": {
-    "url": "data/ausplay_activity_trend_2016_2025.csv",
+    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay_activity_trend_2016_2025.csv",
     "format": {
       "type": "csv",
       "parse": {

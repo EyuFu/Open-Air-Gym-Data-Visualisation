@@ -3,7 +3,7 @@
   "width": 380,
   "height": 380,
   "data": {
-    "url": "data/ausplay2025_frequency.csv",
+    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_frequency.csv",
     "format": {
       "type": "csv",
       "parse": {

@@ -47,7 +47,7 @@
     },
     {
       "data": {
-        "url": "data/aus_states.topojson",
+        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/aus_states.topojson",
         "format": {
           "type": "topojson",
           "feature": "states"
@@ -274,7 +274,7 @@
     },
     {
       "data": {
-        "url": "data/state_summary_2025.csv",
+        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/state_summary_2025.csv",
         "format": {
           "type": "csv",
           "parse": {
@@ -396,7 +396,7 @@
     },
     {
       "data": {
-        "url": "data/state_summary_2025.csv",
+        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/state_summary_2025.csv",
         "format": {
           "type": "csv",
           "parse": {
