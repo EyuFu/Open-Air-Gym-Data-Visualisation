@@ -82,33 +82,13 @@
               "Not active in the past year"
             ],
             "range": [
-              "#2f3a40",
-              "#b5bbbf",
-              "#cfd3d6",
-              "#e6e8e9"
+              "#7D7F27",
+              "#a9ab5e",
+              "#cfd09b",
+              "#e9e9d0"
             ]
           },
-          "legend": {
-            "orient": "bottom",
-            "direction": "horizontal",
-            "titleOrient": "top",
-            "titleAnchor": "start",
-            "titleFontSize": 13,
-            "titleFontWeight": 400,
-            "titleColor": "#1f2a30",
-            "titlePadding": 6,
-            "labelFontSize": 14,
-            "labelColor": "#5b6770",
-            "symbolType": "square",
-            "symbolSize": 180,
-            "symbolStrokeWidth": 0,
-            "gridAlign": "all",
-            "columnPadding": 70,
-            "offset": 56,
-            "title": "How often adults are active",
-            "columns": 1,
-            "labelExpr": "{'3 or more times a week': '50%  3 or more a week', 'Once or twice a week': '19%  Once or twice a week', 'Less than once a week': '17%  Less than weekly', 'Not active in the past year': '14%  Not active'}[datum.label]"
-          }
+          "legend": null
         },
         "tooltip": [
           {
@@ -131,32 +111,101 @@
       },
       "mark": {
         "type": "text",
-        "align": "right",
-        "baseline": "top",
-        "fontStyle": "italic",
-        "color": "#3d4a52",
-        "fontSize": 13,
-        "lineHeight": 16
+        "align": "left",
+        "baseline": "middle",
+        "x": 402,
+        "y": 95,
+        "fontSize": 14,
+        "lineHeight": 17,
+        "fontWeight": 700,
+        "color": "#7D7F27"
       },
       "encoding": {
-        "x": {
-          "value": {
-            "expr": "width"
-          }
-        },
-        "y": {
-          "value": {
-            "expr": "height + 12"
-          }
-        },
         "text": {
           "value": [
-            "Not active: mainly poor health",
-            "or feeling too old (chart 12)"
+            "50%  3 or more times a week"
           ]
         }
       },
       "description": "Label for group 1"
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "x": 402,
+        "y": 220,
+        "fontSize": 14,
+        "lineHeight": 17,
+        "fontWeight": 400,
+        "color": "#5b6770"
+      },
+      "encoding": {
+        "text": {
+          "value": [
+            "19%  Once or twice a week"
+          ]
+        }
+      },
+      "description": "Label for group 2"
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "x": 402,
+        "y": 290,
+        "fontSize": 14,
+        "lineHeight": 17,
+        "fontWeight": 400,
+        "color": "#5b6770"
+      },
+      "encoding": {
+        "text": {
+          "value": [
+            "17%  Less than once a week"
+          ]
+        }
+      },
+      "description": "Label for group 3"
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "x": 402,
+        "y": 352,
+        "fontSize": 14,
+        "lineHeight": 17,
+        "fontWeight": 400,
+        "color": "#5b6770"
+      },
+      "encoding": {
+        "text": {
+          "value": [
+            "14%  Not active in the past year"
+          ]
+        }
+      },
+      "description": "Label for group 4"
     },
     {
       "data": {
@@ -171,27 +220,123 @@
       },
       "encoding": {
         "x": {
-          "value": {
-            "expr": "width - 60"
-          }
-        },
-        "y": {
-          "value": {
-            "expr": "height + 10"
-          }
+          "value": 384
         },
         "x2": {
-          "value": {
-            "expr": "width - 60"
-          }
+          "value": 396
+        },
+        "y": {
+          "value": 95
         },
         "y2": {
-          "value": {
-            "expr": "height - 8"
-          }
+          "value": 95
         }
       },
-      "description": "Label for group 2"
+      "description": "Why note under the 'not active' label"
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 384
+        },
+        "x2": {
+          "value": 396
+        },
+        "y": {
+          "value": 220
+        },
+        "y2": {
+          "value": 220
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 384
+        },
+        "x2": {
+          "value": 396
+        },
+        "y": {
+          "value": 290
+        },
+        "y2": {
+          "value": 290
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 384
+        },
+        "x2": {
+          "value": 396
+        },
+        "y": {
+          "value": 352
+        },
+        "y2": {
+          "value": 352
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "x": 402,
+        "y": 364,
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 13,
+        "lineHeight": 16
+      },
+      "encoding": {
+        "text": {
+          "value": [
+            "Mainly poor health or feeling",
+            "too old (chart 12)"
+          ]
+        }
+      }
     }
   ],
   "config": {
@@ -199,9 +344,9 @@
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
       "left": 4,
-      "right": 4,
+      "right": 230,
       "top": 8,
-      "bottom": 8
+      "bottom": 40
     },
     "title": {
       "anchor": "start",

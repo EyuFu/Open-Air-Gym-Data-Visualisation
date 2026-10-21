@@ -25,6 +25,10 @@
       "groupby": [
         "city"
       ]
+    },
+    {
+      "calculate": "datum.days_30_or_more < 1 ? 0 : datum.days_30_or_more < 5 ? 1 : datum.days_30_or_more < 10 ? 2 : datum.days_30_or_more < 20 ? 3 : 4",
+      "as": "heat_class"
     }
   ],
   "encoding": {
@@ -90,20 +94,20 @@
       },
       "encoding": {
         "color": {
-          "field": "days_30_or_more",
+          "field": "heat_class",
           "type": "quantitative",
           "title": "Days at 30°C or hotter, per month",
           "scale": {
             "type": "threshold",
             "domain": [
-              1,
-              5,
-              10,
-              20
+              0.5,
+              1.5,
+              2.5,
+              3.5
             ],
             "range": [
-              "#feedde",
-              "#fdbe85",
+              "#fdd0a2",
+              "#fdae6b",
               "#fd8d3c",
               "#e6550d",
               "#a63603"
@@ -129,7 +133,7 @@
             "labelColor": "#5b6770",
             "labelFlush": true,
             "offset": 72,
-            "labelExpr": "isFinite(datum.value) ? (datum.value == 1 ? '1 day' : datum.value + ' days') : ''"
+            "labelExpr": "{'0.5': '1 day', '1.5': '5 days', '2.5': '10 days', '3.5': '20 days'}[datum.label] || ''"
           }
         },
         "tooltip": [

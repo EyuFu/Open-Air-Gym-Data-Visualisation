@@ -178,7 +178,7 @@
               "Other cities"
             ],
             "range": [
-              "#e6550d",
+              "#E6550D",
               "#cfcfcf"
             ]
           },
@@ -284,7 +284,7 @@
               "Other cities"
             ],
             "range": [
-              "#e6550d",
+              "#E6550D",
               "#cfcfcf"
             ]
           },
@@ -328,7 +328,7 @@
         "filled": false,
         "size": 60,
         "strokeWidth": 2,
-        "color": "#e6550d",
+        "color": "#E6550D",
         "opacity": 1
       },
       "encoding": {
@@ -380,7 +380,7 @@
               "Not mild"
             ],
             "range": [
-              "#e6550d",
+              "#E6550D",
               "white"
             ]
           },
@@ -404,7 +404,7 @@
             "title": "Dot",
             "legendX": 0,
             "legendY": 384,
-            "symbolStrokeColor": "#e6550d",
+            "symbolStrokeColor": "#E6550D",
             "labelExpr": "datum.label == 'Mild' ? 'Mild month' : 'Not mild'"
           }
         },

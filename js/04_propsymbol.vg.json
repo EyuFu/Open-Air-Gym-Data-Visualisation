@@ -303,7 +303,7 @@
       "mark": {
         "type": "circle",
         "opacity": 0.9,
-        "stroke": "#14406b",
+        "stroke": "#14285f",
         "strokeWidth": 1
       },
       "encoding": {
@@ -338,7 +338,7 @@
               800
             ],
             "symbolFillColor": "#ffffff",
-            "symbolStrokeColor": "#14406b",
+            "symbolStrokeColor": "#14285f",
             "symbolStrokeWidth": 1
           }
         },
@@ -354,18 +354,18 @@
               "12 or more"
             ],
             "range": [
-              "#d1e5f0",
-              "#92c5de",
-              "#4393c3",
-              "#2166ac"
+              "#aab8e0",
+              "#7088c9",
+              "#3f5bb0",
+              "#1F3A93"
             ]
           },
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
             "symbolType": "circle",
-            "symbolSize": 160,
-            "symbolStrokeColor": "#14406b",
+            "symbolSize": 420,
+            "symbolStrokeColor": "#14285f",
             "symbolStrokeWidth": 1
           }
         },

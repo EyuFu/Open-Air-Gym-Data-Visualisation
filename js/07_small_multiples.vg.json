@@ -126,63 +126,6 @@
       {
         "transform": [
           {
-            "filter": "!datum.is_self"
-          }
-        ],
-        "mark": {
-          "type": "line",
-          "strokeWidth": 1.2
-        },
-        "encoding": {
-          "detail": {
-            "field": "activity"
-          },
-          "color": {
-            "field": "role",
-            "type": "nominal",
-            "scale": {
-              "domain": [
-                "Walking for exercise",
-                "Bushwalking",
-                "Running and jogging",
-                "Cycling",
-                "The other three, for comparison"
-              ],
-              "range": [
-                "#1b9e77",
-                "#8c510a",
-                "#c51b7d",
-                "#d4a017",
-                "#d6d6d6"
-              ]
-            },
-            "legend": {
-              "orient": "bottom",
-              "direction": "horizontal",
-              "titleOrient": "top",
-              "titleAnchor": "start",
-              "titleFontSize": 13,
-              "titleFontWeight": 400,
-              "titleColor": "#1f2a30",
-              "titlePadding": 6,
-              "labelFontSize": 14,
-              "labelColor": "#5b6770",
-              "symbolType": "square",
-              "symbolSize": 180,
-              "symbolStrokeWidth": 0,
-              "gridAlign": "all",
-              "columnPadding": 24,
-              "offset": 16,
-              "title": "Line colour",
-              "labelExpr": "{'Walking for exercise': 'Walking', 'Running and jogging': 'Running', 'The other three, for comparison': 'The other three'}[datum.label] || datum.label"
-            }
-          }
-        },
-        "description": "Faint grey lines: the other three activities, for comparison"
-      },
-      {
-        "transform": [
-          {
             "filter": "datum.is_self"
           }
         ],
@@ -203,15 +146,13 @@
                 "Walking for exercise",
                 "Bushwalking",
                 "Running and jogging",
-                "Cycling",
-                "The other three, for comparison"
+                "Cycling"
               ],
               "range": [
-                "#1b9e77",
-                "#8c510a",
-                "#c51b7d",
-                "#d4a017",
-                "#d6d6d6"
+                "#009E73",
+                "#8B5A2B",
+                "#CC79A7",
+                "#D9A400"
               ]
             },
             "legend": {
@@ -250,7 +191,7 @@
             }
           ]
         },
-        "description": "The panel's own activity in teal, drawn on top"
+        "description": "Faint grey lines: the other three activities, for comparison"
       },
       {
         "transform": [
@@ -279,7 +220,7 @@
             ]
           }
         },
-        "description": "Why note in the running panel"
+        "description": "The panel's own activity in teal, drawn on top"
       },
       {
         "transform": [
@@ -300,7 +241,7 @@
             "datum": 19
           }
         },
-        "description": "Label at the peak of the teal line"
+        "description": "Why note in the running panel"
       },
       {
         "transform": [
@@ -330,19 +271,18 @@
                 "Walking for exercise",
                 "Bushwalking",
                 "Running and jogging",
-                "Cycling",
-                "The other three, for comparison"
+                "Cycling"
               ],
               "range": [
-                "#1b9e77",
-                "#8c510a",
-                "#c51b7d",
-                "#d4a017",
-                "#d6d6d6"
+                "#009E73",
+                "#8B5A2B",
+                "#CC79A7",
+                "#D9A400"
               ]
             }
           }
-        }
+        },
+        "description": "Label at the peak of the teal line"
       }
     ]
   },

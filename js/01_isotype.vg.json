@@ -108,7 +108,7 @@
               "empty"
             ],
             "range": [
-              "#1f2a30",
+              "#3AA6D9",
               "#b9bec2",
               "#ecebe7"
             ]
@@ -178,7 +178,7 @@
         "color": {
           "condition": {
             "test": "datum.row == '55–64'",
-            "value": "#1f2a30"
+            "value": "#3AA6D9"
           },
           "value": "#5b6770"
         }
@@ -215,7 +215,7 @@
         "color": {
           "condition": {
             "test": "datum.row == '55–64'",
-            "value": "#1f2a30"
+            "value": "#3AA6D9"
           },
           "value": "#5b6770"
         }
