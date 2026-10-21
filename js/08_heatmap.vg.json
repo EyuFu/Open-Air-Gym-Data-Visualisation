@@ -94,18 +94,20 @@
           "type": "quantitative",
           "title": "Days at 30°C or hotter, per month",
           "scale": {
-            "type": "linear",
+            "type": "threshold",
             "domain": [
-              0,
-              30.4
+              1,
+              5,
+              10,
+              20
             ],
-            "scheme": {
-              "name": "oranges",
-              "extent": [
-                0.06,
-                1
-              ]
-            }
+            "range": [
+              "#feedde",
+              "#fdbe85",
+              "#fd8d3c",
+              "#e6550d",
+              "#a63603"
+            ]
           },
           "legend": {
             "orient": "bottom",
@@ -127,11 +129,7 @@
             "labelColor": "#5b6770",
             "labelFlush": true,
             "offset": 72,
-            "values": [
-              0,
-              30.4
-            ],
-            "labelExpr": "format(datum.value, '.1f')"
+            "labelExpr": "isFinite(datum.value) ? (datum.value == 1 ? '1 day' : datum.value + ' days') : ''"
           }
         },
         "tooltip": [
@@ -244,8 +242,8 @@
         "dy": 40,
         "fontStyle": "italic",
         "color": "#3d4a52",
-        "fontSize": 12,
-        "lineHeight": 15
+        "fontSize": 13,
+        "lineHeight": 16
       },
       "encoding": {
         "text": {
@@ -279,9 +277,9 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770",
       "domainColor": "#c8c8c8",
@@ -289,9 +287,9 @@
       "grid": false
     },
     "legend": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770"
     },

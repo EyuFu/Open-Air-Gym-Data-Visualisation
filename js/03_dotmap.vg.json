@@ -113,7 +113,7 @@
             "titleFontWeight": 400,
             "titleColor": "#1f2a30",
             "titlePadding": 6,
-            "labelFontSize": 13,
+            "labelFontSize": 14,
             "labelColor": "#5b6770",
             "symbolType": "square",
             "symbolSize": 60,
@@ -158,8 +158,8 @@
         "baseline": "top",
         "fontStyle": "italic",
         "color": "#3d4a52",
-        "fontSize": 12,
-        "lineHeight": 15,
+        "fontSize": 13,
+        "lineHeight": 16,
         "opacity": {
           "expr": "city == 'Whole of Australia' ? 1 : 0"
         }
@@ -240,9 +240,9 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770",
       "domainColor": "#c8c8c8",
@@ -250,9 +250,9 @@
       "grid": false
     },
     "legend": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770"
     },

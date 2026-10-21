@@ -608,8 +608,8 @@
         "baseline": "top",
         "fontStyle": "italic",
         "color": "#3d4a52",
-        "fontSize": 12,
-        "lineHeight": 15
+        "fontSize": 13,
+        "lineHeight": 16
       },
       "encoding": {
         "longitude": {
@@ -650,9 +650,9 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770",
       "domainColor": "#c8c8c8",
@@ -660,9 +660,9 @@
       "grid": false
     },
     "legend": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770"
     },

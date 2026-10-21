@@ -109,15 +109,16 @@
         "titleFontWeight": 400,
         "titleColor": "#1f2a30",
         "titlePadding": 6,
-        "labelFontSize": 13,
+        "labelFontSize": 14,
         "labelColor": "#5b6770",
         "symbolType": "square",
-        "symbolSize": 170,
+        "symbolSize": 180,
         "symbolStrokeWidth": 0,
-        "gridAlign": "none",
-        "columnPadding": 28,
+        "gridAlign": "all",
+        "columnPadding": 24,
         "offset": 16,
-        "title": "Activity"
+        "title": "Activity",
+        "labelExpr": "{'Walking for exercise': 'Walking', 'Running and jogging': 'Running', 'The other three, for comparison': 'The other three'}[datum.label] || datum.label"
       }
     }
   },
@@ -222,8 +223,8 @@
         "dx": -30,
         "fontStyle": "italic",
         "color": "#3d4a52",
-        "fontSize": 12,
-        "lineHeight": 15
+        "fontSize": 13,
+        "lineHeight": 16
       },
       "encoding": {
         "text": {
@@ -287,9 +288,9 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770",
       "domainColor": "#c8c8c8",
@@ -297,9 +298,9 @@
       "grid": false
     },
     "legend": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770"
     },

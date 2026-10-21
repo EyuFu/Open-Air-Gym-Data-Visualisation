@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 300,
-  "height": 300,
+  "width": 380,
+  "height": 380,
   "data": {
     "url": "data/ausplay2025_frequency.csv",
     "format": {
@@ -82,10 +82,10 @@
               "Not active in the past year"
             ],
             "range": [
-              "#4d5a61",
-              "#8a9096",
-              "#bdbdbd",
-              "#e3e1dc"
+              "#2f3a40",
+              "#b5bbbf",
+              "#cfd3d6",
+              "#e6e8e9"
             ]
           },
           "legend": {
@@ -97,10 +97,10 @@
             "titleFontWeight": 400,
             "titleColor": "#1f2a30",
             "titlePadding": 6,
-            "labelFontSize": 13,
+            "labelFontSize": 14,
             "labelColor": "#5b6770",
             "symbolType": "square",
-            "symbolSize": 170,
+            "symbolSize": 180,
             "symbolStrokeWidth": 0,
             "gridAlign": "all",
             "columnPadding": 70,
@@ -135,8 +135,8 @@
         "baseline": "top",
         "fontStyle": "italic",
         "color": "#3d4a52",
-        "fontSize": 12,
-        "lineHeight": 15
+        "fontSize": 13,
+        "lineHeight": 16
       },
       "encoding": {
         "x": {
@@ -218,9 +218,9 @@
       "stroke": null
     },
     "axis": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770",
       "domainColor": "#c8c8c8",
@@ -228,9 +228,9 @@
       "grid": false
     },
     "legend": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
       "labelColor": "#5b6770",
-      "titleFontSize": 12,
+      "titleFontSize": 13,
       "titleFontWeight": 600,
       "titleColor": "#5b6770"
     },
