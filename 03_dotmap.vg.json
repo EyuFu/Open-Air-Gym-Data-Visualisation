@@ -1,0 +1,224 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 520,
+  "params": [
+    {
+      "name": "city",
+      "value": "Whole of Australia",
+      "bind": {
+        "input": "select",
+        "options": [
+          "Whole of Australia",
+          "Sydney",
+          "Melbourne",
+          "Brisbane",
+          "Perth",
+          "Adelaide",
+          "Hobart",
+          "Darwin",
+          "Canberra"
+        ],
+        "name": "Zoom to: "
+      }
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ],
+    "center": {
+      "expr": "city == 'Sydney' ? [151.1 - 132, -33.85] : city == 'Melbourne' ? [145.05 - 132, -37.85] : city == 'Brisbane' ? [153.0 - 132, -27.5] : city == 'Perth' ? [115.9 - 132, -31.95] : city == 'Adelaide' ? [138.6 - 132, -34.93] : city == 'Hobart' ? [147.3 - 132, -42.88] : city == 'Darwin' ? [130.9 - 132, -12.45] : city == 'Canberra' ? [149.1 - 132, -35.3] : [0, -28]"
+    },
+    "scale": {
+      "expr": "city == 'Whole of Australia' ? 760 : 16000"
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/aus_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#ecebe7",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "description": "Base map of the states from the TopoJSON file"
+    },
+    {
+      "data": {
+        "url": "data/osm_fitness_locations_AU.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "lon": "number",
+            "lat": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.type == 'Outdoor fitness station'"
+        },
+        {
+          "filter": "datum.lon >= 112 && datum.lon <= 154.5 && datum.lat >= -44 && datum.lat <= -10"
+        }
+      ],
+      "mark": {
+        "type": "circle",
+        "size": {
+          "expr": "city == 'Whole of Australia' ? 7 : 36"
+        },
+        "opacity": 0.65
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "type",
+          "type": "nominal",
+          "title": null,
+          "scale": {
+            "domain": [
+              "Outdoor fitness station"
+            ],
+            "range": [
+              "#1b9e77"
+            ]
+          },
+          "legend": {
+            "orient": "top-left",
+            "symbolOpacity": 1,
+            "labelFontSize": 12,
+            "labelExpr": "'1 dot = 1 outdoor fitness station'"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "type",
+            "title": "Type"
+          },
+          {
+            "field": "state",
+            "title": "State or territory"
+          }
+        ]
+      },
+      "description": "One teal dot per mapped outdoor fitness station"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 119.5,
+            "lat": -38.2,
+            "lab": [
+              "Councils build stations where",
+              "most residents live; inland towns",
+              "are small and spread out"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14,
+        "opacity": {
+          "expr": "city == 'Whole of Australia' ? 1 : 0"
+        }
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        }
+      },
+      "description": "Why note about where councils build stations, in the empty ocean"
+    }
+  ],
+  "config": {
+    "background": "#ffffff",
+    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "padding": {
+      "left": 8,
+      "right": 12,
+      "top": 8,
+      "bottom": 8
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#1f2a30",
+      "offset": 16,
+      "subtitleFontSize": 14,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#5b6770",
+      "subtitlePadding": 8
+    },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770",
+      "domainColor": "#c8c8c8",
+      "tickColor": "#c8c8c8",
+      "grid": false
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770"
+    },
+    "text": {
+      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "color": "#1f2a30",
+      "fontSize": 12
+    },
+    "header": {
+      "labelFontSize": 12,
+      "labelColor": "#1f2a30"
+    }
+  },
+  "description": "Outdoor fitness stations cluster where people live",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  }
+}

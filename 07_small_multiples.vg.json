@@ -1,0 +1,291 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "data": {
+    "url": "data/ausplay2025_activity_by_age.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": {
+        "field": "activity",
+        "oneOf": [
+          "Walking for exercise",
+          "Bushwalking",
+          "Running and jogging",
+          "Cycling"
+        ]
+      }
+    },
+    {
+      "calculate": "[\"Walking for exercise\", \"Bushwalking\", \"Running and jogging\", \"Cycling\"]",
+      "as": "panel"
+    },
+    {
+      "flatten": [
+        "panel"
+      ]
+    },
+    {
+      "calculate": "datum.panel == datum.activity",
+      "as": "is_self"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "pct",
+          "as": "peak"
+        }
+      ],
+      "groupby": [
+        "panel",
+        "activity"
+      ]
+    }
+  ],
+  "facet": {
+    "field": "panel",
+    "type": "nominal",
+    "sort": [
+      "Walking for exercise",
+      "Bushwalking",
+      "Running and jogging",
+      "Cycling"
+    ],
+    "title": null,
+    "header": {
+      "labelFontSize": 13,
+      "labelFontWeight": 700,
+      "labelColor": "#1b9e77",
+      "labelAnchor": "start",
+      "labelPadding": 6
+    }
+  },
+  "columns": 2,
+  "spec": {
+    "width": 124,
+    "height": 120,
+    "encoding": {
+      "x": {
+        "field": "age",
+        "type": "ordinal",
+        "sort": [
+          "15–17",
+          "18–24",
+          "25–34",
+          "35–44",
+          "45–54",
+          "55–64",
+          "65 and over"
+        ],
+        "title": "Age: younger to older",
+        "scale": {
+          "padding": 0.1
+        },
+        "axis": {
+          "ticks": false,
+          "labels": false,
+          "titleFontSize": 10,
+          "titleFontWeight": 400,
+          "titleColor": "#5b6770"
+        }
+      },
+      "y": {
+        "field": "pct",
+        "type": "quantitative",
+        "scale": {
+          "domain": [
+            0,
+            80
+          ]
+        },
+        "title": "Share of adults (%)",
+        "axis": {
+          "values": [
+            0,
+            40,
+            80
+          ],
+          "ticks": false,
+          "domain": false,
+          "labelExpr": "datum.value + '%'"
+        }
+      }
+    },
+    "layer": [
+      {
+        "transform": [
+          {
+            "filter": "!datum.is_self"
+          }
+        ],
+        "mark": {
+          "type": "line",
+          "color": "#d6d6d6",
+          "strokeWidth": 1.2
+        },
+        "encoding": {
+          "detail": {
+            "field": "activity"
+          }
+        },
+        "description": "Faint grey lines: the other three activities, for comparison"
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.is_self"
+          }
+        ],
+        "mark": {
+          "type": "line",
+          "color": "#1b9e77",
+          "strokeWidth": 3,
+          "point": {
+            "size": 22,
+            "filled": true,
+            "color": "#1b9e77"
+          }
+        },
+        "encoding": {
+          "tooltip": [
+            {
+              "field": "activity",
+              "title": "Activity"
+            },
+            {
+              "field": "age",
+              "title": "Age group"
+            },
+            {
+              "field": "pct",
+              "title": "Share of adults (%)"
+            }
+          ]
+        },
+        "description": "The panel's own activity in teal, drawn on top"
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.is_self && datum.activity == 'Running and jogging' && datum.age == '15–17'"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "left",
+          "baseline": "top",
+          "dx": -4,
+          "fontStyle": "italic",
+          "color": "#3d4a52",
+          "fontSize": 10,
+          "lineHeight": 12
+        },
+        "encoding": {
+          "y": {
+            "datum": 79
+          },
+          "text": {
+            "value": [
+              "Hard on knees and joints:",
+              "many switch to walking"
+            ]
+          }
+        },
+        "description": "Why note in the running panel"
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.is_self && datum.pct == datum.peak"
+          },
+          {
+            "calculate": "'Peak ' + format(datum.pct, '.0f') + '%'",
+            "as": "lab"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "dy": -11,
+          "fontSize": 11,
+          "fontWeight": 700,
+          "color": "#1b9e77"
+        },
+        "encoding": {
+          "text": {
+            "field": "lab"
+          }
+        },
+        "description": "Label at the peak of the teal line"
+      }
+    ]
+  },
+  "resolve": {
+    "scale": {
+      "y": "shared",
+      "x": "shared"
+    }
+  },
+  "config": {
+    "background": "#ffffff",
+    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "padding": {
+      "left": 8,
+      "right": 12,
+      "top": 8,
+      "bottom": 8
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#1f2a30",
+      "offset": 16,
+      "subtitleFontSize": 14,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#5b6770",
+      "subtitlePadding": 8
+    },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770",
+      "domainColor": "#c8c8c8",
+      "tickColor": "#c8c8c8",
+      "grid": false
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770"
+    },
+    "text": {
+      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "color": "#1f2a30",
+      "fontSize": 12
+    },
+    "header": {
+      "labelFontSize": 12,
+      "labelColor": "#1f2a30"
+    },
+    "facet": {
+      "spacing": {
+        "row": 20,
+        "column": 18
+      }
+    }
+  },
+  "description": "Walking grows with age; running fades after 35"
+}

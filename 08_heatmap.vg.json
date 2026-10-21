@@ -1,0 +1,300 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 312,
+  "data": {
+    "url": "data/bom_capital_hot_days.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "month_num": "number",
+        "days_30_or_more": "number",
+        "rain_days": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "joinaggregate": [
+        {
+          "op": "sum",
+          "field": "days_30_or_more",
+          "as": "year_total"
+        }
+      ],
+      "groupby": [
+        "city"
+      ]
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "city",
+      "type": "nominal",
+      "sort": [
+        "Hobart",
+        "Sydney",
+        "Melbourne",
+        "Canberra",
+        "Adelaide",
+        "Brisbane",
+        "Perth",
+        "Darwin"
+      ],
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 12,
+        "labelColor": "#1f2a30",
+        "labelFontWeight": {
+          "condition": {
+            "test": "datum.label == 'Darwin' || datum.label == 'Hobart'",
+            "value": 700
+          },
+          "value": 400
+        }
+      }
+    },
+    "y": {
+      "field": "month",
+      "type": "nominal",
+      "sort": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "title": null,
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 11
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect"
+      },
+      "encoding": {
+        "color": {
+          "field": "days_30_or_more",
+          "type": "quantitative",
+          "title": "Days at 30°C or hotter, per month",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              1,
+              5,
+              10,
+              20
+            ],
+            "range": [
+              "#feedde",
+              "#fdbe85",
+              "#fd8d3c",
+              "#e6550d",
+              "#a63603"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "type": "gradient",
+            "gradientLength": 420,
+            "gradientThickness": 14,
+            "titleOrient": "top",
+            "titleAnchor": "start",
+            "offset": 72,
+            "labelExpr": "isFinite(datum.value) ? datum.value : ''"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "city",
+            "title": "City"
+          },
+          {
+            "field": "month",
+            "title": "Month"
+          },
+          {
+            "field": "days_30_or_more",
+            "title": "Days at 30°C or hotter"
+          },
+          {
+            "field": "rain_days",
+            "title": "Days with rain"
+          },
+          {
+            "field": "year_total",
+            "title": "Hot days in a whole year",
+            "format": ".0f"
+          }
+        ]
+      },
+      "description": "One cell per city and month; darker orange = more days at 30 degrees or hotter (no numbers in cells, details in the tooltip)"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.city == 'Darwin' || datum.city == 'Hobart'"
+        },
+        {
+          "filter": "datum.month_num == 12"
+        },
+        {
+          "calculate": "format(datum.year_total, '.0f') + ' a year'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 700,
+        "baseline": "top",
+        "fontSize": 11,
+        "dy": 22
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.city == 'Darwin' || datum.city == 'Hobart'",
+            "value": "#1f2a30"
+          },
+          "value": "#5b6770"
+        }
+      },
+      "description": "Bold yearly total under Darwin and Hobart"
+    },
+    {
+      "transform": [
+        {
+          "filter": "!(datum.city == 'Darwin' || datum.city == 'Hobart')"
+        },
+        {
+          "filter": "datum.month_num == 12"
+        },
+        {
+          "calculate": "format(datum.year_total, '.0f') + ' a year'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 400,
+        "baseline": "top",
+        "fontSize": 11,
+        "dy": 22
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.city == 'Darwin' || datum.city == 'Hobart'",
+            "value": "#1f2a30"
+          },
+          "value": "#5b6770"
+        }
+      },
+      "description": "Regular yearly total under the other cities"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.month_num == 12 && (datum.city == 'Darwin' || datum.city == 'Hobart')"
+        },
+        {
+          "calculate": "datum.city == 'Darwin' ? ['Tropical, near', 'the equator'] : ['Cooled by the', 'Southern Ocean']",
+          "as": "why"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "baseline": "top",
+        "dy": 38,
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14
+      },
+      "encoding": {
+        "text": {
+          "field": "why"
+        }
+      },
+      "description": "Why notes under Darwin and Hobart"
+    }
+  ],
+  "config": {
+    "background": "#ffffff",
+    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "padding": {
+      "left": 8,
+      "right": 12,
+      "top": 8,
+      "bottom": 8
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#1f2a30",
+      "offset": 16,
+      "subtitleFontSize": 14,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#5b6770",
+      "subtitlePadding": 8
+    },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770",
+      "domainColor": "#c8c8c8",
+      "tickColor": "#c8c8c8",
+      "grid": false
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770"
+    },
+    "text": {
+      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "color": "#1f2a30",
+      "fontSize": 12
+    },
+    "header": {
+      "labelFontSize": 12,
+      "labelColor": "#1f2a30"
+    }
+  },
+  "description": "Darwin is hot all year; Hobart almost never",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  }
+}

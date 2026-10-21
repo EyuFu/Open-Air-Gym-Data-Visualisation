@@ -1,0 +1,298 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 460,
+  "projection": {
+    "type": "conicEqualArea",
+    "parallels": [
+      -18,
+      -36
+    ],
+    "rotate": [
+      -132,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/aus_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "transform": [
+        {
+          "calculate": "'Data is not available'",
+          "as": "note"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "fill": "#dddddd",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "title": "State or territory"
+          },
+          {
+            "field": "note",
+            "title": "Share of adults (%)"
+          }
+        ]
+      },
+      "description": "Base map: every state drawn in grey from the TopoJSON file (shows 'no data' if a value were missing)"
+    },
+    {
+      "data": {
+        "url": "data/aus_states.topojson",
+        "format": {
+          "type": "topojson",
+          "feature": "states"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/state_summary_2025.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "public_space_pct": "number",
+                  "public_space_pct_2024": "number"
+                }
+              }
+            },
+            "key": "state_name",
+            "fields": [
+              "state",
+              "state_name",
+              "public_space_pct",
+              "public_space_pct_2024"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.public_space_pct",
+          "as": "value"
+        },
+        {
+          "calculate": "datum.value < 62 ? 'below 62' : datum.value < 64 ? '62 to 64' : datum.value < 66 ? '64 to 66' : datum.value < 68 ? '66 to 68' : '68 or more'",
+          "as": "class"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.2
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "title": "Share of adults (%)",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              62,
+              64,
+              66,
+              68
+            ],
+            "range": [
+              "#eff3ff",
+              "#bdd7e7",
+              "#6baed6",
+              "#3182bd",
+              "#08519c"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "type": "gradient",
+            "gradientLength": 640,
+            "gradientThickness": 14,
+            "labelExpr": "isFinite(datum.value) ? datum.value + '%' : ''",
+            "titleOrient": "top",
+            "titleAnchor": "start"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "title": "State or territory"
+          },
+          {
+            "field": "value",
+            "title": "Share of adults (%)",
+            "format": ".1f"
+          }
+        ]
+      },
+      "description": "Data layer: lookup joins the CSV to the map by state name, then colour = share of adults (lighter = lower)"
+    },
+    {
+      "data": {
+        "url": "data/state_summary_2025.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "centroid_lon": "number",
+            "centroid_lat": "number",
+            "public_space_pct": "number",
+            "public_space_pct_2024": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.state == 'TAS' || datum.state == 'ACT'"
+        },
+        {
+          "calculate": "datum.public_space_pct",
+          "as": "value"
+        },
+        {
+          "calculate": "datum.state == 'TAS' ? 148.6 : 150.4",
+          "as": "lab_lon"
+        },
+        {
+          "calculate": "datum.state == 'TAS' ? -41.9 : -35.3",
+          "as": "lab_lat"
+        }
+      ],
+      "layer": [
+        {
+          "transform": [
+            {
+              "calculate": "datum.state == 'ACT' ? ['◀ Australian Capital', '    Territory ' + format(datum.value, '.0f') + '%'] : ['◀ ' + datum.state_name + ' ' + format(datum.value, '.0f') + '%']",
+              "as": "lab"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": -7,
+            "fontSize": 12,
+            "fontWeight": 600,
+            "lineHeight": 15
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lab_lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "lab_lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "lab"
+            }
+          },
+          "description": "Callouts for the two leaders, placed in the ocean so they never cover the land"
+        },
+        {
+          "transform": [
+            {
+              "calculate": "datum.state == 'ACT' ? ['    Bush capital: nature reserves', '    sit beside the suburbs'] : ['    Much of the island', '    is national park']",
+              "as": "why"
+            },
+            {
+              "calculate": "datum.state == 'ACT' ? datum.lab_lat - 1.9 : datum.lab_lat - 0.8",
+              "as": "why_lat"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": -7,
+            "fontStyle": "italic",
+            "color": "#3d4a52",
+            "fontSize": 11,
+            "lineHeight": 14
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lab_lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "why_lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "why"
+            }
+          },
+          "description": "Why notes under the two callouts"
+        }
+      ]
+    }
+  ],
+  "config": {
+    "background": "#ffffff",
+    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "padding": {
+      "left": 8,
+      "right": 90,
+      "top": 8,
+      "bottom": 8
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#1f2a30",
+      "offset": 16,
+      "subtitleFontSize": 14,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#5b6770",
+      "subtitlePadding": 8
+    },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770",
+      "domainColor": "#c8c8c8",
+      "tickColor": "#c8c8c8",
+      "grid": false
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770"
+    },
+    "text": {
+      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "color": "#1f2a30",
+      "fontSize": 12
+    },
+    "header": {
+      "labelFontSize": 12,
+      "labelColor": "#1f2a30"
+    }
+  },
+  "description": "Tasmania and the Australian Capital Territory are the most 'outdoorsy'",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  }
+}

@@ -1,0 +1,275 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 120,
+  "height": 330,
+  "data": {
+    "url": "data/ausplay2025_outdoor_activity_by_sex.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.sex == 'Women' ? datum.pct : null",
+      "as": "w"
+    },
+    {
+      "calculate": "datum.sex == 'Men' ? datum.pct : null",
+      "as": "m"
+    },
+    {
+      "joinaggregate": [
+        {
+          "op": "max",
+          "field": "w",
+          "as": "women_pct"
+        },
+        {
+          "op": "max",
+          "field": "m",
+          "as": "men_pct"
+        }
+      ],
+      "groupby": [
+        "activity"
+      ]
+    },
+    {
+      "calculate": "datum.women_pct > datum.men_pct ? 'More women' : 'More men'",
+      "as": "leader"
+    },
+    {
+      "calculate": "datum.activity == 'Running and jogging' && datum.sex == 'Men' ? -6 : datum.activity == 'Bushwalking' && datum.sex == 'Men' ? 6 : 0",
+      "as": "nudge"
+    },
+    {
+      "calculate": "datum.pct - datum.nudge / 5.5",
+      "as": "label_y"
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "sex",
+      "type": "nominal",
+      "sort": [
+        "Women",
+        "Men"
+      ],
+      "title": null,
+      "scale": {
+        "padding": 0.1
+      },
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "labelFontSize": 13,
+        "labelFontWeight": 700,
+        "labelColor": "#1f2a30",
+        "domain": false,
+        "ticks": false,
+        "labelPadding": 10
+      }
+    },
+    "y": {
+      "field": "pct",
+      "type": "quantitative",
+      "scale": {
+        "domain": [
+          0,
+          60
+        ]
+      },
+      "axis": null
+    },
+    "detail": {
+      "field": "activity"
+    },
+    "color": {
+      "field": "leader",
+      "type": "nominal",
+      "legend": null,
+      "scale": {
+        "domain": [
+          "More women",
+          "More men"
+        ],
+        "range": [
+          "#1b9e77",
+          "#1f2a30"
+        ]
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "activity",
+            "title": "Activity"
+          },
+          {
+            "field": "women_pct",
+            "title": "Women (%)"
+          },
+          {
+            "field": "men_pct",
+            "title": "Men (%)"
+          }
+        ]
+      },
+      "description": "One line per activity from women to men, same scale on both sides; teal = more women"
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 70,
+        "opacity": 1
+      },
+      "description": "Dots at both ends"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.sex == 'Men'"
+        },
+        {
+          "calculate": "format(datum.pct, '.0f') + '%  ' + datum.activity",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        },
+        "y": {
+          "field": "label_y",
+          "type": "quantitative"
+        }
+      },
+      "description": "Men's value and activity name on the right"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.sex == 'Women'"
+        },
+        {
+          "calculate": "format(datum.pct, '.0f') + '%'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontSize": 12,
+        "fontWeight": 600
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        }
+      },
+      "description": "Women's value on the left"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "sex": "Women",
+            "pct": 37,
+            "activity": "note"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": -30,
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14
+      },
+      "encoding": {
+        "text": {
+          "value": [
+            "Walking is cheap, social",
+            "and fits around family care"
+          ]
+        },
+        "color": {
+          "value": "#3d4a52"
+        }
+      },
+      "description": "Why note about walking, under the walking line"
+    }
+  ],
+  "config": {
+    "background": "#ffffff",
+    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "padding": {
+      "left": 8,
+      "right": 12,
+      "top": 8,
+      "bottom": 8
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#1f2a30",
+      "offset": 16,
+      "subtitleFontSize": 14,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#5b6770",
+      "subtitlePadding": 8
+    },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770",
+      "domainColor": "#c8c8c8",
+      "tickColor": "#c8c8c8",
+      "grid": false
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770"
+    },
+    "text": {
+      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "color": "#1f2a30",
+      "fontSize": 12
+    },
+    "header": {
+      "labelFontSize": 12,
+      "labelColor": "#1f2a30"
+    }
+  },
+  "description": "Women walk more; men run and cycle more"
+}

@@ -1,0 +1,293 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": "container",
+  "height": 330,
+  "data": {
+    "url": "data/ausplay2025_places_by_age_sex.csv",
+    "format": {
+      "type": "csv",
+      "parse": {
+        "pct": "number"
+      }
+    }
+  },
+  "transform": [
+    {
+      "filter": "datum.group == 'All adults' && datum.place == 'Public spaces (parks, streets, trails, beaches)'"
+    },
+    {
+      "calculate": "datum.age == 'All ages' ? 'All adults' : datum.age",
+      "as": "row"
+    },
+    {
+      "calculate": "round(datum.pct / 5)",
+      "as": "figures"
+    },
+    {
+      "calculate": "sequence(1, 21)",
+      "as": "slots"
+    },
+    {
+      "flatten": [
+        "slots"
+      ],
+      "as": [
+        "slot"
+      ]
+    },
+    {
+      "calculate": "datum.slot + floor((datum.slot - 1) / 5) * 0.7",
+      "as": "xpos"
+    },
+    {
+      "calculate": "datum.slot > datum.figures ? 'empty' : datum.row == '55–64' ? 'highlight' : datum.row == 'All adults' ? 'all' : 'other'",
+      "as": "state"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "row",
+      "type": "nominal",
+      "sort": [
+        "All adults",
+        "15–17",
+        "18–24",
+        "25–34",
+        "35–44",
+        "45–54",
+        "55–64",
+        "65 and over"
+      ],
+      "title": null,
+      "scale": {
+        "padding": 0.25
+      },
+      "axis": {
+        "domain": false,
+        "ticks": false,
+        "labelFontSize": 12,
+        "labelPadding": 8,
+        "labelColor": "#1f2a30",
+        "labelFontWeight": {
+          "condition": {
+            "test": "datum.label == '55–64' || datum.label == 'All adults'",
+            "value": 700
+          },
+          "value": 400
+        }
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "shape": "M-0.28,-0.78 a0.28,0.28 0 1,0 0.56,0 a0.28,0.28 0 1,0 -0.56,0 M-0.42,1 L-0.42,-0.2 Q0,-0.45 0.42,-0.2 L0.42,1 Z",
+        "size": 600,
+        "opacity": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "xpos",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0.5,
+              36
+            ]
+          },
+          "axis": null
+        },
+        "color": {
+          "field": "state",
+          "type": "nominal",
+          "legend": null,
+          "scale": {
+            "domain": [
+              "highlight",
+              "all",
+              "other",
+              "empty"
+            ],
+            "range": [
+              "#1b9e77",
+              "#1f2a30",
+              "#9aa1a6",
+              "#ecebe7"
+            ]
+          }
+        },
+        "tooltip": [
+          {
+            "field": "row",
+            "title": "Age group"
+          },
+          {
+            "field": "pct",
+            "title": "Share of adults (%)",
+            "format": ".1f"
+          }
+        ]
+      },
+      "description": "One person icon per 5 adults out of 100; one row per age group, the teal row is 55 to 64"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.row == '55–64' || datum.row == 'All adults'"
+        },
+        {
+          "filter": "datum.slot == 1"
+        },
+        {
+          "calculate": "format(datum.pct, '.0f') + ' in 100'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 700,
+        "align": "left",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {
+          "datum": 23.8,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.row == '55–64'",
+            "value": "#1b9e77"
+          },
+          "value": "#5b6770"
+        }
+      },
+      "description": "Bold label at the end of the two key rows: how many in 100 adults"
+    },
+    {
+      "transform": [
+        {
+          "filter": "!(datum.row == '55–64' || datum.row == 'All adults')"
+        },
+        {
+          "filter": "datum.slot == 1"
+        },
+        {
+          "calculate": "format(datum.pct, '.0f') + ' in 100'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 400,
+        "align": "left",
+        "fontSize": 12
+      },
+      "encoding": {
+        "x": {
+          "datum": 23.8,
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.row == '55–64'",
+            "value": "#1b9e77"
+          },
+          "value": "#5b6770"
+        }
+      },
+      "description": "Regular label at the end of the other rows"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.slot == 1 && datum.row == '55–64'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14
+      },
+      "encoding": {
+        "x": {
+          "datum": 27.6,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": [
+            "More free time once",
+            "children leave home"
+          ]
+        }
+      },
+      "description": "Why note beside the peak row"
+    }
+  ],
+  "config": {
+    "background": "#ffffff",
+    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "padding": {
+      "left": 8,
+      "right": 20,
+      "top": 8,
+      "bottom": 8
+    },
+    "title": {
+      "anchor": "start",
+      "fontSize": 17,
+      "fontWeight": 700,
+      "color": "#1f2a30",
+      "offset": 16,
+      "subtitleFontSize": 14,
+      "subtitleFontWeight": 400,
+      "subtitleColor": "#5b6770",
+      "subtitlePadding": 8
+    },
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770",
+      "domainColor": "#c8c8c8",
+      "tickColor": "#c8c8c8",
+      "grid": false
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "labelColor": "#5b6770",
+      "titleFontSize": 12,
+      "titleFontWeight": 600,
+      "titleColor": "#5b6770"
+    },
+    "text": {
+      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "color": "#1f2a30",
+      "fontSize": 12
+    },
+    "header": {
+      "labelFontSize": 12,
+      "labelColor": "#1f2a30"
+    }
+  },
+  "description": "Outdoor exercise rises with age and peaks at 55 to 64",
+  "autosize": {
+    "type": "fit-x",
+    "contains": "padding"
+  }
+}
