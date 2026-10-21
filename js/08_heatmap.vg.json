@@ -228,7 +228,7 @@
       "mark": {
         "type": "text",
         "baseline": "top",
-        "dy": 38,
+        "dy": 44,
         "fontStyle": "italic",
         "color": "#3d4a52",
         "fontSize": 11,
@@ -240,6 +240,31 @@
         }
       },
       "description": "Why notes under Darwin and Hobart"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.month_num == 12 && (datum.city == 'Darwin' || datum.city == 'Hobart')"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1,
+        "xOffset": -36
+      },
+      "encoding": {
+        "y": {
+          "value": {
+            "expr": "height + 3"
+          }
+        },
+        "y2": {
+          "value": {
+            "expr": "height + 52"
+          }
+        }
+      }
     }
   ],
   "config": {

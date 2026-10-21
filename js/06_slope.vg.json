@@ -38,8 +38,8 @@
       ]
     },
     {
-      "calculate": "datum.women_pct > datum.men_pct ? 'More women' : 'More men'",
-      "as": "leader"
+      "calculate": "datum.activity == 'Walking for exercise' ? 'Walking: the biggest gap' : 'Other outdoor activities'",
+      "as": "focus"
     },
     {
       "calculate": "datum.activity == 'Running and jogging' && datum.sex == 'Men' ? -6 : datum.activity == 'Bushwalking' && datum.sex == 'Men' ? 6 : 0",
@@ -88,18 +88,29 @@
       "field": "activity"
     },
     "color": {
-      "field": "leader",
+      "field": "focus",
       "type": "nominal",
-      "legend": null,
       "scale": {
         "domain": [
-          "More women",
-          "More men"
+          "Walking: the biggest gap",
+          "Other outdoor activities"
         ],
         "range": [
           "#1b9e77",
-          "#1f2a30"
+          "#7b858b"
         ]
+      },
+      "legend": {
+        "orient": "top",
+        "direction": "vertical",
+        "title": null,
+        "labelFontSize": 12,
+        "labelColor": "#1f2a30",
+        "symbolSize": 140,
+        "columnPadding": 18,
+        "offset": 12,
+        "symbolType": "stroke",
+        "symbolStrokeWidth": 3
       }
     }
   },
@@ -219,6 +230,30 @@
         }
       },
       "description": "Why note about walking, under the walking line"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "sex": "Women",
+            "pct": 39.0,
+            "pct2": 56.0,
+            "activity": "note"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y2": {
+          "field": "pct2"
+        },
+        "color": {
+          "value": "#8a9096"
+        }
+      }
     }
   ],
   "config": {

@@ -27,6 +27,10 @@
           "Mental health"
         ]
       }
+    },
+    {
+      "calculate": "datum.age == '55–64' ? 'Ages 55–64' : 'Other age groups'",
+      "as": "line_role"
     }
   ],
   "encoding": {
@@ -146,11 +150,30 @@
           "field": "age"
         },
         "color": {
-          "condition": {
-            "test": "datum.age == '55–64'",
-            "value": "#1f2a30"
+          "field": "line_role",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Ages 55–64",
+              "Other age groups"
+            ],
+            "range": [
+              "#1f2a30",
+              "#cfcfcf"
+            ]
           },
-          "value": "#cfcfcf"
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "title": null,
+            "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 140,
+            "columnPadding": 18,
+            "offset": 12,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3
+          }
         },
         "strokeWidth": {
           "condition": {
@@ -259,6 +282,41 @@
         }
       },
       "description": "Why note in the empty space right of the nature axis"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "group": "All adults",
+            "age": "note",
+            "motivation": "Being outdoors in nature",
+            "pct": 50,
+            "line_role": "Other age groups"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 446
+        },
+        "y": {
+          "value": 31
+        },
+        "x2": {
+          "value": 429
+        },
+        "y2": {
+          "value": 81
+        },
+        "color": {
+          "value": "#8a9096"
+        }
+      }
     }
   ],
   "config": {

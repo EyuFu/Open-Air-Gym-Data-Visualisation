@@ -242,6 +242,32 @@
         }
       },
       "description": "Why note under the 'not active' label"
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": 254
+        },
+        "y": {
+          "value": 263
+        },
+        "x2": {
+          "value": 238
+        },
+        "y2": {
+          "value": 244
+        }
+      }
     }
   ],
   "config": {

@@ -48,8 +48,8 @@
       },
       "mark": {
         "type": "rect",
-        "color": "#1b9e77",
-        "opacity": 0.12
+        "color": "#9aa1a6",
+        "opacity": 0.16
       },
       "encoding": {
         "x": {
@@ -81,7 +81,7 @@
         "dy": -3,
         "fontSize": 11,
         "fontWeight": 700,
-        "color": "#0f7a5b"
+        "color": "#5b6770"
       },
       "encoding": {
         "x": {
@@ -100,11 +100,14 @@
       "transform": [
         {
           "filter": "datum.city != city"
+        },
+        {
+          "calculate": "'Other cities'",
+          "as": "line_role"
         }
       ],
       "mark": {
         "type": "line",
-        "color": "#cfcfcf",
         "strokeWidth": 1.2
       },
       "encoding": {
@@ -151,6 +154,32 @@
         "detail": {
           "field": "city"
         },
+        "color": {
+          "field": "line_role",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Chosen city",
+              "Other cities"
+            ],
+            "range": [
+              "#1b9e77",
+              "#cfcfcf"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "vertical",
+            "title": null,
+            "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 140,
+            "columnPadding": 18,
+            "offset": 12,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3
+          }
+        },
         "tooltip": [
           {
             "field": "city",
@@ -172,11 +201,14 @@
       "transform": [
         {
           "filter": "datum.city == city"
+        },
+        {
+          "calculate": "'Chosen city'",
+          "as": "line_role"
         }
       ],
       "mark": {
         "type": "line",
-        "color": "#1b9e77",
         "strokeWidth": 3
       },
       "encoding": {
@@ -218,6 +250,32 @@
             "domain": false,
             "ticks": false,
             "labelExpr": "datum.value + '°C'"
+          }
+        },
+        "color": {
+          "field": "line_role",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Chosen city",
+              "Other cities"
+            ],
+            "range": [
+              "#1b9e77",
+              "#cfcfcf"
+            ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "vertical",
+            "title": null,
+            "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 140,
+            "columnPadding": 18,
+            "offset": 12,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3
           }
         }
       },
@@ -285,7 +343,6 @@
         "fill": {
           "field": "mild",
           "type": "nominal",
-          "legend": null,
           "scale": {
             "domain": [
               "Mild",
@@ -295,6 +352,20 @@
               "#1b9e77",
               "white"
             ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "vertical",
+            "title": null,
+            "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 140,
+            "columnPadding": 18,
+            "offset": 12,
+            "symbolType": "circle",
+            "symbolStrokeColor": "#1b9e77",
+            "symbolStrokeWidth": 2,
+            "labelExpr": "datum.label == 'Mild' ? 'Mild month' : 'Not mild'"
           }
         },
         "tooltip": [
@@ -410,6 +481,62 @@
         }
       },
       "description": "Why note for the chosen city"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.city == city"
+        },
+        {
+          "joinaggregate": [
+            {
+              "op": "min",
+              "field": "mean_max_temp_c",
+              "as": "coolest"
+            }
+          ]
+        },
+        {
+          "filter": "datum.mean_max_temp_c == datum.coolest"
+        },
+        {
+          "calculate": "35",
+          "as": "top"
+        },
+        {
+          "calculate": "datum.mean_max_temp_c + 0.9",
+          "as": "bottom"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "month_num",
+          "type": "ordinal",
+          "title": null,
+          "scale": {
+            "padding": 0.3
+          },
+          "axis": {
+            "labelAngle": 0,
+            "domain": false,
+            "ticks": false,
+            "labelFontSize": 11,
+            "labelExpr": "datum.value == 1 ? 'January' : datum.value == 4 ? 'April' : datum.value == 7 ? 'July' : datum.value == 10 ? 'October' : ''"
+          }
+        },
+        "y": {
+          "field": "top",
+          "type": "quantitative"
+        },
+        "y2": {
+          "field": "bottom"
+        }
+      }
     }
   ],
   "config": {

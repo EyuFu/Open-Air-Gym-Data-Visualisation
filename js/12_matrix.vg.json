@@ -51,6 +51,10 @@
     {
       "calculate": "datum.pct == datum.age_top",
       "as": "is_top"
+    },
+    {
+      "calculate": "datum.is_top ? 'Top reason for that age' : 'Other reasons'",
+      "as": "top_role"
     }
   ],
   "encoding": {
@@ -102,6 +106,37 @@
   },
   "layer": [
     {
+      "data": {
+        "values": [
+          {
+            "reason": "Feeling too lazy",
+            "age": "35–44"
+          },
+          {
+            "reason": "Feeling too old",
+            "age": "65 and over"
+          },
+          {
+            "reason": "Not enough time",
+            "age": "35–44"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x2": {
+          "value": {
+            "expr": "width + 14"
+          }
+        }
+      },
+      "description": "One circle per reason and age group: circle area = share (size scale starts at 0); teal = the top reason for that age"
+    },
+    {
       "mark": {
         "type": "circle",
         "opacity": 1
@@ -137,11 +172,29 @@
           }
         },
         "color": {
-          "condition": {
-            "test": "datum.is_top",
-            "value": "#1b9e77"
+          "field": "top_role",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Top reason for that age",
+              "Other reasons"
+            ],
+            "range": [
+              "#1b9e77",
+              "#c3c7ca"
+            ]
           },
-          "value": "#c3c7ca"
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "title": null,
+            "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 160,
+            "columnPadding": 18,
+            "offset": 12,
+            "symbolType": "circle"
+          }
         },
         "tooltip": [
           {
@@ -158,7 +211,7 @@
           }
         ]
       },
-      "description": "One circle per reason and age group: circle area = share (size scale starts at 0); teal = the top reason for that age"
+      "description": "Value label inside each teal circle"
     },
     {
       "transform": [
@@ -181,7 +234,7 @@
           "field": "lab"
         }
       },
-      "description": "Value label inside each teal circle"
+      "description": "Why notes beside three rows, outside the grid"
     },
     {
       "data": {
@@ -228,8 +281,7 @@
         "text": {
           "field": "why"
         }
-      },
-      "description": "Why notes beside three rows, outside the grid"
+      }
     }
   ],
   "config": {

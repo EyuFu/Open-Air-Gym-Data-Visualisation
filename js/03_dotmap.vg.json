@@ -23,6 +23,10 @@
       }
     }
   ],
+  "view": {
+    "fill": "#e4eef3",
+    "stroke": null
+  },
   "projection": {
     "type": "conicEqualArea",
     "parallels": [
@@ -164,6 +168,42 @@
         }
       },
       "description": "Why note about where councils build stations, in the empty ocean"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 119.3,
+            "lat": -37.9,
+            "lon2": 116.3,
+            "lat2": -32.6
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1,
+        "opacity": {
+          "expr": "city == 'Whole of Australia' ? 1 : 0"
+        }
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        }
+      }
     }
   ],
   "config": {

@@ -13,7 +13,42 @@
       0
     ]
   },
+  "view": {
+    "fill": "#e4eef3",
+    "stroke": null
+  },
   "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "type": "Feature",
+            "properties": {},
+            "geometry": {
+              "type": "MultiPoint",
+              "coordinates": [
+                [
+                  111.5,
+                  -9.5
+                ],
+                [
+                  163.0,
+                  -45.0
+                ]
+              ]
+            }
+          }
+        ],
+        "format": {
+          "type": "json"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "opacity": 0
+      },
+      "description": "Base map: every state drawn in grey from the TopoJSON file (shows 'no data' if a value were missing)"
+    },
     {
       "data": {
         "url": "data/aus_states.topojson",
@@ -46,7 +81,7 @@
           }
         ]
       },
-      "description": "Base map: every state drawn in grey from the TopoJSON file (shows 'no data' if a value were missing)"
+      "description": "Data layer: lookup joins the CSV to the map by state name, then colour = share of adults (lighter = lower)"
     },
     {
       "data": {
@@ -107,11 +142,11 @@
               68
             ],
             "range": [
-              "#eff3ff",
-              "#bdd7e7",
-              "#6baed6",
-              "#3182bd",
-              "#08519c"
+              "#f2f0f7",
+              "#cbc9e2",
+              "#9e9ac8",
+              "#756bb1",
+              "#54278f"
             ]
           },
           "legend": {
@@ -137,7 +172,303 @@
           }
         ]
       },
-      "description": "Data layer: lookup joins the CSV to the map by state name, then colour = share of adults (lighter = lower)"
+      "description": "Callouts for the two leaders, placed in the ocean so they never cover the land"
+    },
+    {
+      "data": {
+        "values": {
+          "type": "FeatureCollection",
+          "features": [
+            {
+              "type": "Feature",
+              "properties": {
+                "STATE_NAME": "Australian Capital Territory"
+              },
+              "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                  [
+                    [
+                      157.24,
+                      -39.317
+                    ],
+                    [
+                      157.337,
+                      -39.659
+                    ],
+                    [
+                      157.216,
+                      -40.061
+                    ],
+                    [
+                      157.289,
+                      -40.363
+                    ],
+                    [
+                      156.971,
+                      -40.987
+                    ],
+                    [
+                      156.751,
+                      -40.865
+                    ],
+                    [
+                      156.434,
+                      -40.825
+                    ],
+                    [
+                      156.116,
+                      -40.584
+                    ],
+                    [
+                      155.994,
+                      -39.779
+                    ],
+                    [
+                      155.677,
+                      -39.92
+                    ],
+                    [
+                      155.408,
+                      -39.659
+                    ],
+                    [
+                      155.457,
+                      -39.478
+                    ],
+                    [
+                      155.286,
+                      -39.096
+                    ],
+                    [
+                      155.261,
+                      -38.452
+                    ],
+                    [
+                      155.383,
+                      -37.93
+                    ],
+                    [
+                      155.53,
+                      -37.769
+                    ],
+                    [
+                      155.432,
+                      -37.507
+                    ],
+                    [
+                      155.53,
+                      -37.306
+                    ],
+                    [
+                      157.411,
+                      -36.22
+                    ],
+                    [
+                      157.802,
+                      -36.461
+                    ],
+                    [
+                      157.826,
+                      -36.643
+                    ],
+                    [
+                      158.315,
+                      -37.105
+                    ],
+                    [
+                      158.559,
+                      -37.125
+                    ],
+                    [
+                      158.974,
+                      -37.306
+                    ],
+                    [
+                      159.023,
+                      -37.447
+                    ],
+                    [
+                      158.681,
+                      -37.507
+                    ],
+                    [
+                      158.168,
+                      -37.447
+                    ],
+                    [
+                      157.9,
+                      -37.547
+                    ],
+                    [
+                      157.558,
+                      -37.97
+                    ],
+                    [
+                      157.484,
+                      -38.191
+                    ],
+                    [
+                      157.582,
+                      -38.432
+                    ],
+                    [
+                      157.46,
+                      -38.774
+                    ],
+                    [
+                      157.508,
+                      -38.995
+                    ],
+                    [
+                      157.191,
+                      -38.955
+                    ],
+                    [
+                      157.24,
+                      -39.317
+                    ]
+                  ]
+                ]
+              }
+            }
+          ]
+        },
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.STATE_NAME",
+          "from": {
+            "data": {
+              "url": "data/state_summary_2025.csv",
+              "format": {
+                "type": "csv",
+                "parse": {
+                  "public_space_pct": "number",
+                  "public_space_pct_2024": "number"
+                }
+              }
+            },
+            "key": "state_name",
+            "fields": [
+              "state",
+              "state_name",
+              "public_space_pct",
+              "public_space_pct_2024"
+            ]
+          }
+        },
+        {
+          "calculate": "datum.public_space_pct",
+          "as": "value"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "color": {
+          "field": "value",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [
+              62,
+              64,
+              66,
+              68
+            ],
+            "range": [
+              "#f2f0f7",
+              "#cbc9e2",
+              "#9e9ac8",
+              "#756bb1",
+              "#54278f"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "properties.STATE_NAME",
+            "title": "State or territory (enlarged 6 times)"
+          },
+          {
+            "field": "value",
+            "title": "Share of adults (%)",
+            "format": ".1f"
+          }
+        ]
+      },
+      "description": "Why notes under the two callouts"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 149.45,
+            "lat": -35.55,
+            "lon2": 155.1,
+            "lat2": -38.300000000000004,
+            "dash": 1
+          },
+          {
+            "lon": 145.15,
+            "lat": -41.0,
+            "lon2": 144.3,
+            "lat2": -41.0,
+            "dash": 0
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "longitude2": {
+          "field": "lon2"
+        },
+        "latitude2": {
+          "field": "lat2"
+        },
+        "strokeDash": {
+          "field": "dash",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              0,
+              1
+            ],
+            "range": [
+              [
+                1,
+                0
+              ],
+              [
+                4,
+                3
+              ]
+            ]
+          },
+          "legend": null
+        }
+      }
     },
     {
       "data": {
@@ -145,8 +476,6 @@
         "format": {
           "type": "csv",
           "parse": {
-            "centroid_lon": "number",
-            "centroid_lat": "number",
             "public_space_pct": "number",
             "public_space_pct_2024": "number"
           }
@@ -154,90 +483,140 @@
       },
       "transform": [
         {
-          "filter": "datum.state == 'TAS' || datum.state == 'ACT'"
+          "filter": "datum.state == 'ACT'"
         },
         {
           "calculate": "datum.public_space_pct",
           "as": "value"
         },
         {
-          "calculate": "datum.state == 'TAS' ? 148.6 : 150.4",
+          "calculate": "154.4",
           "as": "lab_lon"
         },
         {
-          "calculate": "datum.state == 'TAS' ? -41.9 : -35.3",
+          "calculate": "-31.0",
           "as": "lab_lat"
-        }
-      ],
-      "layer": [
-        {
-          "transform": [
-            {
-              "calculate": "datum.state == 'ACT' ? ['◀ Australian Capital', '    Territory ' + format(datum.value, '.0f') + '%'] : ['◀ ' + datum.state_name + ' ' + format(datum.value, '.0f') + '%']",
-              "as": "lab"
-            }
-          ],
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "baseline": "top",
-            "dy": -7,
-            "fontSize": 12,
-            "fontWeight": 600,
-            "lineHeight": 15
-          },
-          "encoding": {
-            "longitude": {
-              "field": "lab_lon",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "lab_lat",
-              "type": "quantitative"
-            },
-            "text": {
-              "field": "lab"
-            }
-          },
-          "description": "Callouts for the two leaders, placed in the ocean so they never cover the land"
         },
         {
-          "transform": [
-            {
-              "calculate": "datum.state == 'ACT' ? ['    Bush capital: nature reserves', '    sit beside the suburbs'] : ['    Much of the island', '    is national park']",
-              "as": "why"
-            },
-            {
-              "calculate": "datum.state == 'ACT' ? datum.lab_lat - 1.9 : datum.lab_lat - 0.8",
-              "as": "why_lat"
-            }
-          ],
-          "mark": {
-            "type": "text",
-            "align": "left",
-            "baseline": "top",
-            "dy": -7,
-            "fontStyle": "italic",
-            "color": "#3d4a52",
-            "fontSize": 11,
-            "lineHeight": 14
-          },
-          "encoding": {
-            "longitude": {
-              "field": "lab_lon",
-              "type": "quantitative"
-            },
-            "latitude": {
-              "field": "why_lat",
-              "type": "quantitative"
-            },
-            "text": {
-              "field": "why"
-            }
-          },
-          "description": "Why notes under the two callouts"
+          "calculate": "datum.state == 'ACT' ? ['Australian Capital', 'Territory ' + format(datum.value, '.0f') + '% (enlarged)'] : [datum.state_name + ' ' + format(datum.value, '.0f') + '%']",
+          "as": "lab"
         }
-      ]
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "lineHeight": 15
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lab_lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lab_lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "lab"
+        }
+      }
+    },
+    {
+      "data": {
+        "url": "data/state_summary_2025.csv",
+        "format": {
+          "type": "csv",
+          "parse": {
+            "public_space_pct": "number",
+            "public_space_pct_2024": "number"
+          }
+        }
+      },
+      "transform": [
+        {
+          "filter": "datum.state == 'TAS'"
+        },
+        {
+          "calculate": "datum.public_space_pct",
+          "as": "value"
+        },
+        {
+          "calculate": "datum.state_name + ' ' + format(datum.value, '.0f') + '%'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "fontSize": 12,
+        "fontWeight": 600,
+        "dx": -3
+      },
+      "encoding": {
+        "longitude": {
+          "datum": 144.3
+        },
+        "latitude": {
+          "datum": -41.0
+        },
+        "text": {
+          "field": "lab"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 154.4,
+            "lat": -33.4,
+            "why": [
+              "Bush capital: nature reserves",
+              "sit beside the suburbs"
+            ]
+          },
+          {
+            "lon": 144.3,
+            "lat": -41.5,
+            "why": [
+              "Much of the island",
+              "is national park"
+            ],
+            "al": "right"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": {
+          "expr": "datum.al == 'right' ? 'right' : 'left'"
+        },
+        "dx": {
+          "expr": "datum.al == 'right' ? -3 : 0"
+        },
+        "baseline": "top",
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "why"
+        }
+      }
     }
   ],
   "config": {
@@ -245,7 +624,7 @@
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
       "left": 8,
-      "right": 90,
+      "right": 12,
       "top": 8,
       "bottom": 8
     },

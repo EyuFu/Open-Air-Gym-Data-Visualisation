@@ -102,7 +102,6 @@
         "color": {
           "field": "state",
           "type": "nominal",
-          "legend": null,
           "scale": {
             "domain": [
               "highlight",
@@ -116,6 +115,18 @@
               "#9aa1a6",
               "#ecebe7"
             ]
+          },
+          "legend": {
+            "orient": "top",
+            "direction": "horizontal",
+            "title": null,
+            "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 160,
+            "columnPadding": 18,
+            "offset": 12,
+            "symbolType": "M-0.28,-0.78 a0.28,0.28 0 1,0 0.56,0 a0.28,0.28 0 1,0 -0.56,0 M-0.42,1 L-0.42,-0.2 Q0,-0.45 0.42,-0.2 L0.42,1 Z",
+            "labelExpr": "{'highlight': 'Ages 55–64 (peak)', 'all': 'All adults', 'other': 'Other ages', 'empty': 'Not outdoors'}[datum.label]"
           }
         },
         "tooltip": [
@@ -222,7 +233,7 @@
       },
       "encoding": {
         "x": {
-          "datum": 27.6,
+          "datum": 29.6,
           "type": "quantitative"
         },
         "text": {
@@ -233,6 +244,27 @@
         }
       },
       "description": "Why note beside the peak row"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.slot == 1 && datum.row == '55–64'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "datum": 27.0,
+          "type": "quantitative"
+        },
+        "x2": {
+          "datum": 29.3
+        }
+      }
     }
   ],
   "config": {

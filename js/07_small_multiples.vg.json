@@ -35,6 +35,10 @@
       "as": "is_self"
     },
     {
+      "calculate": "datum.is_self ? 'The activity named above the panel' : 'The other three, for comparison'",
+      "as": "role"
+    },
+    {
       "joinaggregate": [
         {
           "op": "max",
@@ -126,12 +130,37 @@
         ],
         "mark": {
           "type": "line",
-          "color": "#d6d6d6",
           "strokeWidth": 1.2
         },
         "encoding": {
           "detail": {
             "field": "activity"
+          },
+          "color": {
+            "field": "role",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "The activity named above the panel",
+                "The other three, for comparison"
+              ],
+              "range": [
+                "#1b9e77",
+                "#d6d6d6"
+              ]
+            },
+            "legend": {
+              "orient": "top",
+              "direction": "vertical",
+              "title": null,
+              "labelFontSize": 12,
+              "labelColor": "#1f2a30",
+              "symbolSize": 140,
+              "columnPadding": 18,
+              "offset": 12,
+              "symbolType": "stroke",
+              "symbolStrokeWidth": 3
+            }
           }
         },
         "description": "Faint grey lines: the other three activities, for comparison"
@@ -144,7 +173,6 @@
         ],
         "mark": {
           "type": "line",
-          "color": "#1b9e77",
           "strokeWidth": 3,
           "point": {
             "size": 22,
@@ -153,6 +181,32 @@
           }
         },
         "encoding": {
+          "color": {
+            "field": "role",
+            "type": "nominal",
+            "scale": {
+              "domain": [
+                "The activity named above the panel",
+                "The other three, for comparison"
+              ],
+              "range": [
+                "#1b9e77",
+                "#d6d6d6"
+              ]
+            },
+            "legend": {
+              "orient": "top",
+              "direction": "vertical",
+              "title": null,
+              "labelFontSize": 12,
+              "labelColor": "#1f2a30",
+              "symbolSize": 140,
+              "columnPadding": 18,
+              "offset": 12,
+              "symbolType": "stroke",
+              "symbolStrokeWidth": 3
+            }
+          },
           "tooltip": [
             {
               "field": "activity",
@@ -202,6 +256,27 @@
       {
         "transform": [
           {
+            "filter": "datum.is_self && datum.activity == 'Running and jogging' && datum.age == '45–54'"
+          }
+        ],
+        "mark": {
+          "type": "rule",
+          "color": "#8a9096",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "y": {
+            "datum": 63
+          },
+          "y2": {
+            "datum": 19
+          }
+        },
+        "description": "Label at the peak of the teal line"
+      },
+      {
+        "transform": [
+          {
             "filter": "datum.is_self && datum.pct == datum.peak"
           },
           {
@@ -220,8 +295,7 @@
           "text": {
             "field": "lab"
           }
-        },
-        "description": "Label at the peak of the teal line"
+        }
       }
     ]
   },

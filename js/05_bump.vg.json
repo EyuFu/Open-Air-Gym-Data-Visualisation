@@ -182,7 +182,6 @@
         "color": {
           "field": "group",
           "type": "nominal",
-          "legend": null,
           "scale": {
             "domain": [
               "Bushwalking",
@@ -194,6 +193,19 @@
               "#6b767d",
               "#d0d0d0"
             ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "direction": "horizontal",
+            "title": null,
+            "labelFontSize": 12,
+            "labelColor": "#1f2a30",
+            "symbolSize": 140,
+            "columnPadding": 18,
+            "offset": 16,
+            "symbolType": "stroke",
+            "symbolStrokeWidth": 3,
+            "labelExpr": "{'Bushwalking': 'Bushwalking', 'Other outdoor fitness': 'Walking, running, cycling', 'Sport or swimming': 'Sport and swimming'}[datum.label]"
           }
         },
         "strokeWidth": {
@@ -247,7 +259,6 @@
         "color": {
           "field": "group",
           "type": "nominal",
-          "legend": null,
           "scale": {
             "domain": [
               "Bushwalking",
@@ -375,6 +386,39 @@
         }
       },
       "description": "Why note about the rise of bushwalking"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "yr": "2022",
+            "rank": 5.5,
+            "yr2": "2024",
+            "rank2": 2.25
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "field": "yr",
+          "type": "ordinal"
+        },
+        "y": {
+          "field": "rank",
+          "type": "quantitative"
+        },
+        "x2": {
+          "field": "yr2"
+        },
+        "y2": {
+          "field": "rank2"
+        }
+      }
     }
   ],
   "config": {
