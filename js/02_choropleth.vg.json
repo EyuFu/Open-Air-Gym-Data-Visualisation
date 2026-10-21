@@ -200,6 +200,42 @@
             }
           },
           "description": "Callouts for the two leaders, placed in the ocean so they never cover the land"
+        },
+        {
+          "transform": [
+            {
+              "calculate": "datum.state == 'ACT' ? ['    Bush capital: nature reserves', '    sit beside the suburbs'] : ['    Much of the island', '    is national park']",
+              "as": "why"
+            },
+            {
+              "calculate": "datum.state == 'ACT' ? datum.lab_lat - 1.9 : datum.lab_lat - 0.8",
+              "as": "why_lat"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": -7,
+            "fontStyle": "italic",
+            "color": "#3d4a52",
+            "fontSize": 11,
+            "lineHeight": 14
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lab_lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "why_lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "field": "why"
+            }
+          },
+          "description": "Why notes under the two callouts"
         }
       ]
     }

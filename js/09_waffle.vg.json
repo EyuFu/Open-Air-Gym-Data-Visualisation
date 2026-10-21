@@ -214,6 +214,34 @@
         }
       },
       "description": "Label for group 4"
+    },
+    {
+      "data": {
+        "values": [
+          {}
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "x": 258,
+        "y": 256,
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14
+      },
+      "encoding": {
+        "text": {
+          "value": [
+            "Main reasons: poor",
+            "health and feeling",
+            "too old (chart 12)"
+          ]
+        }
+      },
+      "description": "Why note under the 'not active' label"
     }
   ],
   "config": {

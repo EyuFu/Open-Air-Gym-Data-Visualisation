@@ -208,6 +208,44 @@
             }
           },
           "description": "Callouts for New South Wales and the Australian Capital Territory"
+        },
+        {
+          "transform": [
+            {
+              "filter": "datum.state == 'ACT'"
+            },
+            {
+              "calculate": "datum.lab_lat - 3.6",
+              "as": "why_lat"
+            }
+          ],
+          "mark": {
+            "type": "text",
+            "align": "left",
+            "baseline": "top",
+            "dy": -7,
+            "fontStyle": "italic",
+            "color": "#3d4a52",
+            "fontSize": 11,
+            "lineHeight": 14
+          },
+          "encoding": {
+            "longitude": {
+              "field": "lab_lon",
+              "type": "quantitative"
+            },
+            "latitude": {
+              "field": "why_lat",
+              "type": "quantitative"
+            },
+            "text": {
+              "value": [
+                "    One government plans every",
+                "    park in a compact city"
+              ]
+            }
+          },
+          "description": "Why note under the Australian Capital Territory callout"
         }
       ]
     }

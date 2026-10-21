@@ -44,6 +44,10 @@
     {
       "calculate": "datum.activity == 'Running and jogging' && datum.sex == 'Men' ? -6 : datum.activity == 'Bushwalking' && datum.sex == 'Men' ? 6 : 0",
       "as": "nudge"
+    },
+    {
+      "calculate": "datum.pct - datum.nudge / 5.5",
+      "as": "label_y"
     }
   ],
   "encoding": {
@@ -152,10 +156,9 @@
         "text": {
           "field": "lab"
         },
-        "yOffset": {
-          "field": "nudge",
-          "type": "quantitative",
-          "scale": null
+        "y": {
+          "field": "label_y",
+          "type": "quantitative"
         }
       },
       "description": "Men's value and activity name on the right"
@@ -183,6 +186,39 @@
         }
       },
       "description": "Women's value on the left"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "sex": "Women",
+            "pct": 37,
+            "activity": "note"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "top",
+        "dx": -30,
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14
+      },
+      "encoding": {
+        "text": {
+          "value": [
+            "Walking is cheap, social",
+            "and fits around family care"
+          ]
+        },
+        "color": {
+          "value": "#3d4a52"
+        }
+      },
+      "description": "Why note about walking, under the walking line"
     }
   ],
   "config": {

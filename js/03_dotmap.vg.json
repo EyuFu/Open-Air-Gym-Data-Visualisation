@@ -131,8 +131,9 @@
             "lon": 119.5,
             "lat": -38.2,
             "lab": [
-              "Few stations inland: most follow",
-              "the coast and the capital cities"
+              "Councils build stations where",
+              "most residents live; inland towns",
+              "are small and spread out"
             ]
           }
         ]
@@ -141,9 +142,10 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "fontSize": 12,
-        "lineHeight": 15,
-        "color": "#1f2a30",
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14,
         "opacity": {
           "expr": "city == 'Whole of Australia' ? 1 : 0"
         }
@@ -161,7 +163,7 @@
           "field": "lab"
         }
       },
-      "description": "Annotation about the empty inland areas"
+      "description": "Why note about where councils build stations, in the empty ocean"
     }
   ],
   "config": {

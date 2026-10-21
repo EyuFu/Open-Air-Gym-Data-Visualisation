@@ -117,7 +117,7 @@
             "gradientThickness": 14,
             "titleOrient": "top",
             "titleAnchor": "start",
-            "offset": 40,
+            "offset": 72,
             "labelExpr": "isFinite(datum.value) ? datum.value : ''"
           }
         },
@@ -150,6 +150,9 @@
     {
       "transform": [
         {
+          "filter": "datum.city == 'Darwin' || datum.city == 'Hobart'"
+        },
+        {
           "filter": "datum.month_num == 12"
         },
         {
@@ -159,6 +162,7 @@
       ],
       "mark": {
         "type": "text",
+        "fontWeight": 700,
         "baseline": "top",
         "fontSize": 11,
         "dy": 22
@@ -173,16 +177,69 @@
             "value": "#1f2a30"
           },
           "value": "#5b6770"
-        },
-        "fontWeight": {
-          "condition": {
-            "test": "datum.city == 'Darwin' || datum.city == 'Hobart'",
-            "value": 700
-          },
-          "value": 400
         }
       },
-      "description": "Total hot days a year, written under each city"
+      "description": "Bold yearly total under Darwin and Hobart"
+    },
+    {
+      "transform": [
+        {
+          "filter": "!(datum.city == 'Darwin' || datum.city == 'Hobart')"
+        },
+        {
+          "filter": "datum.month_num == 12"
+        },
+        {
+          "calculate": "format(datum.year_total, '.0f') + ' a year'",
+          "as": "lab"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 400,
+        "baseline": "top",
+        "fontSize": 11,
+        "dy": 22
+      },
+      "encoding": {
+        "text": {
+          "field": "lab"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.city == 'Darwin' || datum.city == 'Hobart'",
+            "value": "#1f2a30"
+          },
+          "value": "#5b6770"
+        }
+      },
+      "description": "Regular yearly total under the other cities"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.month_num == 12 && (datum.city == 'Darwin' || datum.city == 'Hobart')"
+        },
+        {
+          "calculate": "datum.city == 'Darwin' ? ['Tropical, near', 'the equator'] : ['Cooled by the', 'Southern Ocean']",
+          "as": "why"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "baseline": "top",
+        "dy": 38,
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14
+      },
+      "encoding": {
+        "text": {
+          "field": "why"
+        }
+      },
+      "description": "Why notes under Darwin and Hobart"
     }
   ],
   "config": {

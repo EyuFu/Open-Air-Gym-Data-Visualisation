@@ -182,6 +182,54 @@
         }
       },
       "description": "Value label inside each teal circle"
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "reason": "Feeling too lazy",
+            "why": [
+              "Screens and study compete",
+              "once school sport ends"
+            ]
+          },
+          {
+            "reason": "Feeling too old",
+            "why": [
+              "Bodies wear with age"
+            ]
+          },
+          {
+            "reason": "Not enough time",
+            "why": [
+              "Work and young children",
+              "squeeze time at 35–44"
+            ]
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 18,
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 11,
+        "lineHeight": 14
+      },
+      "encoding": {
+        "x": {
+          "value": "width"
+        },
+        "y": {
+          "field": "reason",
+          "type": "nominal"
+        },
+        "text": {
+          "field": "why"
+        }
+      },
+      "description": "Why notes beside three rows, outside the grid"
     }
   ],
   "config": {
