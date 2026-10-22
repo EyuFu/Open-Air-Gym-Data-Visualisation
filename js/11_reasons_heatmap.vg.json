@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 480,
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_motivations.csv",
@@ -92,7 +92,7 @@
         "labelColor": "#1f2a30",
         "labelPadding": 8,
         "labelLineHeight": 15,
-        "titlePadding": 18,
+        "titlePadding": 26,
         "labelExpr": "{\"Physical health and fitness\": [\"Physical health\", \"and fitness\"], \"Fun and enjoyment\": [\"Fun and\", \"enjoyment\"], \"Weight control\": [\"Weight\", \"control\"], \"Being outdoors in nature\": [\"Being outdoors\", \"in nature\"], \"Social reasons\": [\"Social\", \"reasons\"], \"Mental health\": [\"Mental\", \"health\"]}[datum.label]",
         "labelFontWeight": {
           "condition": {
@@ -195,7 +195,7 @@
           }
         ]
       },
-      "description": "One cell per reason and age group; continuous slate colour, darker = a larger share; no numbers in cells, details in the tooltip"
+      "description": "One cell per reason and age group; continuous slate colour, darker = a larger share; details in the tooltip"
     },
     {
       "transform": [
@@ -204,12 +204,42 @@
         }
       ],
       "mark": {
-        "type": "rect",
-        "fill": null,
-        "stroke": "#3AA6D9",
-        "strokeWidth": 3
+        "type": "text",
+        "fontWeight": 700,
+        "fontSize": 13,
+        "color": "white"
       },
-      "description": "Sky-blue outline around the 55 to 64 cell for being outdoors in nature"
+      "encoding": {
+        "text": {
+          "value": "58%"
+        }
+      },
+      "description": "Value written in the one cell the story is about (55 to 64, being outdoors in nature)"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.age == '65 and over' && datum.motivation == 'Being outdoors in nature'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width + 4"
+          }
+        },
+        "x2": {
+          "value": {
+            "expr": "width + 14"
+          }
+        }
+      },
+      "description": "Short leader just outside the grid, pointing along the nature row to the note"
     },
     {
       "transform": [
@@ -229,18 +259,17 @@
       "encoding": {
         "x": {
           "value": {
-            "expr": "width + 14"
+            "expr": "width + 20"
           }
         },
         "text": {
           "value": [
-            "58% at 55–64:",
-            "more free time",
-            "draws them outdoors"
+            "With children grown up, they",
+            "have more time for nature"
           ]
         }
       },
-      "description": "Why note to the right of the grid, on the nature row"
+      "description": "Why note to the right of the grid, level with the nature row"
     }
   ],
   "config": {
@@ -248,7 +277,7 @@
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
       "left": 4,
-      "right": 21,
+      "right": 29,
       "top": 12,
       "bottom": 5
     },
