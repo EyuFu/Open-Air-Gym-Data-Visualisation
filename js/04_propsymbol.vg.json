@@ -566,7 +566,7 @@
       "labelColor": "#1f2a30"
     }
   },
-  "description": "New South Wales has the most stations; per person, the Australian Capital Territory leads",
+  "description": "Australian Capital Territory leads in stations per person",
   "autosize": {
     "type": "fit-x",
     "contains": "padding"
