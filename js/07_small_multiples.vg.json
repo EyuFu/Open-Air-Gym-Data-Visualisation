@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "data": {
-    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_activity_by_age.csv",
+    "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_activity_by_age.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -191,7 +191,7 @@
             }
           ]
         },
-        "description": "Faint grey lines: the other three activities, for comparison"
+        "description": "One line per panel: the panel's own activity in its own colour; all panels share the same scales"
       },
       {
         "transform": [
@@ -220,7 +220,7 @@
             ]
           }
         },
-        "description": "The panel's own activity in teal, drawn on top"
+        "description": "Why note in the running panel"
       },
       {
         "transform": [
@@ -241,7 +241,7 @@
             "datum": 19
           }
         },
-        "description": "Why note in the running panel"
+        "description": "Leader line from the note down to the falling running line"
       },
       {
         "transform": [
@@ -282,7 +282,7 @@
             }
           }
         },
-        "description": "Label at the peak of the teal line"
+        "description": "Label at the peak of each panel's line"
       }
     ]
   },

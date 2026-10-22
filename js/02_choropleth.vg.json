@@ -43,11 +43,11 @@
         "type": "geoshape",
         "opacity": 0
       },
-      "description": "Base map: every state drawn in grey from the TopoJSON file (shows 'no data' if a value were missing)"
+      "description": "Invisible frame: widens the map's fit into the ocean so the labels have room"
     },
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/aus_states.topojson",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/aus_states.topojson",
         "format": {
           "type": "topojson",
           "feature": "states"
@@ -77,11 +77,11 @@
           }
         ]
       },
-      "description": "Data layer: lookup joins the CSV to the map by state name, then colour = share of adults (lighter = lower)"
+      "description": "Base map: every state drawn in grey from the TopoJSON file (shows 'no data' if a value were missing)"
     },
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/aus_states.topojson",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/aus_states.topojson",
         "format": {
           "type": "topojson",
           "feature": "states"
@@ -92,7 +92,7 @@
           "lookup": "properties.STATE_NAME",
           "from": {
             "data": {
-              "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/state_summary_2025.csv",
+              "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/state_summary_2025.csv",
               "format": {
                 "type": "csv",
                 "parse": {
@@ -180,7 +180,7 @@
           }
         ]
       },
-      "description": "Callouts for the two leaders, placed in the ocean so they never cover the land"
+      "description": "Data layer: lookup joins the CSV to the map by state name, then colour = share of adults in 5 classes (lighter = lower)"
     },
     {
       "data": {
@@ -352,7 +352,7 @@
           "lookup": "properties.STATE_NAME",
           "from": {
             "data": {
-              "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/state_summary_2025.csv",
+              "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/state_summary_2025.csv",
               "format": {
                 "type": "csv",
                 "parse": {
@@ -413,7 +413,7 @@
           }
         ]
       },
-      "description": "Why notes under the two callouts"
+      "description": "Enlarged copy of the Capital Territory (6 times bigger) in the Tasman Sea, coloured by the same lookup and scale"
     },
     {
       "data": {
@@ -475,11 +475,12 @@
           },
           "legend": null
         }
-      }
+      },
+      "description": "Dashed line from the real Capital Territory to its enlarged copy, and a short line to the Tasmania label"
     },
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/state_summary_2025.csv",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/state_summary_2025.csv",
         "format": {
           "type": "csv",
           "parse": {
@@ -529,11 +530,12 @@
         "text": {
           "field": "lab"
         }
-      }
+      },
+      "description": "Capital Territory label above its enlarged copy"
     },
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/state_summary_2025.csv",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/state_summary_2025.csv",
         "format": {
           "type": "csv",
           "parse": {
@@ -573,7 +575,8 @@
         "text": {
           "field": "lab"
         }
-      }
+      },
+      "description": "Tasmania label, in the ocean to the west"
     },
     {
       "data": {
@@ -623,7 +626,8 @@
         "text": {
           "field": "why"
         }
-      }
+      },
+      "description": "Why notes under the two labels"
     }
   ],
   "config": {

@@ -3,7 +3,7 @@
   "width": "container",
   "height": 340,
   "data": {
-    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_barriers.csv",
+    "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_barriers.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -126,7 +126,7 @@
           }
         }
       },
-      "description": "One circle per reason and age group: circle area = share (size scale starts at 0); teal = the top reason for that age"
+      "description": "Leader line from the 'feeling too old' note to its circle (drawn first, so the circles sit on top)"
     },
     {
       "mark": {
@@ -215,7 +215,7 @@
           }
         ]
       },
-      "description": "Value label inside each teal circle"
+      "description": "One circle per reason and age group: circle area = share (size scale starts at 0); red = the top reason for that age"
     },
     {
       "transform": [
@@ -238,7 +238,7 @@
           "field": "lab"
         }
       },
-      "description": "Why notes beside three rows, outside the grid"
+      "description": "Value label inside each red circle"
     },
     {
       "data": {
@@ -285,7 +285,8 @@
         "text": {
           "field": "why"
         }
-      }
+      },
+      "description": "Why notes beside three rows, outside the grid"
     }
   ],
   "config": {

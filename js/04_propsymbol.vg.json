@@ -43,11 +43,11 @@
         "type": "geoshape",
         "opacity": 0
       },
-      "description": "Base map of the states from the TopoJSON file"
+      "description": "Invisible frame: widens the map's fit into the ocean so the labels have room"
     },
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/aus_states.topojson",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/aus_states.topojson",
         "format": {
           "type": "topojson",
           "feature": "states"
@@ -59,7 +59,7 @@
         "stroke": "#b9b9b9",
         "strokeWidth": 0.8
       },
-      "description": "One circle per state: circle area = number of stations (size scale starts at 0), colour = stations per 100,000 people; big circles drawn first"
+      "description": "Base map of the states from the TopoJSON file"
     },
     {
       "data": {
@@ -232,7 +232,7 @@
         "stroke": "#b9b9b9",
         "strokeWidth": 0.8
       },
-      "description": "Callouts for New South Wales and the Australian Capital Territory"
+      "description": "Enlarged copy of the Capital Territory in the Tasman Sea, so its circle has room"
     },
     {
       "data": {
@@ -270,11 +270,11 @@
           "field": "lat2"
         }
       },
-      "description": "Why note under the Australian Capital Territory callout"
+      "description": "Dashed line from the real Capital Territory to its enlarged copy"
     },
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/state_summary_2025.csv",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/state_summary_2025.csv",
         "format": {
           "type": "csv",
           "parse": {
@@ -392,11 +392,12 @@
             "title": "Stations per 100,000 people"
           }
         ]
-      }
+      },
+      "description": "One circle per state: circle area = number of stations (size scale starts at 0), colour = stations per 100,000 people; big circles drawn first"
     },
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/state_summary_2025.csv",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/state_summary_2025.csv",
         "format": {
           "type": "csv",
           "parse": {
@@ -442,7 +443,8 @@
         "text": {
           "field": "lab"
         }
-      }
+      },
+      "description": "Labels for New South Wales (most stations) and the Capital Territory (most per person)"
     },
     {
       "data": {
@@ -477,7 +479,8 @@
             "park in a compact city"
           ]
         }
-      }
+      },
+      "description": "Why note under the Capital Territory label"
     },
     {
       "data": {
@@ -510,7 +513,8 @@
         "latitude2": {
           "field": "lat2"
         }
-      }
+      },
+      "description": "Thin line from the New South Wales circle to its label"
     }
   ],
   "config": {

@@ -43,7 +43,7 @@
   "layer": [
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/aus_states.topojson",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/aus_states.topojson",
         "format": {
           "type": "topojson",
           "feature": "states"
@@ -59,7 +59,7 @@
     },
     {
       "data": {
-        "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/osm_fitness_locations_AU.csv",
+        "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/osm_fitness_locations_AU.csv",
         "format": {
           "type": "csv",
           "parse": {
@@ -136,7 +136,7 @@
           }
         ]
       },
-      "description": "One teal dot per mapped outdoor fitness station"
+      "description": "One navy dot per mapped outdoor fitness station (longitude and latitude from the CSV)"
     },
     {
       "data": {
@@ -213,7 +213,8 @@
         "latitude2": {
           "field": "lat2"
         }
-      }
+      },
+      "description": "Leader line from the note to the Perth stations (whole-country view only)"
     }
   ],
   "config": {

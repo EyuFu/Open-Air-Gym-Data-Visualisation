@@ -3,7 +3,7 @@
   "width": 440,
   "height": 300,
   "data": {
-    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_motivations.csv",
+    "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_motivations.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -129,7 +129,7 @@
           "legend": null
         }
       },
-      "description": "One cell per reason and age group; continuous slate colour, darker = a larger share (no numbers in cells, details in the tooltip)"
+      "description": "Same-colour outline under each cell: fills the thin seams so the cells form one smooth surface"
     },
     {
       "mark": {
@@ -194,7 +194,7 @@
           }
         ]
       },
-      "description": "Sky-blue outline around the 55 to 64 cell for being outdoors in nature"
+      "description": "One cell per reason and age group; continuous slate colour, darker = a larger share; no numbers in cells, details in the tooltip"
     },
     {
       "transform": [
@@ -208,7 +208,7 @@
         "stroke": "#3AA6D9",
         "strokeWidth": 3
       },
-      "description": "Why note to the right of the grid, on the nature row"
+      "description": "Sky-blue outline around the 55 to 64 cell for being outdoors in nature"
     },
     {
       "transform": [
@@ -238,7 +238,8 @@
             "draws them outdoors"
           ]
         }
-      }
+      },
+      "description": "Why note to the right of the grid, on the nature row"
     }
   ],
   "config": {

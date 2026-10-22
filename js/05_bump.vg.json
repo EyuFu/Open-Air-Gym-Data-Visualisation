@@ -3,7 +3,7 @@
   "width": "container",
   "height": 300,
   "data": {
-    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay_activity_trend_2016_2025.csv",
+    "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay_activity_trend_2016_2025.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -263,7 +263,7 @@
           }
         ]
       },
-      "description": "One line per activity; y is rank, reversed so 1st is at the top; lines are not joined across 2023"
+      "description": "One line per activity; y is rank, reversed so 1st is at the top; lines are not joined across 2023; each outdoor fitness activity in its own colour"
     },
     {
       "mark": {
@@ -368,7 +368,7 @@
           "value": "#8a9096"
         }
       },
-      "description": "Regular names at the right end for sport and swimming"
+      "description": "Regular grey names at the right end for sport and swimming"
     },
     {
       "data": {
@@ -434,7 +434,8 @@
         "y2": {
           "field": "rank2"
         }
-      }
+      },
+      "description": "Leader line from the note, across the empty 2023 gap, to bushwalking's 2nd place in 2024"
     }
   ],
   "config": {

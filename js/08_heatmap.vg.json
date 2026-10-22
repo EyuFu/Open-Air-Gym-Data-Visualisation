@@ -3,7 +3,7 @@
   "width": "container",
   "height": 312,
   "data": {
-    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/bom_capital_hot_days.csv",
+    "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/bom_capital_hot_days.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -117,7 +117,7 @@
           "legend": null
         }
       },
-      "description": "One cell per city and month; continuous orange (square-root scale), darker = more days at 30 degrees or hotter (no numbers in cells, details in the tooltip)"
+      "description": "Same-colour outline under each cell: fills the thin seams so the cells form one smooth surface"
     },
     {
       "mark": {
@@ -191,7 +191,7 @@
           }
         ]
       },
-      "description": "Bold yearly total under Darwin and Hobart"
+      "description": "One cell per city and month; continuous orange (square-root scale), darker = more days at 30 degrees or hotter; no numbers in cells, details in the tooltip"
     },
     {
       "transform": [
@@ -225,7 +225,7 @@
           "value": "#5b6770"
         }
       },
-      "description": "Regular yearly total under the other cities"
+      "description": "Bold yearly total under Darwin and Hobart"
     },
     {
       "transform": [
@@ -259,7 +259,7 @@
           "value": "#5b6770"
         }
       },
-      "description": "Why notes under Darwin and Hobart"
+      "description": "Regular yearly total under the other cities"
     },
     {
       "transform": [
@@ -284,7 +284,8 @@
         "text": {
           "field": "why"
         }
-      }
+      },
+      "description": "Why notes under Darwin and Hobart"
     }
   ],
   "config": {

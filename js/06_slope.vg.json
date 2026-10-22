@@ -3,7 +3,7 @@
   "width": "container",
   "height": 330,
   "data": {
-    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_outdoor_activity_by_sex.csv",
+    "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_outdoor_activity_by_sex.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -144,7 +144,7 @@
           }
         ]
       },
-      "description": "One line per activity from women to men, same scale on both sides; teal = more women"
+      "description": "One line per activity from women to men, each activity in its own colour, same scale on both sides"
     },
     {
       "mark": {
@@ -261,7 +261,8 @@
         "color": {
           "value": "#8a9096"
         }
-      }
+      },
+      "description": "Leader line from the note up to the women's walking dot"
     }
   ],
   "config": {

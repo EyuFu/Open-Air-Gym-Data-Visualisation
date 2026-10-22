@@ -3,7 +3,7 @@
   "width": "container",
   "height": 330,
   "data": {
-    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_places_by_age_sex.csv",
+    "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_places_by_age_sex.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -14,10 +14,6 @@
   "transform": [
     {
       "filter": "datum.group == 'All adults' && datum.place == 'Public spaces (parks, streets, trails, beaches)' && datum.age != 'All ages'"
-    },
-    {
-      "calculate": "datum.age == 'All ages' ? 'All ages (average)' : datum.age",
-      "as": "row"
     },
     {
       "calculate": "round(datum.pct / 5)",
@@ -40,13 +36,13 @@
       "as": "xpos"
     },
     {
-      "calculate": "datum.slot > datum.figures ? 'empty' : datum.row == '55–64' ? 'highlight' : 'other'",
+      "calculate": "datum.slot > datum.figures ? 'empty' : datum.age == '55–64' ? 'highlight' : 'other'",
       "as": "state"
     }
   ],
   "encoding": {
     "y": {
-      "field": "row",
+      "field": "age",
       "type": "nominal",
       "sort": [
         "15–17",
@@ -64,7 +60,7 @@
       "axis": {
         "domain": false,
         "ticks": false,
-        "labelFontSize": 12,
+        "labelFontSize": 13,
         "labelPadding": 8,
         "labelColor": "#1f2a30",
         "labelFontWeight": {
@@ -136,7 +132,7 @@
         },
         "tooltip": [
           {
-            "field": "row",
+            "field": "age",
             "title": "Age group"
           },
           {
@@ -146,15 +142,12 @@
           }
         ]
       },
-      "description": "One person icon per 5 adults out of 100; one row per age group, the black row is 55 to 64"
+      "description": "One person icon per 5 adults out of 100; one row per age group, the sky-blue row is 55 to 64"
     },
     {
       "transform": [
         {
-          "filter": "datum.row == '55–64'"
-        },
-        {
-          "filter": "datum.slot == 1"
+          "filter": "datum.age == '55–64' && datum.slot == 1"
         },
         {
           "calculate": "format(datum.pct, '.0f') + ' in 100'",
@@ -165,7 +158,8 @@
         "type": "text",
         "fontWeight": 700,
         "align": "left",
-        "fontSize": 12
+        "fontSize": 13,
+        "color": "#3AA6D9"
       },
       "encoding": {
         "x": {
@@ -174,24 +168,14 @@
         },
         "text": {
           "field": "lab"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.row == '55–64'",
-            "value": "#3AA6D9"
-          },
-          "value": "#5b6770"
         }
       },
-      "description": "Bold label at the end of the peak row: how many in 100 adults"
+      "description": "Bold sky-blue label at the end of the peak row: how many in 100 adults"
     },
     {
       "transform": [
         {
-          "filter": "!(datum.row == '55–64')"
-        },
-        {
-          "filter": "datum.slot == 1"
+          "filter": "datum.age != '55–64' && datum.slot == 1"
         },
         {
           "calculate": "format(datum.pct, '.0f') + ' in 100'",
@@ -202,7 +186,8 @@
         "type": "text",
         "fontWeight": 400,
         "align": "left",
-        "fontSize": 12
+        "fontSize": 13,
+        "color": "#5b6770"
       },
       "encoding": {
         "x": {
@@ -211,21 +196,14 @@
         },
         "text": {
           "field": "lab"
-        },
-        "color": {
-          "condition": {
-            "test": "datum.row == '55–64'",
-            "value": "#3AA6D9"
-          },
-          "value": "#5b6770"
         }
       },
-      "description": "Regular label at the end of the other rows"
+      "description": "Regular grey label at the end of the other rows"
     },
     {
       "transform": [
         {
-          "filter": "datum.slot == 1 && datum.row == '55–64'"
+          "filter": "datum.slot == 1 && datum.age == '55–64'"
         }
       ],
       "mark": {

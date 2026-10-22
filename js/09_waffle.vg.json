@@ -3,7 +3,7 @@
   "width": 380,
   "height": 380,
   "data": {
-    "url": "https://eyufu.github.io/Open-Air-Gym-Data-Visualisation/data/ausplay2025_frequency.csv",
+    "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_frequency.csv",
     "format": {
       "type": "csv",
       "parse": {
@@ -101,7 +101,7 @@
           }
         ]
       },
-      "description": "10 by 10 grid: one square = 1% of adults, coloured by how often they are active"
+      "description": "10 by 10 grid: one square = 1% of adults; each frequency group has its own colour"
     },
     {
       "data": {
@@ -232,7 +232,7 @@
           "value": 95
         }
       },
-      "description": "Why note under the 'not active' label"
+      "description": "Short line joining label 1 to its block"
     },
     {
       "data": {
@@ -258,7 +258,8 @@
         "y2": {
           "value": 220
         }
-      }
+      },
+      "description": "Short line joining label 2 to its block"
     },
     {
       "data": {
@@ -284,7 +285,8 @@
         "y2": {
           "value": 290
         }
-      }
+      },
+      "description": "Short line joining label 3 to its block"
     },
     {
       "data": {
@@ -310,7 +312,8 @@
         "y2": {
           "value": 352
         }
-      }
+      },
+      "description": "Short line joining label 4 to its block"
     },
     {
       "data": {
@@ -336,7 +339,8 @@
             "too old (chart 12)"
           ]
         }
-      }
+      },
+      "description": "Why note under the 'not active' label"
     }
   ],
   "config": {
