@@ -227,6 +227,34 @@
         }
       },
       "description": "Why note beside the peak row"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.slot == 1 && datum.age == '65 and over'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 13,
+        "lineHeight": 16
+      },
+      "encoding": {
+        "x": {
+          "datum": 27.4,
+          "type": "quantitative"
+        },
+        "text": {
+          "value": [
+            "Poor health stops more",
+            "people after 65 (chart 12)"
+          ]
+        }
+      },
+      "description": "Why note beside the 65 and over row"
     }
   ],
   "config": {

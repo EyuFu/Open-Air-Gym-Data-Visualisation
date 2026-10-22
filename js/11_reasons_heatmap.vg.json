@@ -239,6 +239,61 @@
           }
         }
       },
+      "description": "Short leader just outside the grid, pointing along the physical health row to its note"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.age == '65 and over' && datum.motivation == 'Physical health and fitness'"
+        }
+      ],
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width + 4"
+          }
+        },
+        "x2": {
+          "value": {
+            "expr": "width + 14"
+          }
+        }
+      },
+      "description": "Why note level with the physical health row"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.age == '65 and over' && datum.motivation == 'Physical health and fitness'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "fontStyle": "italic",
+        "color": "#3d4a52",
+        "fontSize": 13,
+        "lineHeight": 16
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width + 20"
+          }
+        },
+        "text": {
+          "value": [
+            "Staying healthy matters",
+            "more with every age group"
+          ]
+        }
+      },
       "description": "Short leader just outside the grid, pointing along the nature row to the note"
     },
     {

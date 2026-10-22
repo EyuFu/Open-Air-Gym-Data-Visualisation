@@ -247,6 +247,57 @@
       {
         "transform": [
           {
+            "filter": "datum.is_self && datum.activity == 'Walking for exercise' && datum.age == '65 and over'"
+          }
+        ],
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "top",
+          "dx": 4,
+          "fontStyle": "italic",
+          "color": "#3d4a52",
+          "fontSize": 13,
+          "lineHeight": 16
+        },
+        "encoding": {
+          "y": {
+            "datum": 31
+          },
+          "text": {
+            "value": [
+              "After 65, poor",
+              "health stops",
+              "more walkers"
+            ]
+          }
+        },
+        "description": "Why note under the walking line, about the drop after 65"
+      },
+      {
+        "transform": [
+          {
+            "filter": "datum.is_self && datum.activity == 'Walking for exercise' && datum.age == '65 and over'"
+          }
+        ],
+        "mark": {
+          "type": "rule",
+          "color": "#8a9096",
+          "strokeWidth": 1
+        },
+        "encoding": {
+          "y": {
+            "datum": 52
+          },
+          "y2": {
+            "datum": 34
+          }
+        },
+        "description": "Leader line from that note up to the last walking dot"
+      },
+      {
+        "transform": [
+          {
             "filter": "datum.is_self && datum.pct == datum.peak"
           },
           {
