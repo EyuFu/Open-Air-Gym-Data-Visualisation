@@ -94,13 +94,14 @@
         "Cannot afford it",
         "The weather"
       ],
-      "title": null,
+      "title": "Reason for not exercising",
       "axis": {
         "domain": false,
         "ticks": false,
         "labelFontSize": 12,
         "labelColor": "#1f2a30",
-        "labelPadding": 8
+        "labelPadding": 8,
+        "titlePadding": 14
       }
     }
   },
@@ -293,7 +294,7 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 17,
+      "left": 6,
       "right": 26,
       "top": 12,
       "bottom": 5

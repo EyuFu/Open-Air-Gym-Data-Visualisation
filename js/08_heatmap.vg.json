@@ -49,7 +49,7 @@
         "Perth",
         "Darwin"
       ],
-      "title": null,
+      "title": "City",
       "axis": {
         "orient": "top",
         "labelAngle": 0,
@@ -83,7 +83,7 @@
         "November",
         "December"
       ],
-      "title": null,
+      "title": "Month",
       "axis": {
         "domain": false,
         "ticks": false,

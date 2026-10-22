@@ -87,7 +87,7 @@
           "55–64",
           "65 and over"
         ],
-        "title": null,
+        "title": "Age group (years)",
         "scale": {
           "padding": 0.1
         },

@@ -130,7 +130,7 @@
         "x": {
           "field": "month_num",
           "type": "ordinal",
-          "title": null,
+          "title": "Month",
           "scale": {
             "padding": 0.3
           },
@@ -152,7 +152,7 @@
             ],
             "nice": false
           },
-          "title": null,
+          "title": "Average daily maximum (°C)",
           "axis": {
             "values": [
               15,
@@ -239,7 +239,7 @@
         "x": {
           "field": "month_num",
           "type": "ordinal",
-          "title": null,
+          "title": "Month",
           "scale": {
             "padding": 0.3
           },
@@ -261,7 +261,7 @@
             ],
             "nice": false
           },
-          "title": null,
+          "title": "Average daily maximum (°C)",
           "axis": {
             "values": [
               15,
@@ -335,7 +335,7 @@
         "x": {
           "field": "month_num",
           "type": "ordinal",
-          "title": null,
+          "title": "Month",
           "scale": {
             "padding": 0.3
           },
@@ -357,7 +357,7 @@
             ],
             "nice": false
           },
-          "title": null,
+          "title": "Average daily maximum (°C)",
           "axis": {
             "values": [
               15,
@@ -565,7 +565,7 @@
         "x": {
           "field": "month_num",
           "type": "ordinal",
-          "title": null,
+          "title": "Month",
           "scale": {
             "padding": 0.3
           },

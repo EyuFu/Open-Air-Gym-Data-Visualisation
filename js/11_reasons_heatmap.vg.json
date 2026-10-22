@@ -84,7 +84,7 @@
         "Social reasons",
         "Mental health"
       ],
-      "title": null,
+      "title": "Reason for exercising",
       "axis": {
         "domain": false,
         "ticks": false,
@@ -92,6 +92,7 @@
         "labelColor": "#1f2a30",
         "labelPadding": 8,
         "labelLineHeight": 15,
+        "titlePadding": 18,
         "labelExpr": "{\"Physical health and fitness\": [\"Physical health\", \"and fitness\"], \"Fun and enjoyment\": [\"Fun and\", \"enjoyment\"], \"Weight control\": [\"Weight\", \"control\"], \"Being outdoors in nature\": [\"Being outdoors\", \"in nature\"], \"Social reasons\": [\"Social\", \"reasons\"], \"Mental health\": [\"Mental\", \"health\"]}[datum.label]",
         "labelFontWeight": {
           "condition": {
@@ -246,7 +247,7 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 21,
+      "left": 4,
       "right": 21,
       "top": 12,
       "bottom": 5

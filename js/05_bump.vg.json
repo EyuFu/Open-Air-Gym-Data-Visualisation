@@ -46,11 +46,11 @@
       "as": "recorded_as"
     },
     {
-      "calculate": "datum.activity == 'Bushwalking' ? 'Bushwalking' : indexof([\"Walking for exercise\", \"Bushwalking\", \"Running and jogging\", \"Cycling\"], datum.activity) >= 0 ? 'Other outdoor fitness' : 'Sport or swimming'",
+      "calculate": "datum.activity == 'Bushwalking' ? 'Bushwalking' : datum.activity == 'Running and jogging' ? 'Running' : 'Other'",
       "as": "group"
     },
     {
-      "calculate": "indexof([\"Walking for exercise\", \"Bushwalking\", \"Running and jogging\", \"Cycling\"], datum.activity) >= 0 ? datum.activity : 'Sport and swimming'",
+      "calculate": "indexof([\"Bushwalking\", \"Running and jogging\"], datum.activity) >= 0 ? datum.activity : 'Other activities'",
       "as": "col"
     }
   ],
@@ -58,7 +58,7 @@
     "x": {
       "field": "yr",
       "type": "ordinal",
-      "title": null,
+      "title": "Year",
       "scale": {
         "domain": [
           "2016",
@@ -188,17 +188,13 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Walking for exercise",
               "Bushwalking",
               "Running and jogging",
-              "Cycling",
-              "Sport and swimming"
+              "Other activities"
             ],
             "range": [
-              "#009E73",
               "#8B5A2B",
               "#CC79A7",
-              "#D9A400",
               "#d0d0d0"
             ]
           },
@@ -220,7 +216,7 @@
             "columnPadding": 24,
             "offset": 16,
             "title": "Activity",
-            "labelExpr": "{'Walking for exercise': 'Walking', 'Running and jogging': 'Running', 'The other three, for comparison': 'The other three'}[datum.label] || datum.label"
+            "labelExpr": "{'Running and jogging': 'Running'}[datum.label] || datum.label"
           }
         },
         "strokeWidth": {
@@ -230,8 +226,8 @@
               "value": 4
             },
             {
-              "test": "datum.group == 'Other outdoor fitness'",
-              "value": 2.5
+              "test": "datum.group == 'Running'",
+              "value": 3
             }
           ],
           "value": 1.5
@@ -263,7 +259,7 @@
           }
         ]
       },
-      "description": "One line per activity; y is rank, reversed so 1st is at the top; lines are not joined across 2023; each outdoor fitness activity in its own colour"
+      "description": "One line per activity; y is rank, reversed so 1st is at the top; lines are not joined across 2023; only bushwalking (brown) and running (pink) in colour, the rest grey"
     },
     {
       "mark": {
@@ -276,24 +272,20 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Walking for exercise",
               "Bushwalking",
               "Running and jogging",
-              "Cycling",
-              "Sport and swimming"
+              "Other activities"
             ],
             "range": [
-              "#009E73",
               "#8B5A2B",
               "#CC79A7",
-              "#D9A400",
               "#d0d0d0"
             ]
           }
         },
         "size": {
           "condition": {
-            "test": "datum.group != 'Sport or swimming'",
+            "test": "datum.group != 'Other'",
             "value": 55
           },
           "value": 22
@@ -304,7 +296,7 @@
     {
       "transform": [
         {
-          "filter": "datum.group != 'Sport or swimming'"
+          "filter": "datum.group != 'Other'"
         },
         {
           "filter": "datum.year == 2025"
@@ -326,28 +318,24 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Walking for exercise",
               "Bushwalking",
               "Running and jogging",
-              "Cycling",
-              "Sport and swimming"
+              "Other activities"
             ],
             "range": [
-              "#009E73",
               "#8B5A2B",
               "#CC79A7",
-              "#D9A400",
               "#d0d0d0"
             ]
           }
         }
       },
-      "description": "Bold names at the right end for the four outdoor fitness activities"
+      "description": "Bold coloured names at the right end for bushwalking and running"
     },
     {
       "transform": [
         {
-          "filter": "!(datum.group != 'Sport or swimming')"
+          "filter": "!(datum.group != 'Other')"
         },
         {
           "filter": "datum.year == 2025"
@@ -368,7 +356,7 @@
           "value": "#8a9096"
         }
       },
-      "description": "Regular grey names at the right end for sport and swimming"
+      "description": "Regular grey names at the right end for the other eight activities"
     },
     {
       "data": {
@@ -443,7 +431,7 @@
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
       "left": 4,
-      "right": 36,
+      "right": 20,
       "top": 12,
       "bottom": 5
     },
