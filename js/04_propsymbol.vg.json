@@ -520,12 +520,7 @@
   "config": {
     "background": "#e4eef3",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
-    "padding": {
-      "left": 8,
-      "right": 12,
-      "top": 8,
-      "bottom": 8
-    },
+    "padding": 12,
     "title": {
       "anchor": "start",
       "fontSize": 17,

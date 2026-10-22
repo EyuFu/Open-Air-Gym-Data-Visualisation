@@ -72,7 +72,7 @@
   },
   "columns": 4,
   "spec": {
-    "width": 156,
+    "width": 150,
     "height": 160,
     "encoding": {
       "x": {
@@ -296,10 +296,10 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 8,
-      "right": 12,
-      "top": 8,
-      "bottom": 8
+      "left": 4,
+      "right": 4,
+      "top": 12,
+      "bottom": 5
     },
     "title": {
       "anchor": "start",

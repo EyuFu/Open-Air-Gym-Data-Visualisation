@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 640,
   "height": 312,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/bom_capital_hot_days.csv",
@@ -292,10 +292,10 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 8,
-      "right": 12,
-      "top": 8,
-      "bottom": 8
+      "left": 4,
+      "right": 4,
+      "top": 12,
+      "bottom": 5
     },
     "title": {
       "anchor": "start",
@@ -338,9 +338,5 @@
       "labelColor": "#1f2a30"
     }
   },
-  "description": "Darwin is hot all year; Hobart almost never",
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  }
+  "description": "Darwin is hot all year; Hobart almost never"
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 440,
   "height": 340,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_barriers.csv",
@@ -293,10 +293,10 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 20,
-      "right": 40,
-      "top": 8,
-      "bottom": 96
+      "left": 17,
+      "right": 26,
+      "top": 12,
+      "bottom": 5
     },
     "title": {
       "anchor": "start",
@@ -339,9 +339,5 @@
       "labelColor": "#1f2a30"
     }
   },
-  "description": "Young people feel too lazy; older people face poor health",
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  }
+  "description": "Young people feel too lazy; older people face poor health"
 }

@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 480,
   "height": 330,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_outdoor_activity_by_sex.csv",
@@ -269,10 +269,10 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 40,
-      "right": 190,
-      "top": 8,
-      "bottom": 8
+      "left": 4,
+      "right": 17,
+      "top": 12,
+      "bottom": 5
     },
     "title": {
       "anchor": "start",
@@ -315,9 +315,5 @@
       "labelColor": "#1f2a30"
     }
   },
-  "description": "Women walk more; men run and cycle more",
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  }
+  "description": "Women walk more; men run and cycle more"
 }

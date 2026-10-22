@@ -246,10 +246,10 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 24,
-      "right": 150,
-      "top": 8,
-      "bottom": 8
+      "left": 21,
+      "right": 21,
+      "top": 12,
+      "bottom": 5
     },
     "title": {
       "anchor": "start",

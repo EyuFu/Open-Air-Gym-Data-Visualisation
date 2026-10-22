@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 640,
   "height": 300,
   "params": [
     {
@@ -599,10 +599,10 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 8,
-      "right": 12,
-      "top": 8,
-      "bottom": 140
+      "left": 4,
+      "right": 4,
+      "top": 12,
+      "bottom": 5
     },
     "title": {
       "anchor": "start",
@@ -645,9 +645,5 @@
       "labelColor": "#1f2a30"
     }
   },
-  "description": "Mild months differ by city: pick yours",
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  }
+  "description": "Mild months differ by city: pick yours"
 }

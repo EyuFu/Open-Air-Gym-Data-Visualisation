@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": "container",
+  "width": 500,
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay_activity_trend_2016_2025.csv",
@@ -442,10 +442,10 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 8,
-      "right": 150,
-      "top": 8,
-      "bottom": 8
+      "left": 4,
+      "right": 36,
+      "top": 12,
+      "bottom": 5
     },
     "title": {
       "anchor": "start",
@@ -488,9 +488,5 @@
       "labelColor": "#1f2a30"
     }
   },
-  "description": "Bushwalking climbed from 5th to 2nd place",
-  "autosize": {
-    "type": "fit-x",
-    "contains": "padding"
-  }
+  "description": "Bushwalking climbed from 5th to 2nd place"
 }
