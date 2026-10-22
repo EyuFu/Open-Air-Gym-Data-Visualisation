@@ -158,7 +158,7 @@
             "titleOrient": "top",
             "titleAnchor": "start",
             "titleFontSize": 13,
-            "titleFontWeight": 400,
+            "titleFontWeight": 600,
             "titleColor": "#1f2a30",
             "titlePadding": 6,
             "labelFontSize": 13,
@@ -180,7 +180,7 @@
           }
         ]
       },
-      "description": "Data layer: lookup joins the CSV to the map by state name, then colour = share of adults in 5 classes (lighter = lower)"
+      "description": "Data layer: lookup joins the data table to the map by state name, then colour = share of adults in 5 classes (lighter = lower)"
     },
     {
       "data": {
@@ -514,9 +514,9 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "fontSize": 12,
-        "fontWeight": 600,
-        "lineHeight": 15
+        "fontSize": 13,
+        "fontWeight": 700,
+        "lineHeight": 16
       },
       "encoding": {
         "longitude": {
@@ -561,8 +561,8 @@
         "type": "text",
         "align": "right",
         "baseline": "middle",
-        "fontSize": 12,
-        "fontWeight": 600,
+        "fontSize": 13,
+        "fontWeight": 700,
         "dx": -3
       },
       "encoding": {
@@ -648,12 +648,15 @@
     "view": {
       "stroke": null
     },
+    "mark": {
+      "aria": false
+    },
     "axis": {
       "labelFontSize": 13,
       "labelColor": "#5b6770",
       "titleFontSize": 13,
       "titleFontWeight": 600,
-      "titleColor": "#5b6770",
+      "titleColor": "#1f2a30",
       "domainColor": "#c8c8c8",
       "tickColor": "#c8c8c8",
       "grid": false
@@ -663,7 +666,7 @@
       "labelColor": "#5b6770",
       "titleFontSize": 13,
       "titleFontWeight": 600,
-      "titleColor": "#5b6770"
+      "titleColor": "#1f2a30"
     },
     "text": {
       "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
@@ -671,7 +674,8 @@
       "fontSize": 13
     },
     "header": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
+      "labelFontWeight": 600,
       "labelColor": "#1f2a30"
     }
   },

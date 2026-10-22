@@ -3,8 +3,9 @@
    section headings on the left; each chart full width in a white box, its title on the left above it;
    two paragraphs side by side under it. One pair of charts side by side, one paragraph under each.
    Every line of text stays within about 10 words / 60 characters (Course Notes 11 pp. 6-7).
-   Typography (DV1 feedback: sans serif for paragraphs): Fraunces serif only for the title and headings,
-   Source Sans 3 for everything else. Type scale: 48 title, 30 section heading, 21 chart title and lead,
+   Typography: the main title alone is in Stardos Stencil, a non-standard serif loaded from Google Fonts. Its stencil
+   cuts echo the painted lettering on outdoor fitness stations and trail markers (topic match). Everything else,
+   headings included, is Source Sans 3 (DV1 feedback: sans serif for readability). Type scale: 64 title, 28 title line two, 30 section heading, 21 chart title and lead,
    18 paragraphs, 14 how-to-read line, 12 sources. Colour: one wine accent for page keywords (used in no chart), grey = context,
    in the charts and in the paragraphs (DV1 feedback: visual hierarchy using colour in diagrams and paragraphs). */
 :root {
@@ -27,7 +28,8 @@ p { margin: 0; }
 /* ---------- title block ---------- */
 .hero { padding: var(--s9) 0 var(--s6); border-bottom: 1px solid var(--rule); }
 .kicker { margin-bottom: var(--s1); font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); }
-h1 { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 48px; line-height: 1.1; margin: 0 0 var(--s1); }
+h1 { font-family: "Stardos Stencil", Georgia, serif; font-weight: 700; font-size: 64px; line-height: 1.05; letter-spacing: .01em; margin: 0 0 var(--s1); }
+.title-sub { font-size: 28px; line-height: 1.25; font-weight: 700; margin: 0 0 var(--s2); }
 .standfirst { font-size: 21px; line-height: 1.4; color: var(--muted); max-width: 26em; margin-bottom: var(--s6); }
 .byline { font-size: 14px; color: var(--muted); margin-bottom: var(--s6); }
 .intro { margin-bottom: var(--s6); }
@@ -40,7 +42,7 @@ h1 { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 48px;
 
 /* ---------- sections ---------- */
 .sec { padding: var(--s9) 0 var(--s3); border-bottom: 1px solid var(--rule); }
-h2 { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 30px; line-height: 1.2; margin: 0 0 var(--s3); }
+h2 { font-weight: 700; font-size: 30px; line-height: 1.2; margin: 0 0 var(--s3); }
 
 /* ---------- charts ---------- */
 .row-full, .row-pair { margin-bottom: var(--s6); }
@@ -48,7 +50,7 @@ h2 { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 30px;
 .row-pair > .chart { display: grid; grid-row: span 3; grid-template-rows: subgrid; row-gap: 0; }
 .chart { margin: 0; min-width: 0; }
 .chart figcaption { margin-bottom: var(--s2); }
-.chart h3 { font-family: "Fraunces", Georgia, serif; font-size: 22px; line-height: 1.3; font-weight: 700; margin: 0 0 4px; max-width: 24em; }
+.chart h3 { font-size: 22px; line-height: 1.3; font-weight: 700; margin: 0 0 4px; max-width: 20em; }
 .sub { font-size: 15px; line-height: 1.5; color: var(--muted); max-width: 21em; }
 .hint { font-size: 15px; line-height: 1.5; color: var(--accent); max-width: 21em; margin-top: 2px; }
 .panel { background: var(--panel); padding: var(--s3); min-width: 0; display: flex; flex-direction: column; justify-content: center; }   /* the same 24 px margin on every side of every chart */
@@ -80,7 +82,7 @@ h2 { font-family: "Fraunces", Georgia, serif; font-weight: 700; font-size: 30px;
 /* ---------- footer ---------- */
 .foot { padding: var(--s6) 0 var(--s9); }
 .foot .wrap + .wrap { margin-top: var(--s6); }
-.colh { margin: 0 0 var(--s1); font-family: "Fraunces", Georgia, serif; font-size: 21px; font-weight: 700; }
+.colh { margin: 0 0 var(--s1); font-size: 21px; font-weight: 700; }
 .sources { padding-left: 18px; margin: 0; font-size: 14px; line-height: 1.5; columns: 2; column-gap: var(--gap); }
 .sources li { break-inside: avoid; margin-bottom: 6px; max-width: 22em; }
 .small { font-size: 15px; line-height: 1.5; color: var(--ink); max-width: 21em; }

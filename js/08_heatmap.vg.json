@@ -55,7 +55,7 @@
         "labelAngle": 0,
         "domain": false,
         "ticks": false,
-        "labelFontSize": 12,
+        "labelFontSize": 13,
         "labelColor": "#1f2a30",
         "labelFontWeight": {
           "condition": {
@@ -87,7 +87,7 @@
       "axis": {
         "domain": false,
         "ticks": false,
-        "labelFontSize": 11
+        "labelFontSize": 13
       }
     }
   },
@@ -153,7 +153,7 @@
             "titleOrient": "top",
             "titleAnchor": "start",
             "titleFontSize": 13,
-            "titleFontWeight": 400,
+            "titleFontWeight": 600,
             "titleColor": "#1f2a30",
             "titlePadding": 6,
             "labelFontSize": 13,
@@ -210,7 +210,7 @@
         "type": "text",
         "fontWeight": 700,
         "baseline": "top",
-        "fontSize": 11,
+        "fontSize": 13,
         "dy": 22
       },
       "encoding": {
@@ -244,7 +244,7 @@
         "type": "text",
         "fontWeight": 400,
         "baseline": "top",
-        "fontSize": 11,
+        "fontSize": 13,
         "dy": 22
       },
       "encoding": {
@@ -311,12 +311,15 @@
     "view": {
       "stroke": null
     },
+    "mark": {
+      "aria": false
+    },
     "axis": {
       "labelFontSize": 13,
       "labelColor": "#5b6770",
       "titleFontSize": 13,
       "titleFontWeight": 600,
-      "titleColor": "#5b6770",
+      "titleColor": "#1f2a30",
       "domainColor": "#c8c8c8",
       "tickColor": "#c8c8c8",
       "grid": false
@@ -326,7 +329,7 @@
       "labelColor": "#5b6770",
       "titleFontSize": 13,
       "titleFontWeight": 600,
-      "titleColor": "#5b6770"
+      "titleColor": "#1f2a30"
     },
     "text": {
       "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
@@ -334,7 +337,8 @@
       "fontSize": 13
     },
     "header": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
+      "labelFontWeight": 600,
       "labelColor": "#1f2a30"
     }
   },

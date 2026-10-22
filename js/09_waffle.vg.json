@@ -115,8 +115,8 @@
         "baseline": "middle",
         "x": 402,
         "y": 95,
-        "fontSize": 14,
-        "lineHeight": 17,
+        "fontSize": 13,
+        "lineHeight": 16,
         "fontWeight": 700,
         "color": "#5f611c"
       },
@@ -141,8 +141,8 @@
         "baseline": "middle",
         "x": 402,
         "y": 220,
-        "fontSize": 14,
-        "lineHeight": 17,
+        "fontSize": 13,
+        "lineHeight": 16,
         "fontWeight": 400,
         "color": "#1f6b6b"
       },
@@ -167,8 +167,8 @@
         "baseline": "middle",
         "x": 402,
         "y": 290,
-        "fontSize": 14,
-        "lineHeight": 17,
+        "fontSize": 13,
+        "lineHeight": 16,
         "fontWeight": 400,
         "color": "#734a7e"
       },
@@ -193,8 +193,8 @@
         "baseline": "middle",
         "x": 402,
         "y": 352,
-        "fontSize": 14,
-        "lineHeight": 17,
+        "fontSize": 13,
+        "lineHeight": 16,
         "fontWeight": 400,
         "color": "#5b6770"
       },
@@ -348,7 +348,7 @@
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
       "left": 5,
-      "right": 46,
+      "right": 32,
       "top": 12,
       "bottom": 5
     },
@@ -366,12 +366,15 @@
     "view": {
       "stroke": null
     },
+    "mark": {
+      "aria": false
+    },
     "axis": {
       "labelFontSize": 13,
       "labelColor": "#5b6770",
       "titleFontSize": 13,
       "titleFontWeight": 600,
-      "titleColor": "#5b6770",
+      "titleColor": "#1f2a30",
       "domainColor": "#c8c8c8",
       "tickColor": "#c8c8c8",
       "grid": false
@@ -381,7 +384,7 @@
       "labelColor": "#5b6770",
       "titleFontSize": 13,
       "titleFontWeight": 600,
-      "titleColor": "#5b6770"
+      "titleColor": "#1f2a30"
     },
     "text": {
       "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
@@ -389,7 +392,8 @@
       "fontSize": 13
     },
     "header": {
-      "labelFontSize": 12,
+      "labelFontSize": 13,
+      "labelFontWeight": 600,
       "labelColor": "#1f2a30"
     }
   },
