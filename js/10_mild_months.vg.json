@@ -201,7 +201,7 @@
             "offset": 16,
             "title": "Line colour",
             "legendX": 0,
-            "legendY": 334
+            "legendY": 352
           }
         },
         "tooltip": [
@@ -307,7 +307,7 @@
             "offset": 16,
             "title": "Line colour",
             "legendX": 0,
-            "legendY": 334
+            "legendY": 352
           }
         }
       },
@@ -402,8 +402,8 @@
             "columnPadding": 40,
             "offset": 16,
             "title": "Dot",
-            "legendX": 0,
-            "legendY": 384,
+            "legendX": 330,
+            "legendY": 352,
             "symbolStrokeColor": "#E6550D",
             "labelExpr": "datum.label == 'Mild' ? 'Mild month' : 'Not mild'"
           }
@@ -536,19 +536,14 @@
           "filter": "datum.city == city"
         },
         {
-          "joinaggregate": [
-            {
-              "op": "min",
-              "field": "mean_max_temp_c",
-              "as": "coolest"
-            }
-          ]
+          "filter": "datum.month_num == {\"Melbourne\": 7, \"Sydney\": 7, \"Brisbane\": 7, \"Perth\": 1, \"Adelaide\": 1, \"Hobart\": 1, \"Darwin\": 7, \"Canberra\": 7}[city]"
         },
         {
-          "filter": "datum.mean_max_temp_c == datum.coolest"
+          "calculate": "datum.month_num == 1 ? 2 : 4",
+          "as": "start_month"
         },
         {
-          "calculate": "35",
+          "calculate": "34.4",
           "as": "top"
         },
         {
@@ -563,7 +558,7 @@
       },
       "encoding": {
         "x": {
-          "field": "month_num",
+          "field": "start_month",
           "type": "ordinal",
           "title": "Month",
           "scale": {
@@ -576,6 +571,9 @@
             "labelFontSize": 13,
             "labelExpr": "datum.value == 1 ? 'January' : datum.value == 4 ? 'April' : datum.value == 7 ? 'July' : datum.value == 10 ? 'October' : ''"
           }
+        },
+        "x2": {
+          "field": "month_num"
         },
         "y": {
           "field": "top",
@@ -592,7 +590,7 @@
           "field": "bottom"
         }
       },
-      "description": "Leader line from the note down to the chosen city's coolest month"
+      "description": "Short diagonal leader line from under the note to the month the note talks about"
     }
   ],
   "config": {

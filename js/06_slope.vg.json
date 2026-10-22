@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 480,
+  "width": 700,
   "height": 330,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_outdoor_activity_by_sex.csv",
@@ -124,6 +124,37 @@
   },
   "layer": [
     {
+      "data": {
+        "values": [
+          {
+            "sex": "Women"
+          },
+          {
+            "sex": "Men"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "y": {
+          "value": 0
+        },
+        "y2": {
+          "value": 330
+        },
+        "color": {
+          "value": "#d5d9dc"
+        },
+        "detail": {
+          "field": "sex"
+        }
+      },
+      "description": "Thin grey vertical axis line under Women and under Men"
+    },
+    {
       "mark": {
         "type": "line",
         "strokeWidth": 3
@@ -211,7 +242,7 @@
         "values": [
           {
             "sex": "Women",
-            "pct": 37,
+            "pct": 50.5,
             "activity": "note"
           }
         ]
@@ -220,7 +251,7 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "dx": -30,
+        "dx": 14,
         "fontStyle": "italic",
         "color": "#3d4a52",
         "fontSize": 13,
@@ -237,40 +268,15 @@
           "value": "#3d4a52"
         }
       },
-      "description": "Why note about walking, under the walking line"
-    },
-    {
-      "data": {
-        "values": [
-          {
-            "sex": "Women",
-            "pct": 39.0,
-            "pct2": 56.0,
-            "activity": "note"
-          }
-        ]
-      },
-      "mark": {
-        "type": "rule",
-        "strokeWidth": 1
-      },
-      "encoding": {
-        "y2": {
-          "field": "pct2"
-        },
-        "color": {
-          "value": "#8a9096"
-        }
-      },
-      "description": "Leader line from the note up to the women's walking dot"
+      "description": "Why note about walking, right beside the women's walking dot"
     }
   ],
   "config": {
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 4,
-      "right": 30,
+      "left": 28,
+      "right": 0,
       "top": 12,
       "bottom": 5
     },

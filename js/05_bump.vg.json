@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 500,
+  "width": 560,
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay_activity_trend_2016_2025.csv",

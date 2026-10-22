@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 440,
+  "width": 500,
   "height": 300,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_motivations.csv",
@@ -297,5 +297,5 @@
       "labelColor": "#1f2a30"
     }
   },
-  "description": "Being in nature matters most at ages 55–64"
+  "description": "Being outdoors in nature matters most at ages 55–64"
 }
