@@ -117,7 +117,7 @@
         "gridAlign": "all",
         "columnPadding": 24,
         "offset": 16,
-        "title": "Activity",
+        "title": "Activity (click to highlight)",
         "labelExpr": "{'Walking for exercise': 'Walking', 'Running and jogging': 'Running', 'The other three, for comparison': 'The other three'}[datum.label] || datum.label"
       }
     }
@@ -155,11 +155,31 @@
       "description": "Thin grey vertical axis line under Women and under Men"
     },
     {
+      "params": [
+        {
+          "name": "pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "activity"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
       "mark": {
         "type": "line",
         "strokeWidth": 3
       },
       "encoding": {
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.15
+        },
         "tooltip": [
           {
             "field": "activity",
@@ -180,8 +200,17 @@
     {
       "mark": {
         "type": "circle",
-        "size": 70,
-        "opacity": 1
+        "size": 70
+      },
+      "encoding": {
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.15
+        }
       },
       "description": "Dots at both ends"
     },
@@ -209,6 +238,35 @@
         "y": {
           "field": "label_y",
           "type": "quantitative"
+        },
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.15
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum.activity == 'Walking for exercise'",
+              "value": "#007a59"
+            },
+            {
+              "test": "datum.activity == 'Bushwalking'",
+              "value": "#8B5A2B"
+            },
+            {
+              "test": "datum.activity == 'Running and jogging'",
+              "value": "#a3487f"
+            },
+            {
+              "test": "datum.activity == 'Cycling'",
+              "value": "#8a6600"
+            }
+          ],
+          "value": "#6b7378"
         }
       },
       "description": "Men's value and activity name on the right"
@@ -233,6 +291,35 @@
       "encoding": {
         "text": {
           "field": "lab"
+        },
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.15
+        },
+        "color": {
+          "condition": [
+            {
+              "test": "datum.activity == 'Walking for exercise'",
+              "value": "#007a59"
+            },
+            {
+              "test": "datum.activity == 'Bushwalking'",
+              "value": "#8B5A2B"
+            },
+            {
+              "test": "datum.activity == 'Running and jogging'",
+              "value": "#a3487f"
+            },
+            {
+              "test": "datum.activity == 'Cycling'",
+              "value": "#8a6600"
+            }
+          ],
+          "value": "#6b7378"
         }
       },
       "description": "Women's value on the left"

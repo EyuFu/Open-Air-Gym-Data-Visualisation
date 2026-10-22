@@ -130,16 +130,14 @@
           "type": "quantitative",
           "title": "Share of adults (%)",
           "scale": {
-            "type": "threshold",
             "domain": [
-              62,
-              64,
-              66,
-              68
+              61.0,
+              64.0,
+              68.2,
+              72.8
             ],
             "range": [
-              "#f2f0f7",
-              "#cbc9e2",
+              "#e3e1ef",
               "#9e9ac8",
               "#756bb1",
               "#54278f"
@@ -165,7 +163,11 @@
             "labelColor": "#5b6770",
             "labelFlush": true,
             "offset": 16,
-            "labelExpr": "isFinite(datum.value) ? datum.value + '%' : ''"
+            "values": [
+              61.0,
+              72.8
+            ],
+            "labelExpr": "format(datum.value, '.1f') + '%'"
           }
         },
         "tooltip": [
@@ -373,6 +375,10 @@
         {
           "calculate": "datum.public_space_pct",
           "as": "value"
+        },
+        {
+          "calculate": "datum.value < 62 ? 'below 62' : datum.value < 64 ? '62 to 64' : datum.value < 66 ? '64 to 66' : datum.value < 68 ? '66 to 68' : '68 or more'",
+          "as": "class"
         }
       ],
       "mark": {
@@ -385,16 +391,14 @@
           "field": "value",
           "type": "quantitative",
           "scale": {
-            "type": "threshold",
             "domain": [
-              62,
-              64,
-              66,
-              68
+              61.0,
+              64.0,
+              68.2,
+              72.8
             ],
             "range": [
-              "#f2f0f7",
-              "#cbc9e2",
+              "#e3e1ef",
               "#9e9ac8",
               "#756bb1",
               "#54278f"

@@ -60,7 +60,7 @@
         "labelColor": {
           "condition": {
             "test": "datum.label == '55–64'",
-            "value": "#3AA6D9"
+            "value": "#1b78a8"
           },
           "value": "#5b6770"
         },

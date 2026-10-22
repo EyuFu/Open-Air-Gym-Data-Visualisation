@@ -265,22 +265,25 @@
             "field": "lab"
           },
           "color": {
-            "field": "role",
-            "type": "nominal",
-            "scale": {
-              "domain": [
-                "Walking for exercise",
-                "Bushwalking",
-                "Running and jogging",
-                "Cycling"
-              ],
-              "range": [
-                "#009E73",
-                "#8B5A2B",
-                "#CC79A7",
-                "#D9A400"
-              ]
-            }
+            "condition": [
+              {
+                "test": "datum.role == 'Walking for exercise'",
+                "value": "#007a59"
+              },
+              {
+                "test": "datum.role == 'Bushwalking'",
+                "value": "#8B5A2B"
+              },
+              {
+                "test": "datum.role == 'Running and jogging'",
+                "value": "#a3487f"
+              },
+              {
+                "test": "datum.role == 'Cycling'",
+                "value": "#8a6600"
+              }
+            ],
+            "value": "#6b7378"
           }
         },
         "description": "Label at the peak of each panel's line"

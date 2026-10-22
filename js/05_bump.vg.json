@@ -172,10 +172,30 @@
       "description": "Label for the survey change"
     },
     {
+      "params": [
+        {
+          "name": "pick",
+          "select": {
+            "type": "point",
+            "fields": [
+              "col"
+            ]
+          },
+          "bind": "legend"
+        }
+      ],
       "mark": {
         "type": "line"
       },
       "encoding": {
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.15
+        },
         "detail": [
           {
             "field": "activity"
@@ -216,7 +236,7 @@
             "gridAlign": "all",
             "columnPadding": 24,
             "offset": 16,
-            "title": "Activity",
+            "title": "Activity (click to highlight)",
             "labelExpr": "{'Running and jogging': 'Running'}[datum.label] || datum.label"
           }
         },
@@ -290,6 +310,14 @@
             "value": 55
           },
           "value": 22
+        },
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.15
         }
       },
       "description": "A dot for each year's rank"
@@ -314,21 +342,34 @@
         "text": {
           "field": "activity"
         },
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.15
+        },
         "color": {
-          "field": "col",
-          "type": "nominal",
-          "scale": {
-            "domain": [
-              "Bushwalking",
-              "Running and jogging",
-              "Other activities"
-            ],
-            "range": [
-              "#8B5A2B",
-              "#CC79A7",
-              "#d0d0d0"
-            ]
-          }
+          "condition": [
+            {
+              "test": "datum.activity == 'Walking for exercise'",
+              "value": "#007a59"
+            },
+            {
+              "test": "datum.activity == 'Bushwalking'",
+              "value": "#8B5A2B"
+            },
+            {
+              "test": "datum.activity == 'Running and jogging'",
+              "value": "#a3487f"
+            },
+            {
+              "test": "datum.activity == 'Cycling'",
+              "value": "#8a6600"
+            }
+          ],
+          "value": "#6b7378"
         }
       },
       "description": "Bold coloured names at the right end for bushwalking and running"
@@ -353,8 +394,16 @@
         "text": {
           "field": "activity"
         },
+        "opacity": {
+          "condition": {
+            "param": "pick",
+            "value": 1,
+            "empty": true
+          },
+          "value": 0.15
+        },
         "color": {
-          "value": "#8a9096"
+          "value": "#6b7378"
         }
       },
       "description": "Regular grey names at the right end for the other eight activities"
