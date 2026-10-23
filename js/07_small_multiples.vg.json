@@ -72,8 +72,8 @@
   },
   "columns": 4,
   "spec": {
-    "width": 150,
-    "height": 160,
+    "width": 195,
+    "height": 190,
     "encoding": {
       "x": {
         "field": "age",

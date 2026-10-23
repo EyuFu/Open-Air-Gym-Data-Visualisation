@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 640,
-  "height": 312,
+  "width": 830,
+  "height": 370,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/bom_capital_hot_days.csv",
     "format": {

@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 440,
-  "height": 340,
+  "width": 600,
+  "height": 380,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_barriers.csv",
     "format": {
@@ -151,8 +151,8 @@
           },
           "legend": {
             "orient": "none",
-            "legendX": 330,
-            "legendY": 358,
+            "legendX": 400,
+            "legendY": 398,
             "direction": "horizontal",
             "values": [
               10,
@@ -198,7 +198,7 @@
             "offset": 16,
             "title": "Circle colour",
             "legendX": 0,
-            "legendY": 362
+            "legendY": 402
           }
         },
         "tooltip": [

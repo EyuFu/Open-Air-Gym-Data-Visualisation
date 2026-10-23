@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 557,
-  "height": 330,
+  "width": 700,
+  "height": 410,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_places_by_age_sex.csv",
     "format": {
@@ -79,7 +79,7 @@
         "type": "point",
         "filled": true,
         "shape": "M-0.28,-0.78 a0.28,0.28 0 1,0 0.56,0 a0.28,0.28 0 1,0 -0.56,0 M-0.42,1 L-0.42,-0.2 Q0,-0.45 0.42,-0.2 L0.42,1 Z",
-        "size": 600,
+        "size": 900,
         "opacity": 1
       },
       "encoding": {
