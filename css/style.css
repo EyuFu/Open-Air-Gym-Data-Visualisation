@@ -95,6 +95,7 @@ h2 { font-weight: 700; font-size: 40px; line-height: 1.2; margin: 0 0 var(--s3);
 @media (max-width: 1119px) {
   .wrap { padding: 0 16px; }
   .panel { padding: 12px; }
+  .panel .vega-embed svg.marks { max-width: 100%; height: auto; }   /* a chart slightly wider than its box shrinks to fit */
 }
 /* tablets and phones: charts shrink to fit their box instead of being cut off */
 @media (max-width: 1000px) {

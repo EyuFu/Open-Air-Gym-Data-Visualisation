@@ -151,8 +151,8 @@
           },
           "legend": {
             "orient": "none",
-            "legendX": 400,
-            "legendY": 398,
+            "legendX": 336,
+            "legendY": 402,
             "direction": "horizontal",
             "values": [
               10,

@@ -402,7 +402,7 @@
             "columnPadding": 40,
             "offset": 16,
             "title": "Dot",
-            "legendX": 400,
+            "legendX": 277,
             "legendY": 392,
             "symbolStrokeColor": "#E6550D",
             "labelExpr": "datum.label == 'Mild' ? 'Mild month' : 'Not mild'"

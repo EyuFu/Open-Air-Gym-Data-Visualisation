@@ -326,7 +326,11 @@
             ]
           },
           "legend": {
-            "orient": "bottom",
+            "orient": "none",
+            "legendX": 381,
+            "legendY": {
+              "expr": "height - 70"
+            },
             "direction": "horizontal",
             "values": [
               100,
@@ -355,7 +359,7 @@
             ]
           },
           "legend": {
-            "orient": "bottom",
+            "orient": "none",
             "direction": "horizontal",
             "type": "gradient",
             "gradientLength": 300,
@@ -367,7 +371,7 @@
             "titleFontSize": 13,
             "titleFontWeight": 600,
             "titleColor": "#1f2a30",
-            "titlePadding": 6,
+            "titlePadding": 23,
             "labelFontSize": 13,
             "labelColor": "#5b6770",
             "labelFlush": true,
@@ -376,7 +380,11 @@
               4.7,
               13.3
             ],
-            "labelExpr": "format(datum.value, '.1f')"
+            "labelExpr": "format(datum.value, '.1f')",
+            "legendX": 0,
+            "legendY": {
+              "expr": "height - 70"
+            }
           }
         },
         "order": {
