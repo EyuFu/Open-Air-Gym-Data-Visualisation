@@ -130,6 +130,36 @@
       "description": "Leader line from the 'feeling too old' note to its circle (drawn first, so the circles sit on top)"
     },
     {
+      "data": {
+        "values": [
+          {
+            "reason": "Feeling too lazy"
+          },
+          {
+            "reason": "Not enough time"
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "color": "#8a9096",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "x": {
+          "value": {
+            "expr": "width + 4"
+          }
+        },
+        "x2": {
+          "value": {
+            "expr": "width + 14"
+          }
+        }
+      },
+      "description": "Short leaders just outside the grid for the 'feeling too lazy' and 'not enough time' notes"
+    },
+    {
       "mark": {
         "type": "circle",
         "opacity": 1
@@ -247,8 +277,8 @@
           {
             "reason": "Feeling too lazy",
             "why": [
-              "Screens and study take over",
-              "once school sport ends"
+              "At 15–17, screens and study",
+              "take over once school sport ends"
             ]
           },
           {
