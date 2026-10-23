@@ -57,13 +57,7 @@
         "domain": false,
         "ticks": false,
         "labelFontSize": 13,
-        "labelColor": {
-          "condition": {
-            "test": "datum.label == '55–64'",
-            "value": "#1b78a8"
-          },
-          "value": "#5b6770"
-        },
+        "labelColor": "#5b6770",
         "labelFontWeight": {
           "condition": {
             "test": "datum.label == '55–64'",
@@ -237,6 +231,25 @@
           "value": {
             "expr": "width + 14"
           }
+        }
+      },
+      "description": "Value written in the 65 and over cell of the physical health row"
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.age == '65 and over' && datum.motivation == 'Physical health and fitness'"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "fontWeight": 700,
+        "fontSize": 13,
+        "color": "white"
+      },
+      "encoding": {
+        "text": {
+          "value": "74%"
         }
       },
       "description": "Short leader just outside the grid, pointing along the physical health row to its note"
