@@ -1,7 +1,7 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 560,
-  "height": 560,
+  "width": 640,
+  "height": 640,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_frequency.csv",
     "format": {
@@ -113,8 +113,8 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "x": 582,
-        "y": 140,
+        "x": 662,
+        "y": 160,
         "fontSize": 13,
         "lineHeight": 16,
         "fontWeight": 700,
@@ -139,8 +139,8 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "x": 582,
-        "y": 324,
+        "x": 662,
+        "y": 371,
         "fontSize": 13,
         "lineHeight": 16,
         "fontWeight": 400,
@@ -165,8 +165,8 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "x": 582,
-        "y": 427,
+        "x": 662,
+        "y": 488,
         "fontSize": 13,
         "lineHeight": 16,
         "fontWeight": 400,
@@ -191,8 +191,8 @@
         "type": "text",
         "align": "left",
         "baseline": "middle",
-        "x": 582,
-        "y": 519,
+        "x": 662,
+        "y": 593,
         "fontSize": 13,
         "lineHeight": 16,
         "fontWeight": 400,
@@ -220,16 +220,16 @@
       },
       "encoding": {
         "x": {
-          "value": 564
+          "value": 644
         },
         "x2": {
-          "value": 576
+          "value": 656
         },
         "y": {
-          "value": 140
+          "value": 160
         },
         "y2": {
-          "value": 140
+          "value": 160
         }
       },
       "description": "Short line joining label 1 to its block"
@@ -247,16 +247,16 @@
       },
       "encoding": {
         "x": {
-          "value": 564
+          "value": 644
         },
         "x2": {
-          "value": 576
+          "value": 656
         },
         "y": {
-          "value": 324
+          "value": 371
         },
         "y2": {
-          "value": 324
+          "value": 371
         }
       },
       "description": "Short line joining label 2 to its block"
@@ -274,16 +274,16 @@
       },
       "encoding": {
         "x": {
-          "value": 564
+          "value": 644
         },
         "x2": {
-          "value": 576
+          "value": 656
         },
         "y": {
-          "value": 427
+          "value": 488
         },
         "y2": {
-          "value": 427
+          "value": 488
         }
       },
       "description": "Short line joining label 3 to its block"
@@ -301,16 +301,16 @@
       },
       "encoding": {
         "x": {
-          "value": 564
+          "value": 644
         },
         "x2": {
-          "value": 576
+          "value": 656
         },
         "y": {
-          "value": 519
+          "value": 593
         },
         "y2": {
-          "value": 519
+          "value": 593
         }
       },
       "description": "Short line joining label 4 to its block"
@@ -325,8 +325,8 @@
         "type": "text",
         "align": "left",
         "baseline": "top",
-        "x": 582,
-        "y": 531,
+        "x": 662,
+        "y": 605,
         "fontStyle": "italic",
         "color": "#3d4a52",
         "fontSize": 13,

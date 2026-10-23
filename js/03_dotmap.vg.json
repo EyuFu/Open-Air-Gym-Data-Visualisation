@@ -37,7 +37,7 @@
       "expr": "city == 'Sydney' ? [151.1 - 132, -33.85] : city == 'Melbourne' ? [145.05 - 132, -37.85] : city == 'Brisbane' ? [153.0 - 132, -27.5] : city == 'Perth' ? [115.9 - 132, -31.95] : city == 'Adelaide' ? [138.6 - 132, -34.93] : city == 'Hobart' ? [147.3 - 132, -42.88] : city == 'Darwin' ? [130.9 - 132, -12.45] : city == 'Canberra' ? [149.1 - 132, -35.3] : [0, -28]"
     },
     "scale": {
-      "expr": "city == 'Whole of Australia' ? 760 : 16000"
+      "expr": "city == 'Whole of Australia' ? 1000 : 16000"
     }
   },
   "layer": [

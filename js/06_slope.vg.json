@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 880,
+  "width": 975,
   "height": 380,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_outdoor_activity_by_sex.csv",
@@ -44,22 +44,31 @@
     {
       "calculate": "datum.pct - datum.nudge / 5.5",
       "as": "label_y"
+    },
+    {
+      "calculate": "datum.sex == 'Women' ? 0 : 1",
+      "as": "side"
     }
   ],
   "encoding": {
     "x": {
-      "field": "sex",
-      "type": "nominal",
-      "sort": [
-        "Women",
-        "Men"
-      ],
+      "field": "side",
+      "type": "quantitative",
       "title": "Sex",
       "scale": {
-        "padding": 0.1
+        "domain": [
+          -0.06,
+          1.25
+        ]
       },
       "axis": {
         "orient": "top",
+        "values": [
+          0,
+          1
+        ],
+        "labelExpr": "datum.value == 0 ? 'Women' : 'Men'",
+        "grid": false,
         "labelAngle": 0,
         "labelFontSize": 13,
         "labelFontWeight": 700,
@@ -127,10 +136,12 @@
       "data": {
         "values": [
           {
-            "sex": "Women"
+            "sex": "Women",
+            "side": 0
           },
           {
-            "sex": "Men"
+            "sex": "Men",
+            "side": 1
           }
         ]
       },
@@ -329,6 +340,7 @@
         "values": [
           {
             "sex": "Women",
+            "side": 0,
             "pct": 50.5,
             "activity": "note"
           }
@@ -362,7 +374,7 @@
     "background": "#ffffff",
     "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
     "padding": {
-      "left": 75,
+      "left": 4,
       "right": 0,
       "top": 12,
       "bottom": 5
