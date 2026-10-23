@@ -294,10 +294,6 @@
         {
           "calculate": "datum.state == 'ACT' ? -38.6 : datum.centroid_lat",
           "as": "plat"
-        },
-        {
-          "calculate": "datum.outdoor_stations_per_100k < 6 ? 'below 6' : datum.outdoor_stations_per_100k < 9 ? '6 to 9' : datum.outdoor_stations_per_100k < 12 ? '9 to 12' : '12 or more'",
-          "as": "rate_class"
         }
       ],
       "mark": {
@@ -343,15 +339,13 @@
           }
         },
         "color": {
-          "field": "rate_class",
-          "type": "ordinal",
+          "field": "outdoor_stations_per_100k",
+          "type": "quantitative",
           "title": "Stations per 100,000 people",
           "scale": {
             "domain": [
-              "below 6",
-              "6 to 9",
-              "9 to 12",
-              "12 or more"
+              4.7,
+              13.3
             ],
             "range": [
               "#aab8e0",
@@ -363,10 +357,26 @@
           "legend": {
             "orient": "bottom",
             "direction": "horizontal",
-            "symbolType": "circle",
-            "symbolSize": 420,
-            "symbolStrokeColor": "#14285f",
-            "symbolStrokeWidth": 1
+            "type": "gradient",
+            "gradientLength": 300,
+            "gradientThickness": 16,
+            "gradientStrokeColor": "#9aa1a6",
+            "gradientStrokeWidth": 0.5,
+            "titleOrient": "top",
+            "titleAnchor": "start",
+            "titleFontSize": 13,
+            "titleFontWeight": 600,
+            "titleColor": "#1f2a30",
+            "titlePadding": 6,
+            "labelFontSize": 13,
+            "labelColor": "#5b6770",
+            "labelFlush": true,
+            "offset": 16,
+            "values": [
+              4.7,
+              13.3
+            ],
+            "labelExpr": "format(datum.value, '.1f')"
           }
         },
         "order": {

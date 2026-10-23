@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=ed308729">
+  <link rel="stylesheet" href="css/style.css?v=ef88787e">
   <script src="https://cdn.jsdelivr.net/npm/vega@5.30.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.21.0"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.26.0"></script>
@@ -127,33 +127,39 @@
 
 <footer class="foot">
   <div class="wrap">
-      <h4 class="colh">Data sources</h4>
-      <ul class="sources">
-        <li>Australian Sports Commission, <a href="https://www.ausport.gov.au/research/ausplay/results">AusPlay results</a>: national and state and territory data tables, January to December 2025 (released 30 April 2026) and January to December 2024 (released 30 April 2025).</li>
-        <li>Australian Sports Commission, <a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/2015-2023">AusPlay results 2015&ndash;2023</a>: national data tables, January to December 2016 to 2022 (phone survey; not directly comparable with 2024 onwards).</li>
-        <li>Australian Bureau of Statistics, <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release">National, state and territory population, March 2026</a>, Table 4 (Creative Commons Attribution 4.0 licence).</li>
-        <li>Australian Bureau of Statistics, <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/physical-activity/latest-release">Physical activity: National Health Survey 2022</a>, Table 11 (Creative Commons Attribution 4.0 licence).</li>
-        <li>Australian Bureau of Statistics, <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/latest-release">Australian Statistical Geography Standard Edition 4, July 2026 &ndash; June 2031</a>: States and Territories 2026 digital boundaries, simplified with mapshaper (Creative Commons Attribution 4.0 licence).</li>
-        <li>Bureau of Meteorology, <a href="https://www.bom.gov.au/climate/averages/tables/cw_066062.shtml">Climate statistics for Australian locations</a>: long-term monthly averages of maximum temperature, rainfall and days at 30&deg;C or hotter, for one station in each capital city (records range from 13 to more than 160 years).</li>
-        <li>&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap contributors</a> (Open Database License): places tagged as outdoor fitness stations, extracted with <a href="https://overpass-turbo.eu/">Overpass turbo</a> on 9 October 2026.</li>
-      </ul>
+      <h4 class="colh">AI Acknowledgement</h4>
+      <div class="two">
+        <p class="small">I acknowledge the use of Claude (<a href="https://claude.ai/">claude.ai</a>) in this assignment to help write data-cleaning scripts and Vega-Lite code, to check that the text is grammatically correct, and to get feedback on my layout and colour design.</p>
+        <p class="small">I reviewed and corrected its suggestions where necessary, checked every number against the original sources, and made the final design decisions myself.</p>
+      </div>
   </div>
   <div class="wrap two">
     <div class="col">
-      <h4 class="colh">Notes on the data</h4>
-      <p class="small">Activity names are in plain English. Organised sport and swimming appear only in grey, for context. Shares are survey estimates and are rounded.</p>
-      <p class="small">AusPlay moved from phone interviews to an online survey in July 2023, so results from 2016 to 2022 and from 2024 onwards are not directly comparable. Chart 5 keeps the two periods separate.</p>
-      <p class="small">OpenStreetMap is mapped by volunteers, so charts 3 and 4 show mapped stations only.</p>
+      <h4 class="colh">Submission metadata</h4>
+      <p class="small">Author: Eyu Boon Fu<br>Date: 23 October 2026<br>FIT3179 Data Visualisation 2, Monash University</p>
+      <p class="small">Charts made with <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>. Each chart&rsquo;s specification is in this page&rsquo;s GitHub repository. <a href="sketch/sketch.pdf">Hand-drawn sketch (scanned)</a>.</p>
     </div>
     <div class="col">
-      <h4 class="colh">About this page</h4>
-      <p class="small">Author: Eyu Boon Fu<br>Created: October 2026<br>FIT3179 Data Visualisation 2, Monash University</p>
-      <p class="small">Charts made with <a href="https://vega.github.io/vega-lite/">Vega-Lite</a>. Each chart&rsquo;s specification is in this page&rsquo;s GitHub repository. <a href="sketch/sketch.pdf">Hand-drawn sketch (scanned)</a>.</p>
-      <p class="small">Use of artificial intelligence: Claude (Anthropic) helped with data cleaning scripts, chart code and proofreading. All data, design decisions and text were checked by the author.</p>
+      <h4 class="colh">Notes on the data</h4>
+      <p class="small">Activity names are in plain English. Shares are survey estimates and are rounded. AusPlay moved from phone interviews to an online survey in July 2023, so chart 5 keeps the two periods separate.</p>
+      <p class="small">OpenStreetMap is mapped by volunteers, so charts 3 and 4 show mapped stations only.</p>
     </div>
+  </div>
+  <div class="wrap">
+      <h4 class="colh">Sources</h4>
+      <ul class="sources">
+        <li>Australian Sports Commission &mdash; <a href="https://www.ausport.gov.au/research/ausplay/results"><i>AusPlay results</i></a>, national and state and territory data tables, 2025 (released 30 April 2026) and 2024.</li>
+        <li>Australian Sports Commission &mdash; <a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/2015-2023"><i>AusPlay results 2015&ndash;2023</i></a>, national data tables, 2016 to 2022 (phone survey).</li>
+        <li>Australian Bureau of Statistics &mdash; <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release"><i>National, state and territory population</i></a>, March 2026, Table 4.</li>
+        <li>Australian Bureau of Statistics &mdash; <a href="https://www.abs.gov.au/statistics/health/health-conditions-and-risks/physical-activity/latest-release"><i>Physical activity: National Health Survey</i></a>, 2022, Table 11.</li>
+        <li>Australian Bureau of Statistics &mdash; <a href="https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs/latest-release"><i>Australian Statistical Geography Standard, Edition 4</i></a>, 2026 state and territory boundaries, simplified with mapshaper.</li>
+        <li>Bureau of Meteorology &mdash; <a href="https://www.bom.gov.au/climate/averages/tables/cw_066062.shtml"><i>Climate statistics for Australian locations</i></a>, long-term monthly averages for one station in each capital city.</li>
+        <li>&copy; OpenStreetMap contributors &mdash; <a href="https://www.openstreetmap.org/copyright"><i>OpenStreetMap</i></a>, outdoor fitness stations extracted with <a href="https://overpass-turbo.eu/">Overpass turbo</a>, 9 October 2026 (Open Database License).</li>
+      </ul>
+      <p class="small licence">Australian Bureau of Statistics data are used under the Creative Commons Attribution 4.0 licence.</p>
   </div>
 </footer>
 
-<script src="js/main.js?v=ed308729"></script>
+<script src="js/main.js?v=ef88787e"></script>
 </body>
 </html>
