@@ -1,6 +1,6 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "width": 690,
+  "width": 672,
   "height": 360,
   "data": {
     "url": "https://raw.githubusercontent.com/EyuFu/Open-Air-Gym-Data-Visualisation/main/data/ausplay2025_motivations.csv",
@@ -342,10 +342,10 @@
   ],
   "config": {
     "background": "#ffffff",
-    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "font": "\"Source Sans 3\", \"Source Sans Pro\", Helvetica, Arial, sans-serif",
     "padding": {
       "left": 4,
-      "right": 29,
+      "right": 4,
       "top": 12,
       "bottom": 5
     },
@@ -384,7 +384,7 @@
       "titleColor": "#1f2a30"
     },
     "text": {
-      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "font": "\"Source Sans 3\", \"Source Sans Pro\", Helvetica, Arial, sans-serif",
       "color": "#1f2a30",
       "fontSize": 13
     },

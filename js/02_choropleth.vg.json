@@ -636,7 +636,7 @@
   ],
   "config": {
     "background": "#e4eef3",
-    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "font": "\"Source Sans 3\", \"Source Sans Pro\", Helvetica, Arial, sans-serif",
     "padding": 12,
     "title": {
       "anchor": "start",
@@ -673,7 +673,7 @@
       "titleColor": "#1f2a30"
     },
     "text": {
-      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "font": "\"Source Sans 3\", \"Source Sans Pro\", Helvetica, Arial, sans-serif",
       "color": "#1f2a30",
       "fontSize": 13
     },

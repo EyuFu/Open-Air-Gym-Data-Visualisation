@@ -170,8 +170,9 @@
               "symbolType": "square",
               "symbolSize": 180,
               "symbolStrokeWidth": 0,
-              "gridAlign": "all",
-              "columnPadding": 24,
+              "gridAlign": "none",
+              "columnPadding": 32,
+              "labelOffset": 6,
               "offset": 16,
               "title": "Line colour",
               "labelExpr": "{'Walking for exercise': 'Walking', 'Running and jogging': 'Running', 'The other three, for comparison': 'The other three'}[datum.label] || datum.label"
@@ -349,10 +350,10 @@
   },
   "config": {
     "background": "#ffffff",
-    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "font": "\"Source Sans 3\", \"Source Sans Pro\", Helvetica, Arial, sans-serif",
     "padding": {
       "left": 4,
-      "right": 7,
+      "right": 4,
       "top": 12,
       "bottom": 5
     },
@@ -391,7 +392,7 @@
       "titleColor": "#1f2a30"
     },
     "text": {
-      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "font": "\"Source Sans 3\", \"Source Sans Pro\", Helvetica, Arial, sans-serif",
       "color": "#1f2a30",
       "fontSize": 13
     },

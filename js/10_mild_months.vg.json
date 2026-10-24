@@ -196,8 +196,9 @@
             "symbolType": "square",
             "symbolSize": 50,
             "symbolStrokeWidth": 7,
-            "gridAlign": "all",
-            "columnPadding": 40,
+            "gridAlign": "none",
+            "columnPadding": 24,
+            "labelOffset": 2,
             "offset": 16,
             "title": "Line colour",
             "legendX": 0,
@@ -302,8 +303,9 @@
             "symbolType": "square",
             "symbolSize": 50,
             "symbolStrokeWidth": 7,
-            "gridAlign": "all",
-            "columnPadding": 40,
+            "gridAlign": "none",
+            "columnPadding": 24,
+            "labelOffset": 2,
             "offset": 16,
             "title": "Line colour",
             "legendX": 0,
@@ -398,11 +400,12 @@
             "symbolType": "square",
             "symbolSize": 180,
             "symbolStrokeWidth": 2,
-            "gridAlign": "all",
-            "columnPadding": 40,
+            "gridAlign": "none",
+            "columnPadding": 30,
+            "labelOffset": 5,
             "offset": 16,
             "title": "Dot",
-            "legendX": 277,
+            "legendX": 265,
             "legendY": 392,
             "symbolStrokeColor": "#E6550D",
             "labelExpr": "datum.label == 'Mild' ? 'Mild month' : 'Not mild'"
@@ -595,7 +598,7 @@
   ],
   "config": {
     "background": "#ffffff",
-    "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+    "font": "\"Source Sans 3\", \"Source Sans Pro\", Helvetica, Arial, sans-serif",
     "padding": {
       "left": 4,
       "right": 4,
@@ -637,7 +640,7 @@
       "titleColor": "#1f2a30"
     },
     "text": {
-      "font": "Source Sans 3, Source Sans Pro, Helvetica, Arial, sans-serif",
+      "font": "\"Source Sans 3\", \"Source Sans Pro\", Helvetica, Arial, sans-serif",
       "color": "#1f2a30",
       "fontSize": 13
     },
