@@ -633,6 +633,8 @@
       "grid": false
     },
     "legend": {
+      "titleLimit": 0,
+      "labelLimit": 0,
       "labelFontSize": 13,
       "labelColor": "#5b6770",
       "titleFontSize": 13,
